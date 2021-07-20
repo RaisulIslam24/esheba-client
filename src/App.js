@@ -1,11 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import Home from "./components/Home/Home";
+import Login from "./components/Login/Login";
 function App() {
   return (
-    <div className="App">
-      <h3>Welcome to e-sheba website</h3>
-    </div>
+    <Router>
+      <Switch>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
+        </Switch>
+    </Router>
   );
 }
 
