@@ -1,0 +1,31 @@
+import React from 'react';
+import Carousel from "react-elastic-carousel";
+import Review from './Review/Review';
+
+
+const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 550, itemsToShow: 2 },
+    { width: 768, itemsToShow: 3 },
+]
+
+const Reviews = () => {
+    return (
+        <div className="p-4">
+            <h2>Customer Reviews</h2>
+            <div>
+                <Carousel breakPoints={breakPoints}>
+                    <Review />
+                    <Review />
+                    <Review />
+                    <Review />
+                    <Review />
+                    <Review />
+                    <Review />
+                </Carousel>
+            </div>
+        </div>
+    );
+};
+
+export default Reviews;
