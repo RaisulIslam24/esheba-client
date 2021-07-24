@@ -1,7 +1,7 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+
 # E-Sheba
-=======
+
 this is  my branch rahat
 
 git init 
@@ -14,9 +14,9 @@ git add .
 git commit - "test"
 
 git push origin rahat
->>>>>>> rahat
-=======
+
+
 
 ## Shahinur Alam Bhuiyan
 ## This is just a testing for initializing github and it's branch
->>>>>>> ShahinurAlamBhuiyan
+
