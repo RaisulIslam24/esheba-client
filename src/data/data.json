@@ -1,0 +1,33 @@
+[{
+    "id": 1,
+    "name": "Home Cleaning",
+    "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+}
+, {
+    "id": 2,
+    "name": "Car Wash",
+    "image": "https://images.unsplash.com/photo-1552930294-6b595f4c2974?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=626&q=80"
+    
+}, {
+    "id": 3,
+    "name": "Painting service",
+    "image": "https://cdn.pixabay.com/photo/2017/02/11/10/02/painting-2057373_960_720.jpg"
+    
+}, {
+    "id": 4,
+    "name": "Electrical Service",
+    "image": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+    
+},{
+    "id": 5,
+    "name": "Carpentry service",
+    "image": "https://images.unsplash.com/photo-1463082459669-fd1ca1692fea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+    
+},
+{
+    "id": 6,
+    "name": "Furniture service",
+    "image": "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+    
+}
+]
