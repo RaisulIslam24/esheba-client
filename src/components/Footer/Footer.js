@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookSquare, faTwitterSquare, faYoutubeSquare, faInstagramSquare, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 const Footer = () => {
     return (
         <div className="mt-5">
@@ -9,11 +9,11 @@ const Footer = () => {
                 <div class="container p-4">
                     <section class="mb-4">
                         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                        ><FontAwesomeIcon icon={faFacebookSquare} />
+                        ><FontAwesomeIcon icon={faYoutubeSquare} />
                         </a>
 
                         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                        ><FontAwesomeIcon icon={faFacebookSquare} />
+                        ><FontAwesomeIcon icon={faTwitterSquare} />
                         </a>
 
                         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
@@ -21,14 +21,14 @@ const Footer = () => {
                         </a>
                         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
                         >
-                                <FontAwesomeIcon icon={faFacebookSquare} />
+                                <FontAwesomeIcon icon={faInstagramSquare} />
                         </a>
 
                         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
                         ><FontAwesomeIcon icon={faFacebookSquare} /></a>
 
                         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                        >   <FontAwesomeIcon icon={faFacebookSquare} />
+                        >   <FontAwesomeIcon icon={faLinkedinIn} />
                         </a>
                     </section>
                     <section class="">
