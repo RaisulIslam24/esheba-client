@@ -17,7 +17,7 @@ const Review = () => {
                     </p>
                 </div>
                 <div className="card-footer d-flex justify-content-around align-items-center pr-5">
-                    <img src="https://i.ibb.co/C0ZKSn5/5-BM9z-Ck-Hgs-Xq.jpg" width='50' style={{borderRadius:'50%'}} alt="" />
+                    <img src="https://i.ibb.co/C0ZKSn5/5-BM9z-Ck-Hgs-Xq.jpg" style={{borderRadius:'50%', width: "50px"}} alt="" />
                     <div>
                         <h6 className="text-brand">Shahinur Alam Bhuiyan</h6>
                         <small>from Dhaka</small>
