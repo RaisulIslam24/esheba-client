@@ -3,7 +3,7 @@ import './Subscribe.css';
 
 const Subscribe = () => {
     return (
-        <div className="container">
+        <div className="container mt-5">
             <div className="row">
                 <div className="col-md-6 col-10 signUp border rounded p-3 bg-light shadow">
                     <h3 className="mb-2">Sign Up here for more information</h3>

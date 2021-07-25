@@ -12,7 +12,7 @@ const Features = () => {
         console.log(featuresData);
     },[])
     return (
-        <div className="row  " >
+        <div className="row  mt-5" >
             <h1 style={{textAlign:'center'}}>Services</h1>
          {
             features.map(feature => <FeaturesDetails feature={feature}></FeaturesDetails>) 

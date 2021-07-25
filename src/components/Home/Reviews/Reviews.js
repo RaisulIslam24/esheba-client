@@ -11,8 +11,8 @@ const breakPoints = [
 
 const Reviews = () => {
     return (
-        <div className="p-4">
-            <h2>Customer Reviews</h2>
+        <div className="p-4 mt-5">
+            <h2 className="text-center">Customer Reviews</h2>
             <div>
                 <Carousel breakPoints={breakPoints}>
                     <Review />
