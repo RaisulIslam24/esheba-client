@@ -13,7 +13,7 @@ const Reviews = () => {
     return (
         <div className="p-4 mt-5">
             <h2 className="text-center">Customer Reviews</h2>
-            <div>
+            <div className="mt-4">
                 <Carousel breakPoints={breakPoints}>
                     <Review />
                     <Review />
