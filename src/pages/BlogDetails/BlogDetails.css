@@ -1,0 +1,34 @@
+.blogDetailsContainer{
+    -webkit-box-shadow: -2px 3px 17px 9px #828282; 
+    box-shadow: -2px 3px 17px 9px #828282;
+    margin: 40px;
+    border-radius: 12px;
+}
+
+.blogContentDiv{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px;
+
+}
+
+.blogDetailsDiv{
+    padding-right: 25px;
+}
+
+.blogDetailsDiv h3{
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+
+.blogDetailsContainer img{
+    border-radius: 10px;
+    max-width: 800px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .blogContentDiv{
+        flex-wrap: wrap;
+    }
+}
