@@ -41,8 +41,8 @@ const Footer = () => {
                                 </div>
                                 <div class="col-md-5 col-12">
                                     <div class="form-outline form-white mb-4">
-                                        <input type="email" id="form5Example2" class="form-control" />
-                                        <label class="form-label" for="form5Example2">Email address</label>
+                                        <input type="email" id="form5Example2" class="form-control" placeholder="Your Email Address"/>
+                                        {/* <label class="form-label" for="form5Example2">Email address</label> */}
                                     </div>
                                 </div>
                                 <div class="col-auto">
@@ -140,7 +140,8 @@ const Footer = () => {
 
                 <div class="text-center p-3" style={{backgroundColor: "rgba(0, 0, 0, 0.2)"}}>
                     © 2020 Copyright:
-                    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+                    {/* <a class="text-white" href="https"> E-Sheba</a> */}
+                    <span> E-Sheba</span>
                 </div>
             </footer>
 
