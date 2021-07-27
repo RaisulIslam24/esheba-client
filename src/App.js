@@ -7,6 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import Subscribe from './components/Subscribe/Subscribe';
+import Brands from './components/Brands/Brands';
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
       <Switch>
         <Route path="/subscribe">
           <Subscribe />
+        </Route>
+        <Route path="/brands">
+          <Brands />
         </Route>
       </Switch>
     </Router>
