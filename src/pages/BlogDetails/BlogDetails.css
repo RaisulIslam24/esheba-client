@@ -1,11 +1,11 @@
-.blogDetailsContainer{
+.blog-details-container{
     -webkit-box-shadow: -2px 3px 17px 9px #828282; 
     box-shadow: -2px 3px 17px 9px #828282;
     margin: 40px;
     border-radius: 12px;
 }
 
-.blogContentDiv{
+.blog-content-div{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -13,22 +13,22 @@
 
 }
 
-.blogDetailsDiv{
+.blog-details-div{
     padding-right: 25px;
 }
 
-.blogDetailsDiv h3{
+.blog-details-div h3{
     font-weight: 700;
     padding-bottom: 20px;
 }
 
-.blogDetailsContainer img{
+.blog-details-container img{
     border-radius: 10px;
     max-width: 800px;
 }
 
 @media only screen and (max-width: 1024px) {
-    .blogContentDiv{
+    .blog-content-div{
         flex-wrap: wrap;
     }
 }

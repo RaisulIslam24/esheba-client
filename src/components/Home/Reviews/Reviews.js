@@ -1,15 +1,16 @@
-
 import React from 'react';
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
 import fakeReviewsData from '../../../data/fakeReviewsData.json';
 import Review from './Review/Review';
 import './Reviews.css';
 
-const Reviews = () => {
-    //Owl Carousel Settings
+// Carousel package //
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 
+const Reviews = () => {
+
+    // Owl Carousel Settings
     const options = {
         loop: true,
         center: true,
@@ -28,10 +29,10 @@ const Reviews = () => {
     };
 
     return (
-        <section id="testimonial" className="testimonials pt-5 pb-5">
-            <div className="container mt-4">
-                <h4 className="text-center">"TESTIMONIALS"</h4>
-                <h3 className="text-center">What our clients are Saying</h3>
+        <section className="testimonial-section">
+            <div className="container testimonial-container">
+                <h4 data-aos="fade-right">"TESTIMONIALS"</h4>
+                <h3 data-aos="fade-left">What our clients are Saying</h3>
                 <div className="row">
                     <div className="col-md-12">
                         <OwlCarousel id="customer-testimonial" className="owl-carousel owl-theme" {...options}>

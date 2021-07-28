@@ -26,10 +26,10 @@ const Blog = ({ blog: { id, image, blogTitle, blogDescription } }) => {
         return text?.length > n ? text.substr(0, n - 1) + " ..." : text;
     }
 
-
+    console.log(id * 1000)
 
     return (
-        <div className="card" style={cardStyle}>
+        <div className="card" style={cardStyle} data-aos="zoom-in" data-aos-duration={500 * `${id}`}>
             <img src={image} className="card-img-top" alt={id} />
             <div className="card-body">
                 <h5 className="card-title">{blogTitle}</h5>

@@ -14,13 +14,28 @@ const BlogDetails = () => {
     const clickedBlog = blogs?.find(({ id }) => id === Number(blogId));
 
     return (
-        <div className="blogDetailsContainer">
-            <div className="blogContentDiv">
-                <div className="blogDetailsDiv">
-                    <h3>{clickedBlog?.blogTitle}</h3>
-                    <p className="text-justify ">{clickedBlog?.blogDescription}</p>
+        <div className="blog-details-container">
+            <div className="blog-content-div">
+                <div
+                    className="blog-details-div"
+                >
+                    <h3
+                        data-aos="fade-down"
+                        data-aos-duration="1000">
+                        {clickedBlog?.blogTitle}
+                    </h3>
+                    <p
+                        className="text-justify"
+                        data-aos="fade-up"
+                        data-aos-duration="1000">
+                        {clickedBlog?.blogDescription}
+                    </p>
                 </div>
-                <img src={clickedBlog?.image} alt="" />
+                <img
+                    src={clickedBlog?.image} alt=""
+                    data-aos="fade-left"
+                    data-aos-duration="1000"
+                />
             </div>
         </div>
     );
