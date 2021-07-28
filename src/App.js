@@ -42,7 +42,7 @@ function App() {
           <MakeAdmin />
         </Route>
         <Route path="/orderList">
-          <orderList></orderList>
+          <orderList />
         </Route>
         <Route path="/addService">
           <AddService />
