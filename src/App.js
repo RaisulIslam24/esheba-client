@@ -3,6 +3,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import AllServices from "./components/AllServices/AllServices";
 import Brands from "./components/Brands/Brands";
 import AddReview from "./components/Dashboard/AddReview/AddReview";
 import AddService from "./components/Dashboard/AddService/AddService";
@@ -35,6 +36,9 @@ function App() {
         </Route>
         <Route path="/blogDetails/:blogId">
           <BlogDetails />
+        </Route>
+        <Route path="/services">
+          <AllServices />
         </Route>
         <Route exact path="/">
           <Home />
