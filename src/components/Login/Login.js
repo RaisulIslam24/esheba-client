@@ -149,7 +149,7 @@ const Login = () => {
                    }
                     <input type="text" name="" placeholder="Enter Email" onBlur={handleBlur} required />
                     <input type="password" name="" placeholder="Enter Password" onBlur={handleBlur} required />
-                    <input type="submit" name="" value="Login" onSubmit={handleSubmit}/>
+                    <input type="submit" name="" value={newUser ? "Sign Up" : "Login"} onSubmit={handleSubmit}/>
                     {/* <div className="link-text text-center">
                         <a href="#">Forget password?</a>
                         {" "}

@@ -16,6 +16,8 @@ import Home from "./components/Home/Home";
 import NavBar from "./components/Home/NavBar/NavBar";
 import Login from "./components/Login/Login";
 import Subscribe from "./components/Subscribe/Subscribe";
+import AllBlogs from "./pages/AllBlogs/AllBlogs";
+import BlogDetails from "./pages/BlogDetails/BlogDetails";
 
 function App() {
   return (
@@ -27,6 +29,12 @@ function App() {
         </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/blogs">
+          <AllBlogs />
+        </Route>
+        <Route path="/blogDetails/:blogId">
+          <BlogDetails />
         </Route>
         <Route exact path="/">
           <Home />
@@ -62,7 +70,6 @@ function App() {
           <ManageServices />
         </Route>
       </Switch>
-      <Footer />
     </Router>
   );
 }
