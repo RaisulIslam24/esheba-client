@@ -16,6 +16,7 @@ import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import NavBar from "./components/Home/NavBar/NavBar";
 import Login from "./components/Login/Login";
+import Services from "./components/Services/Services";
 import Subscribe from "./components/Subscribe/Subscribe";
 import AllBlogs from "./pages/AllBlogs/AllBlogs";
 import BlogDetails from "./pages/BlogDetails/BlogDetails";
@@ -36,6 +37,9 @@ function App() {
         </Route>
         <Route path="/blogDetails/:blogId">
           <BlogDetails />
+        </Route>
+        <Route path="/services/:id">
+          <Services />
         </Route>
         <Route path="/services">
           <AllServices />
@@ -74,6 +78,7 @@ function App() {
           <ManageServices />
         </Route>
       </Switch>
+      <Footer />
     </Router>
   );
 }

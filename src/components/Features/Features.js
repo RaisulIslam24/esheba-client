@@ -19,15 +19,6 @@ const Features = () => {
         console.log(featuresData);
     }, [])
     return (
-<<<<<<< HEAD
-        <div className="container-fluid">
-            <div className="row mt-5" >
-                <h1 style={{ textAlign: 'center' }}>Services</h1>
-                {
-                    features.map(feature => <FeaturesDetails feature={feature}></FeaturesDetails>)
-                }
-            </div>
-=======
         <div className="row mx-3 all-services" >
             <h1 style={{textAlign:'center'}}>Services</h1>
              
@@ -40,7 +31,6 @@ const Features = () => {
    
 </div>
        </Link>
->>>>>>> faisal-tonoy
         </div>
     );
 };

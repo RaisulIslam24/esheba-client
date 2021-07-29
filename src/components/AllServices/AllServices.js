@@ -1,15 +1,8 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import featuresData from'../../data/data.json'
-
 import AllServicesDetails from '../AllServicesDetails/AllServicesDetails';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
-  import './AllServices.css';
+import './AllServices.css';
 
 
 const AllServices = () => {
