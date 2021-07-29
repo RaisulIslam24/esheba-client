@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare, faTwitterSquare, faYoutubeSquare, faInstagramSquare, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 const Footer = () => {
     return (
-        <div className="mt-5">
+        <>
             <footer class="bg-dark text-center text-white">
                 <div class="container p-4">
                     <section class="mb-4">
@@ -144,7 +144,7 @@ const Footer = () => {
                 </div>
             </footer>
 
-        </div>
+        </>
     );
 };
 
