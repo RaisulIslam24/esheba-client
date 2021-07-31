@@ -1,6 +1,12 @@
-<<<<<<< HEAD
-# E-Sheba
+this is  my branch rahat
 
-This is E-sheba login and sign up page.
-=======
->>>>>>> faisal-tonoy
+git init 
+git branch google map page
+git branch
+git checkout rahat
+
+git add .
+
+git commit - "test"
+
+git push origin rahat
