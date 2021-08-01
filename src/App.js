@@ -16,11 +16,15 @@ import MakeAdmin from './components/Dashboard/MakeAdmin/MakeAdmin';
 import AddService from './components/Dashboard/AddService/AddService';
 import ManageServices from './components/Dashboard/ManageService/ManageService';
 import AboutUs from './components/AboutUs/AboutUs';
+import FAQs from './components/FAQs/FAQs';
 
 function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/faqs">
+          <FAQs />
+        </Route>
         <Route path="/aboutUs">
           <AboutUs />
         </Route>
