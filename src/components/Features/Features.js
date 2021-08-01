@@ -7,14 +7,13 @@ import { Link } from "react-router-dom";
 import ServiceSkeleton from '../../Skeleton/ServiceSkeleton/ServiceSkeleton';
 
 
-
 const Features = () => {
   const [features, setFeatures] = useState([]);
-  const [timer, setTimer] = useState(true);
+  const [skeletonTimer, setSkeletonTimer] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
-      setTimer(false);
+      setSkeletonTimer(false);
     }, 8000);
   }, []);
 
@@ -23,9 +22,9 @@ const Features = () => {
     console.log(featuresData);
   }, [])
   return (
-    (( timer) ?
+    (( skeletonTimer) ?
 
-      <div className="row mx-3">
+      <div className="row m-3">
         {[1, 2, 3].map((loading) => (
           <div className="col-md-4 mt-3">
             <ServiceSkeleton />

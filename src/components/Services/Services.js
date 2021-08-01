@@ -11,7 +11,6 @@ const Services = () => {
 
     useEffect(() => {
         setServices(featuresData);
-
     }, [])
 
     return (

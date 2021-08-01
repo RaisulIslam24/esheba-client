@@ -4,11 +4,11 @@ import './ServiceSkeleton.css';
 
 const ServiceSkeleton = () => {
     return (
-        <div className='skeleton-wrapper'>
+        <div className='service-skeleton-wrapper'>
             <Skeleton type='thumbnail' />
             <Skeleton type='text-lg' />
-            <div className='shimmer-wrapper'>
-                <div className='shimmer'></div>
+            <div className='service-shimmer-wrapper'>
+                <div className='service-shimmer'></div>
             </div>
         </div>
     );
