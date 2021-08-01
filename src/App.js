@@ -15,11 +15,15 @@ import OrderList from './components/Dashboard/OrderList/OrderList';
 import MakeAdmin from './components/Dashboard/MakeAdmin/MakeAdmin';
 import AddService from './components/Dashboard/AddService/AddService';
 import ManageServices from './components/Dashboard/ManageService/ManageService';
+import AboutUs from './components/AboutUs/AboutUs';
 
 function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/aboutUs">
+          <AboutUs />
+        </Route>
         <Route path="/subscribe">
           <Subscribe />
         </Route>
