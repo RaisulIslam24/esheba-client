@@ -3,12 +3,7 @@ import { useEffect } from 'react';
 import featuresData from '../../data/data.json'
 import FeaturesDetails from '../FeaturesDetails/FeaturesDetails';
 import './Features.css';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
@@ -20,7 +15,7 @@ const Features = () => {
     }, [])
     return (
         <div className="row mx-3 all-services" >
-            <h1 style={{textAlign:'center'}}>Services</h1>
+            <h1 style={{textAlign:'center'}}>Our Top Services</h1>
              
          {
             features?.slice(0,3).map(feature => <FeaturesDetails feature={feature}></FeaturesDetails>) 
