@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import fakeBlogData from '../../data/fakeBlogData.json';
+import DetailsSkeleton from '../../Skeleton/DetailsSkeleton/DetailsSkeleton';
 import './BlogDetails.css';
 
 
 const BlogDetails = () => {
     const [blogs, setBlogs] = useState([]);
+    const [skeletonTimer, setSkeletonTimer] = useState(true)
     const { blogId } = useParams();
+
+    useEffect(() => {
+        setTimeout(() => {
+            setSkeletonTimer(false);
+        }, 4000);
+    }, []);
+
     useEffect(() => {
         setBlogs(fakeBlogData)
     }, []);
@@ -14,8 +23,16 @@ const BlogDetails = () => {
     const clickedBlog = blogs?.find(({ id }) => id === Number(blogId));
 
     return (
+        (skeletonTimer ? 
+            <DetailsSkeleton />
+        :
         <div className="blog-details-container">
             <div className="blog-content-div">
+                <img
+                    src={clickedBlog?.image} alt=""
+                    data-aos="fade-left"
+                    data-aos-duration="1000"
+                />
                 <div
                     className="blog-details-div"
                 >
@@ -31,14 +48,9 @@ const BlogDetails = () => {
                         {clickedBlog?.blogDescription}
                     </p>
                 </div>
-                <img
-                    src={clickedBlog?.image} alt=""
-                    data-aos="fade-left"
-                    data-aos-duration="1000"
-                />
             </div>
         </div>
-    );
+    ));
 };
 
 export default BlogDetails;

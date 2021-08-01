@@ -14,7 +14,7 @@
 }
 
 .blog-details-div{
-    padding-right: 25px;
+    padding-left: 25px;
 }
 
 .blog-details-div h3{
@@ -30,5 +30,12 @@
 @media only screen and (max-width: 1024px) {
     .blog-content-div{
         flex-wrap: wrap;
+    }
+    .blog-details-div{
+        padding-top: 10px;
+        padding-left: 0px;
+    }
+    .blog-details-div h3{
+        text-align: start;
     }
 }

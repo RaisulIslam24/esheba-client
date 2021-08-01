@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import './AllServicesDetails.css';
 
 const AllServicesDetails = (props) => {
   const {id,name,image}=props.allService;
+  
 
     return (
         <div  className="col-md-4 mt-3 services-details">
