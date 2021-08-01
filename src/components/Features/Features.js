@@ -3,36 +3,49 @@ import { useEffect } from 'react';
 import featuresData from '../../data/data.json'
 import FeaturesDetails from '../FeaturesDetails/FeaturesDetails';
 import './Features.css';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
-
+import { Link } from "react-router-dom";
+import ServiceSkeleton from '../../Skeleton/ServiceSkeleton/ServiceSkeleton';
 
 
 const Features = () => {
-    const [features, setFeatures] = useState([]);
-    useEffect(() => {
-        setFeatures(featuresData);
-        console.log(featuresData);
-    }, [])
-    return (
-        <div className="row mx-3 all-services" >
-            <h1 style={{textAlign:'center'}}>Services</h1>
-             
-         {
-            features?.slice(0,3).map(feature => <FeaturesDetails feature={feature}></FeaturesDetails>) 
-         }
-       <Link to="/services">
-       <div class="d-grid gap-2 col-4 my-5 mx-auto">
-  <button class="btn btn-primary " type="button">Explore Services</button>
-   
-</div>
-       </Link>
-        </div>
-    );
+  const [features, setFeatures] = useState([]);
+  const [skeletonTimer, setSkeletonTimer] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSkeletonTimer(false);
+    }, 8000);
+  }, []);
+
+  useEffect(() => {
+    setFeatures(featuresData);
+    console.log(featuresData);
+  }, [])
+  return (
+    (( skeletonTimer) ?
+
+      <div className="row m-3">
+        {[1, 2, 3].map((loading) => (
+          <div className="col-md-4 mt-3">
+            <ServiceSkeleton />
+          </div>
+        ))}
+      </div>
+      :
+      <div className="row mx-3 all-services" >
+        <h1 style={{ textAlign: 'center' }}>Our Top Services</h1>
+
+        {
+          features?.slice(0, 3).map(feature => <FeaturesDetails feature={feature}></FeaturesDetails>)
+        }
+        <Link to="/services">
+          <div class="d-grid gap-2 col-4 my-5 mx-auto">
+            <button class="btn btn-primary " type="button">Explore Services</button>
+
+          </div>
+        </Link>
+      </div>
+    ));
 };
 
 export default Features;
