@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import AllServices from "./components/AllServices/AllServices";
 import Brands from "./components/Brands/Brands";
+import ChatWithUs from "./components/ChatWithUs/ChatWithUs";
 import AddReview from "./components/Dashboard/AddReview/AddReview";
 import AddService from "./components/Dashboard/AddService/AddService";
 import AdminOrderList from "./components/Dashboard/AdminOrderList/AdminOrderList";
@@ -79,6 +80,7 @@ function App() {
         </Route>
       </Switch>
       <Footer />
+      <ChatWithUs />
     </Router>
   );
 }
