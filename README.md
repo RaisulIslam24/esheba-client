@@ -7,6 +7,6 @@ git checkout rahat
 
 git add .
 
-git commit - "test"
+git commit -m "test"
 
-git push origin rahat
+git push origin  rahat-google-map
