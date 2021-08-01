@@ -4,16 +4,16 @@
   }
   .skeleton-wrapper .thumbnail {
     width: 100%;
-    min-height: 120px;
+    min-height: 24rem;
     background: #d2dbe2;
     border-radius: 7px;
   }
   .skeleton-wrapper .text-lg {
     width: 100%;
+    min-height: 20px;
     margin-top: 10px;
     background: #d2dbe2;
     border-radius: 7px;
-    min-height: 10px;
   }
 
   .shimmer-wrapper {

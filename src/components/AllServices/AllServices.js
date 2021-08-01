@@ -9,7 +9,6 @@ const AllServices = () => {
     const [allServices,setAllServices]= useState([]); 
     useEffect(() =>{
         setAllServices(featuresData);
-        console.log(featuresData);
     },[])
     return (
         <div  className="row mx-3 all-services"  >
