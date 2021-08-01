@@ -95,6 +95,7 @@ function App() {
               </Route>
             </Switch>
             <Footer />
+            <ChatWithUs />
           </Router>
       }
     </>
