@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare, faTwitterSquare, faYoutubeSquare, faInstagramSquare, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 const Footer = () => {
     return (
-        <div className="mt-5">
+        <>
             <footer class="bg-dark text-center text-white">
                 <div class="container p-4">
                     <section class="mb-4">
@@ -41,8 +41,8 @@ const Footer = () => {
                                 </div>
                                 <div class="col-md-5 col-12">
                                     <div class="form-outline form-white mb-4">
-                                        <input type="email" id="form5Example2" class="form-control" />
-                                        <label class="form-label" for="form5Example2">Email address</label>
+                                        <input type="email" id="form5Example2" class="form-control" placeholder="Your Email Address"/>
+                                        {/* <label class="form-label" for="form5Example2">Email address</label> */}
                                     </div>
                                 </div>
                                 <div class="col-auto">
@@ -140,11 +140,12 @@ const Footer = () => {
 
                 <div class="text-center p-3" style={{backgroundColor: "rgba(0, 0, 0, 0.2)"}}>
                     © 2020 Copyright:
-                    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+                    {/* <a class="text-white" href="https"> E-Sheba</a> */}
+                    <span> E-Sheba</span>
                 </div>
             </footer>
 
-        </div>
+        </>
     );
 };
 
