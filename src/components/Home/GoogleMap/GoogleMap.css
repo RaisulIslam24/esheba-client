@@ -1,0 +1,41 @@
+.map-container{
+    /* border-radius: 10px; */
+}
+.left-side{
+    background-image: linear-gradient(to right, #504a4abd , #3b3b36a9), url('../../../images/bg.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 315px;
+
+}
+.description{
+    font-size: 15px;
+}
+.contact{
+    font-size: 25px;
+}
+.icon{
+    font-size:30px;
+    margin-right: 10px;
+    color: #f84600;
+
+}
+.icon-text{
+    font-size:20px
+}
+.icon-description{
+    font-size:17px;
+}
+.title{
+    font-weight: bold;
+}
+
+.title, .description, .contact{
+    color: #fff;
+}
+.left-side-text{
+    color: #fff;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
