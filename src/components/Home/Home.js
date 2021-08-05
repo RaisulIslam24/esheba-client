@@ -16,7 +16,7 @@ const Home = () => {
             <Reviews />
             <FAQs />
             <Subscribe />
-            <GoogleMap/>
+            <GoogleMap />
         </>
     );
 };
