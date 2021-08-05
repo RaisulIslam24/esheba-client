@@ -6,6 +6,7 @@ import GoogleMap from './GoogleMap/GoogleMap';
 import Header from './Header/Header';
 import PopularBlogs from './PopularBlogs/PopularBlogs';
 import Reviews from './Reviews/Reviews';
+import SpecialOffer from './SpecialOffer/SpecialOffer';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <Header />
             <Features />
             <PopularBlogs />
+            <SpecialOffer/>
             <Reviews />
             <FAQs />
             <Subscribe />
