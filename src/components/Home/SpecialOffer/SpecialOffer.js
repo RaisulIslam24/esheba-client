@@ -2,7 +2,7 @@ import React from 'react';
 import './SpecialOffer.css';
 const SpecialOffer = () => {
     return (
-        <div className="mt-5 pt-5">
+        <div className="mt-5 pt-5 container">
             <section class="jumbotron-up">
                 <div class="jumbotron jumbotron-fluid">
                     <div class="container">
