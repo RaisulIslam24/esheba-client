@@ -28,7 +28,7 @@ const Subscribe = () => {
                     </form>
                 </div>
                 <div className="col-md-6">
-                    <img src="https://previews.123rf.com/images/liravega258/liravega2581901/liravega258190100029/122214330-e-mail-news-subscription-promotion-flat-vector-illustration-design-online-news-news-update-informati.jpg" alt="" />
+                    <img src="https://previews.123rf.com/images/liravega258/liravega2581901/liravega258190100029/122214330-e-mail-news-subscription-promotion-flat-vector-illustration-design-online-news-news-update-informati.jpg" alt="" className="w-75" />
                 </div>
             </div>
         </div>

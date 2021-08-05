@@ -32,13 +32,13 @@ const Features = () => {
         ))}
       </div>
       :
-      <div className="row mx-3 all-services" >
+      <div className="row mx-3 mt-5">
         <h1 style={{ textAlign: 'center' }}>Our Top Services</h1>
 
         {
           features?.slice(0, 3).map(feature => <FeaturesDetails feature={feature}></FeaturesDetails>)
         }
-        <Link to="/services">
+        <Link to="/services" >
           <div class="d-grid gap-2 col-4 my-5 mx-auto">
             <button class="btn btn-primary " type="button">Explore Services</button>
 

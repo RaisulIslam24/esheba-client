@@ -27,7 +27,7 @@ const SpecialOffer = () => {
                             <div class="col-xs-12 col-sm-6 pt-7 pt-sm-0">
                                 <div class="center-block img-responsive">
                                     <div class="image-zone" >
-                                        <img class="img-fluid" src="https://i.ibb.co/vzRN098/gold.png" alt="Jumbotron Offer Deal Example"  />
+                                        <img class="img-fluid w-100" src="https://i.ibb.co/vzRN098/gold.png" alt="Jumbotron Offer Deal Example"  />
 
                                     </div>
                                 </div>

@@ -8,10 +8,10 @@ const FeaturesDetails = (props) => {
   return (
 
     <div className="col-md-4 mt-3">
-      <Link to={`/services/${id}`}>
+      <Link to={`/services/${id}`} style={{textDecoration: 'none'}}>
         <div className="card img-card mx-2">
-          <img src={image} className="card-img-top" alt="..." style={{ height: '18rem' }} />
-          <div className="card-body body-bg">
+          <img src={image} className="card-img-top" alt="..." style={{ height: '18rem', width:'96%' }} />
+          <div className="card-body text-center text-dark">
             <h4 className="card-title" style={{ fontWeight: '600' }}>{name}</h4>
           </div>
         </div>

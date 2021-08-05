@@ -13,7 +13,7 @@ const Header = () => {
 
     return (
         <Carousel activeIndex={index} onSelect={handleSelect} prevLabel="" nextLabel="" style={{ backgroundColor: '#292b2c' }}>
-            <Carousel.Item className="border">
+            <Carousel.Item>
                 <div className="w-100 bg-white text-dark text-center" style={{ height: 600 }}>
                     <Row className="justify-content-center align-items-center">
                         <Col md={6}>
