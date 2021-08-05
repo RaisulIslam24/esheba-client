@@ -1,4 +1,5 @@
 import React from 'react';
+import FAQs from '../FAQs/FAQs';
 import Features from '../Features/Features';
 import Subscribe from '../Subscribe/Subscribe';
 import Header from './Header/Header';
@@ -12,6 +13,7 @@ const Home = () => {
             <Features />
             <PopularBlogs />
             <Reviews />
+            <FAQs />
             <Subscribe />
         </>
     );
