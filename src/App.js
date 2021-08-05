@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AllServices from "./components/AllServices/AllServices";
@@ -19,6 +20,27 @@ import Subscribe from "./components/Subscribe/Subscribe";
 import AllBlogs from "./pages/AllBlogs/AllBlogs";
 import BlogDetails from "./pages/BlogDetails/BlogDetails";
 import gif from './images/uu.gif';
+=======
+import logo from './logo.svg';
+import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Subscribe from './components/Subscribe/Subscribe';
+import Brands from './components/Brands/Brands';
+import Dashboard from './components/Dashboard/Dashboard/Dashboard';
+import AddReview from './components/Dashboard/AddReview/AddReview';
+import AdminOrderList from './components/Dashboard/AdminOrderList/AdminOrderList';
+import OrderList from './components/Dashboard/OrderList/OrderList';
+import MakeAdmin from './components/Dashboard/MakeAdmin/MakeAdmin';
+import AddService from './components/Dashboard/AddService/AddService';
+import ManageServices from './components/Dashboard/ManageService/ManageService';
+import AboutUs from './components/AboutUs/AboutUs';
+import FAQs from './components/FAQs/FAQs';
+>>>>>>> raisul
 
 function App() {
 
