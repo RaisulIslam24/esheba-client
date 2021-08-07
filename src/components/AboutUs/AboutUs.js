@@ -63,13 +63,13 @@ const AboutUs = () => {
                 <h2 className="mt-5 mb-4 fw-bold text-success">OUR EXPERTISE</h2>
                 <p>We are a team of experts, coming together from diverse background and skill sets are shown below:</p>
             </div>
-            <div className="d-flex flex-wrap justify-content-between mt-5">
-                <img src={react} alt="" />
-                <img src={javascript} alt="" />
-                <img src={nodejs} alt="" />
-                <img src={uxui} alt="" />
-                <img src={it_support} alt="" />
-                <img src={android} alt="" />
+            <div className="d-flex flex-wrap justify-content-between mt-5 mb-5">
+                <img className="tech" src={react} alt="" />
+                <img className="tech" src={javascript} alt="" />
+                <img className="tech" src={nodejs} alt="" />
+                <img className="tech" src={uxui} alt="" />
+                <img className="tech" src={it_support} alt="" />
+                <img className="tech" src={android} alt="" />
             </div>
         </section >
     );

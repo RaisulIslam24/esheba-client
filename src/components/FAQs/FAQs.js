@@ -4,7 +4,7 @@ import Form from './Form/Form';
 const FAQs = () => {
     return (
         <section className="container">
-            <div className="row">
+            <div className="row pt-5">
                 <div className="col-md-6 col-12 bg-white p-5 rounded">
                     <h2>Frequently Asked Questions</h2>
                     <details className="mt-5">
