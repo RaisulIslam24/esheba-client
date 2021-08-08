@@ -22,8 +22,8 @@ const NavBar = () => {
                 <Link className="link" to="/home">Home </Link>
                 <Link className="link" to="/services">Services </Link>
                 <Link className="link" to="/blogs">Blogs </Link>
-                <Link className="link" to="/contact">Contact </Link>
                 <Link className="link" to="/about">About </Link>
+                <Link className="link" to="/dashboard">Dashboard</Link>
                 <Link className="link" to="/login">Login </Link>
                 {/* Dynamically change login button to user image */}
                 {/* {

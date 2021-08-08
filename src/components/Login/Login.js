@@ -6,6 +6,8 @@ import "firebase/auth";
 import firebaseConfig from './firebase.config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
+import NavBar from '../Home/NavBar/NavBar';
+import Footer from '../Footer/Footer';
 
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
@@ -134,43 +136,47 @@ const Login = () => {
     }
 
     return (
-        <section className="section-header">
-            <div class="loginbox ">
-                <img src={avatar} class="avatar" />
-                {/* <h1 className="login-title">Login Here</h1> */}
-                <div className="text-center social-btn">
-                    <button onClick={handleGoogleSignIn}> <FontAwesomeIcon className="google-icon" icon={faGoogle} size="lg" /> Continue With Google</button><br />
-                </div>
-                {/* <hr /> */}
-                <h5 className="text-center mt-3 text-or">Or</h5>
-                <form>
-                   {
-                       newUser &&  <input type="text" name="" placeholder="Enter your name" onBlur={handleBlur} required />
-                   }
-                    <input type="text" name="" placeholder="Enter Email" onBlur={handleBlur} required />
-                    <input type="password" name="" placeholder="Enter Password" onBlur={handleBlur} required />
-                    <input type="submit" name="" value={newUser ? "Sign Up" : "Login"} onSubmit={handleSubmit}/>
-                    {/* <div className="link-text text-center">
+        <>
+            <NavBar />
+            <section className="section-header">
+                <div className="loginbox ">
+                    <img src={avatar} className="avatar" />
+                    {/* <h1 className="login-title">Login Here</h1> */}
+                    <div className="text-center social-btn">
+                        <button onClick={handleGoogleSignIn}> <FontAwesomeIcon className="google-icon" icon={faGoogle} size="lg" /> Continue With Google</button><br />
+                    </div>
+                    {/* <hr /> */}
+                    <h5 className="text-center mt-3 text-or">Or</h5>
+                    <form>
+                        {
+                            newUser && <input type="text" name="" placeholder="Enter your name" onBlur={handleBlur} required />
+                        }
+                        <input type="text" name="" placeholder="Enter Email" onBlur={handleBlur} required />
+                        <input type="password" name="" placeholder="Enter Password" onBlur={handleBlur} required />
+                        <input type="submit" name="" value={newUser ? "Sign Up" : "Login"} onSubmit={handleSubmit} />
+                        {/* <div className="link-text text-center">
                         <a href="#">Forget password?</a>
                         {" "}
                         <a href="#">Don't have an account?</a>
                     </div> */}
 
-                    <div className="a mt-3 text-center text-logSign">
-                        {
-                            newUser ? 'already have an account?'  : "Don't have an account? "
-                        }
-
-                        <span onClick={() => setNewUser(!newUser)} style={{ cursor: 'pointer' }}>
+                        <div className="a mt-3 text-center text-logSign">
                             {
-                                newUser ? 'login' : 'sign up'
+                                newUser ? 'already have an account?' : "Don't have an account? "
                             }
-                        </span>
 
-                    </div>
-                </form>
-            </div>
-        </section>
+                            <span onClick={() => setNewUser(!newUser)} style={{ cursor: 'pointer' }}>
+                                {
+                                    newUser ? 'login' : 'sign up'
+                                }
+                            </span>
+
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <Footer />
+        </>
     );
 };
 

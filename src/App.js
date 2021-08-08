@@ -41,8 +41,11 @@ function App() {
         isLoading ? <img style={gifStyle} src={gif} alt="" /> :
 
           <Router>
-            <NavBar />
+            {/* <NavBar /> */}
             <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
               <Route path="/home">
                 <Home />
               </Route>
@@ -63,9 +66,6 @@ function App() {
               </Route>
               <Route path="/services">
                 <AllServices />
-              </Route>
-              <Route exact path="/">
-                <Home />
               </Route>
               <Route path="/subscribe">
                 <Subscribe />
@@ -98,7 +98,7 @@ function App() {
                 <ManageServices />
               </Route>
             </Switch>
-            <Footer />
+            {/* <Footer /> */}
             <ChatWithUs />
           </Router>
       }

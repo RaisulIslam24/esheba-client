@@ -1,9 +1,9 @@
 import React from 'react';
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 import Sidebar from '../Sidebar/Sidebar';
 
 const MakeAdmin = () => {
-    const { register, handleSubmit } = useForm();
+    // const { register, handleSubmit } = useForm();
 
     return (
         <section className="row">
@@ -14,11 +14,11 @@ const MakeAdmin = () => {
                 <div>
                     <h3>Make Admin</h3>
                     <br />
-                    <form onSubmit={handleSubmit}>
+                    {/* <form onSubmit={handleSubmit}>
                         <input name="email" ref={register} className="form-control" />
                         <br />
                         <input className="btn btn-success" type="submit" value="Submit" />
-                    </form>
+                    </form> */}
                 </div>
             </div>
         </section>

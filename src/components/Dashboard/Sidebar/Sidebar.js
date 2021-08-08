@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCommentAlt, faBriefcase, faPlus, faUserPlus, faTasks, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCommentAlt, faBriefcase, faPlus, faUserPlus, faTasks, faSignOutAlt, faHome } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import './Sidebar.css'
 
 const Sidebar = () => {
-    const [isAdmin, setIsAdmin] = useState(true);
 
     return (
-        <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{ height: "100vh" }}>
+        <div className="sidebar">
+            <div className="userInfo">
+                <img src="https://i.ibb.co/mG1fZpp/shahin.jpg" alt="" />
+                <span>Shahin Bhuiyan</span>
+            </div>
             <ul className="list-unstyled">
-                {isAdmin && <div>
+                <div>
+                    <li>
+                        <Link to="/" className="text-white">
+                            <FontAwesomeIcon icon={faHome} /> <span>Home</span>
+                        </Link>
+                    </li>
                     <li>
                         <Link to="/review" className="text-white">
                             <FontAwesomeIcon icon={faCommentAlt} /> <span>Review</span>
@@ -22,8 +30,7 @@ const Sidebar = () => {
                         </Link>
                     </li>
                 </div>
-                }
-                {isAdmin && <div>
+                <div>
                     <li>
                         <Link to="/AdminOrderList" className="text-white">
                             <FontAwesomeIcon icon={faBriefcase} /> <span>Order List</span>
@@ -45,7 +52,7 @@ const Sidebar = () => {
                         </Link>
                     </li>
                 </div>
-                }
+
             </ul>
             <div>
                 <Link to="/" className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>
