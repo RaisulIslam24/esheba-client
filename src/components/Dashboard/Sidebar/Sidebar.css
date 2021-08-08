@@ -32,3 +32,11 @@
     color: white;
     display: inline-block;
 }
+
+@media only screen and (max-width: 600px) {
+    .sidebar {
+        height: 100%;
+    }
+    
+  }
+  

@@ -75,10 +75,10 @@ const AddService = () => {
 
     return (
         <section className="addService">
-            <div className="add-service-left">
+            <div className="addServiceLeft">
                 <Sidebar ></Sidebar>
             </div>
-            <div className="add-service-right">
+            <div className="addServiceRight">
                 <h2 className="text-center p-3">Add your service information</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="addProductForm">
                     <div className="addProductItem">
