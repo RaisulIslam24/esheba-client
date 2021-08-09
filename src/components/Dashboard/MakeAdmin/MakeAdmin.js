@@ -30,6 +30,25 @@ const MakeAdmin = () => {
             let newObject = { ...data }
             newObject.image = imageUrl;
             console.log(newObject);
+            fetch('http://localhost:5000/addAdmin', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(newObject)
+            })
+                .then(response => {
+                    response.json()
+                        .then((res) => {
+                            if (response.status === 200) {
+                                alert('Admin of the website is created!')
+                            }
+                            if (response.status === 401) {
+                                alert('something went wrong.Please, try again later!')
+                            }
+                        })
+                })
+                .catch(error => {
+                    console.error(error)
+                })
             // axios.post('http://localhost:5000/addService', newObject)
             //     .then(response => console.log(response.data));
             reset()
