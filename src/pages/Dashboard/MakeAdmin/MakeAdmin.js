@@ -49,8 +49,6 @@ const MakeAdmin = () => {
                 .catch(error => {
                     console.error(error)
                 })
-            // axios.post('https://e-sheba.herokuapp.com/addService', newObject)
-            //     .then(response => console.log(response.data));
             reset()
         } else {
             alert('please upload  your service photo')
@@ -85,7 +83,7 @@ const MakeAdmin = () => {
                         <label>Phone Number</label>
                         <input type="number" {...register("phoneNo", { required: true })} placeholder="+880 1839-78735" />
                     </div>
-                    <input className="makeAdminButton" type="submit" />
+                    <input className="makeAdminButton" style={{ display: imageUrl ? 'block' : 'none' }} type="submit" />
                 </form>
             </div>
         </section>

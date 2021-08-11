@@ -34,8 +34,8 @@ const Header = () => {
                 <div className="w-100 bg-dark text-white text-center" style={{ height: 600 }}>
                     <Row className="justify-content-center align-items-center">
                         <Col md={6}>
-                            
-                        <h1 style={{ fontSize: "44pt" }}><span style={{ color: 'cyan' }}>Credit Card</span> up a <br />Payments with <br /><span style={{ color: 'goldenrod' }}>Stripe</span></h1>
+
+                            <h1 style={{ fontSize: "44pt" }}><span style={{ color: 'cyan' }}>Credit Card</span> up a <br />Payments with <br /><span style={{ color: 'goldenrod' }}>Stripe</span></h1>
                         </Col>
 
                         <Col md={6}>

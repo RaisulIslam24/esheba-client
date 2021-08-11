@@ -33,7 +33,8 @@ const AddService = () => {
             newObject.image = imageUrl;
             newObject.serviceProviderName = "Shahinur Alam Bhuiyan"
             newObject.serviceProviderEmail = "shahin12@gmail.com"
-            console.log(newObject);
+            setServiceInfo(newObject)
+            
 
             fetch('https://e-sheba.herokuapp.com/addService', {
                 method: 'POST',
@@ -61,6 +62,7 @@ const AddService = () => {
             alert('please upload  your service photo')
         }
     };
+    console.log(serviceInfo);
 
     const Select = React.forwardRef(({ onChange, onBlur, name }, ref) => (
         <>
@@ -107,7 +109,7 @@ const AddService = () => {
                         <Select label="Age" {...register("isAvaiable", { required: true })} />
 
                     </div>
-                    <input className="addProductButton" type="submit" />
+                    <input className="addProductButton" style={{display: imageUrl ? 'block' : 'none'}} type="submit" />
                 </form>
             </div>
         </section>

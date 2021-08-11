@@ -1,6 +1,6 @@
 import React from 'react';
 import FAQs from '../FAQs/FAQs';
-import Features from '../Features/Features';
+import TopServices from '../TopServices/TopServices';
 import Footer from '../Footer/Footer';
 import Subscribe from '../Subscribe/Subscribe';
 import GoogleMap from './GoogleMap/GoogleMap';
@@ -15,7 +15,7 @@ const Home = () => {
         <>
             <NavBar />
             <Header />
-            <Features />
+            <TopServices />
             <PopularBlogs />
             <SpecialOffer />
             <Reviews />
