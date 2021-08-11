@@ -9,9 +9,13 @@
 .sidebar li{
     margin-bottom: 2em;
 }
+
+.link {
+    text-decoration: none;
+}
 .sidebar li:hover span{
-    display: inline-block;
-    transform: translate(5px);
+    /* display: inline-block;
+    transform: translate(5px); */
 }
 
 .sidebar > .userInfo {

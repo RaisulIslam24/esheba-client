@@ -15,39 +15,39 @@ const Sidebar = () => {
             <ul className="list-unstyled">
                 <div>
                     <li>
-                        <Link to="/" className="text-white">
+                        <Link to="/" className="text-white link">
                             <FontAwesomeIcon icon={faHome} /> <span>Home</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/review" className="text-white">
+                        <Link to="/review" className="text-white link">
                             <FontAwesomeIcon icon={faCommentAlt} /> <span>Review</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/orderList" className="text-white">
+                        <Link to="/orderList" className="text-white link">
                             <FontAwesomeIcon icon={faBriefcase} /> <span>Order List</span>
                         </Link>
                     </li>
                 </div>
                 <div>
                     <li>
-                        <Link to="/AdminOrderList" className="text-white">
+                        <Link to="/AdminOrderList" className="text-white link">
                             <FontAwesomeIcon icon={faBriefcase} /> <span>Order List</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/addService" className="text-white">
+                        <Link to="/addService" className="text-white link">
                             <FontAwesomeIcon icon={faPlus} /> <span>Add Service</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/makeAdmin" className="text-white">
+                        <Link to="/makeAdmin" className="text-white link">
                             <FontAwesomeIcon icon={faUserPlus} /> <span>Make Admin</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/manageServices" className="text-white">
+                        <Link to="/manageServices" className="text-white link">
                             <FontAwesomeIcon icon={faTasks} /> <span>Manage Services</span>
                         </Link>
                     </li>
@@ -55,7 +55,7 @@ const Sidebar = () => {
 
             </ul>
             <div>
-                <Link to="/" className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>
+                <Link to="/" className="text-white link"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>
             </div>
         </div>
     );

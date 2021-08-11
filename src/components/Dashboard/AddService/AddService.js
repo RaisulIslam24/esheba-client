@@ -35,7 +35,7 @@ const AddService = () => {
             newObject.serviceProviderEmail = "shahin12@gmail.com"
             console.log(newObject);
 
-            fetch('http://localhost:5000/addService', {
+            fetch('https://e-sheba.herokuapp.com/addService', {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newObject)
@@ -54,7 +54,7 @@ const AddService = () => {
                 .catch(error => {
                     console.error(error)
                 })
-            // axios.post('http://localhost:5000/addService', newObject)
+            // axios.post('https://e-sheba.herokuapp.com/addService', newObject)
             //     .then(response => console.log(response.data));
             reset()
         } else {

@@ -30,7 +30,7 @@ const MakeAdmin = () => {
             let newObject = { ...data }
             newObject.image = imageUrl;
             console.log(newObject);
-            fetch('http://localhost:5000/addAdmin', {
+            fetch('https://e-sheba.herokuapp.com/addAdmin', {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newObject)
@@ -49,7 +49,7 @@ const MakeAdmin = () => {
                 .catch(error => {
                     console.error(error)
                 })
-            // axios.post('http://localhost:5000/addService', newObject)
+            // axios.post('https://e-sheba.herokuapp.com/addService', newObject)
             //     .then(response => console.log(response.data));
             reset()
         } else {
