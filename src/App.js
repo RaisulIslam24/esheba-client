@@ -17,6 +17,7 @@ import AddService from './components/Dashboard/AddService/AddService';
 import ManageServices from './components/Dashboard/ManageService/ManageService';
 import AboutUs from './components/AboutUs/AboutUs';
 import FAQs from './components/FAQs/FAQs';
+import ServiceList from './components/Dashboard/ServiceList/ServiceList';
 
 function App() {
   return (
@@ -45,6 +46,9 @@ function App() {
         </Route>
         <Route path="/orderList">
           <OrderList />
+        </Route>
+        <Route path="/serviceList">
+          <ServiceList />
         </Route>
         <Route path="/makeAdmin">
           <MakeAdmin />

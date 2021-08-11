@@ -1,6 +1,10 @@
 .sidebar{
     background-image: linear-gradient(40deg, #d8290a, tomato);
-    position: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 25px;
 }
 .sidebar li{
     margin-bottom: 2em;
@@ -9,6 +13,8 @@
     display: inline-block;
     transform: translate(5px);
 }
-.sidebar svg{
-    margin-right: 5px;
-}
+@media only screen and (max-width: 600px) {
+    .sidebar {
+        height: 100%;
+    }
+  }

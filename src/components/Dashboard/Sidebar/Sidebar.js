@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCommentAlt, faBriefcase, faPlus, faUserPlus, faTasks, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import './Sidebar.css'
+import './Sidebar.css';
 
 const Sidebar = () => {
     const [isAdmin, setIsAdmin] = useState(true);
 
     return (
-        <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{ height: "100vh" }}>
+        <div className="sidebar">
             <ul className="list-unstyled">
                 {isAdmin && <div>
                     <li>
@@ -32,6 +32,11 @@ const Sidebar = () => {
                     <li>
                         <Link to="/addService" className="text-white">
                             <FontAwesomeIcon icon={faPlus} /> <span>Add Service</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/ServiceList" className="text-white">
+                            <FontAwesomeIcon icon={faTasks} /> <span>Service List</span>
                         </Link>
                     </li>
                     <li>
