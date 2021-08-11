@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { userContext } from '../../App';
 import FAQs from '../FAQs/FAQs';
 import Features from '../Features/Features';
 import Footer from '../Footer/Footer';

@@ -18,9 +18,12 @@ import AllBlogs from "./pages/AllBlogs/AllBlogs";
 import BlogDetails from "./pages/BlogDetails/BlogDetails";
 import gif from './images/uu.gif';
 import AboutUs from './components/AboutUs/AboutUs';
+import { createContext } from 'react';
+
+export const userContext = createContext();
 
 function App() {
-
+  const [loggedInUser, setLoggedInUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -34,7 +37,7 @@ function App() {
     height: "100vh"
   }
   return (
-    <>
+    <userContext.Provider value={[loggedInUser, setLoggedInUser]}>
       {
         isLoading ? <img style={gifStyle} src={gif} alt="" /> :
 
@@ -100,7 +103,7 @@ function App() {
             <ChatWithUs />
           </Router>
       }
-    </>
+    </userContext.Provider>
   );
 }
 

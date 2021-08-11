@@ -30,6 +30,8 @@ const Sidebar = () => {
                         </Link>
                     </li>
                 </div>
+
+                {/* Admin */}
                 <div>
                     <li>
                         <Link to="/AdminOrderList" className="text-white link">
@@ -44,6 +46,20 @@ const Sidebar = () => {
                     <li>
                         <Link to="/makeAdmin" className="text-white link">
                             <FontAwesomeIcon icon={faUserPlus} /> <span>Make Admin</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/manageServices" className="text-white link">
+                            <FontAwesomeIcon icon={faTasks} /> <span>Manage Services</span>
+                        </Link>
+                    </li>
+                </div>
+
+                {/* Service Provider */}
+                <div>
+                    <li>
+                        <Link to="/addService" className="text-white link">
+                            <FontAwesomeIcon icon={faPlus} /> <span>Add Service</span>
                         </Link>
                     </li>
                     <li>
