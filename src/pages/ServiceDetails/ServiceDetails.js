@@ -11,13 +11,13 @@ import axios from 'axios';
 
 const Services = () => {
     const [serviceInfo, setServiceInfo] = useState({});
-    const [skeletonTimer, setSkeletonTimer] = useState(true)
     const { id } = useParams();
-    useEffect(() => {
-        setTimeout(() => {
-            setSkeletonTimer(false);
-        }, 3000);
-    }, []);
+    // const [skeletonTimer, setSkeletonTimer] = useState(true)
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setSkeletonTimer(false);
+    //     }, 3000);
+    // }, []);
 
     const getService = () => {
         axios.get('http://localhost:5000/serviceDetails/' + id)
@@ -36,9 +36,7 @@ const Services = () => {
     return (
         <>
             <NavBar />
-            {((skeletonTimer && serviceInfo) || (skeletonTimer === serviceInfo)) ?
-                <DetailsSkeleton />
-                :
+            {(serviceInfo.serviceName) ?
                 <div className="service-details-container">
                     <div className="service-content-div">
                         <img
@@ -49,25 +47,31 @@ const Services = () => {
                         <div
                             className="service-details-div"
                         >
-                            <h2
-                                data-aos="fade-down"
-                                data-aos-duration="1000">
-                                {serviceInfo?.serviceName}
-                            </h2>
-                            <h6
-                                className="text-justify"
-                                data-aos="fade-up"
-                                data-aos-duration="1000">
-                                {serviceInfo?.serviceDetails}
-                            </h6>
-                            <h2
-                                data-aos="fade-up"
-                                data-aos-duration="1000">
-                                Price: ${serviceInfo?.price}
-                            </h2>
+                            <div>
+                                <h2
+                                    data-aos="fade-down"
+                                    data-aos-duration="1000">
+                                    {serviceInfo?.serviceName}
+                                </h2>
+                                <h6
+                                    className="text-justify"
+                                    data-aos="fade-up"
+                                    data-aos-duration="1000">
+                                    {serviceInfo?.serviceDetails}
+                                </h6>
+                                <h2
+                                    data-aos="fade-up"
+                                    data-aos-duration="1000">
+                                    Price: ${serviceInfo?.price}
+                                </h2>
+                            </div>
+                            <button className="btn btn-success">Buy now</button>
                         </div>
                     </div>
                 </div>
+                :
+                <DetailsSkeleton />
+
             }
             <Footer />
         </>
