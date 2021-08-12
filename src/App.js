@@ -10,8 +10,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Features from './components/Features/Features';
 import Services from './components/Services/Services';
 import AllServices from './components/AllServices/AllServices';
+import ServiceProvider from './components/ServiceProvider/ServiceProvider';
+import Consumer from './components/Consumer/Consumer';
+import Shipment from './components/Shipment/Shipment';
 
-function App() {
+function App() { 
   return (
 
 
@@ -27,6 +30,22 @@ function App() {
     </Route>
     <Route  path="/services">
     <AllServices></AllServices>
+    </Route>
+    
+    
+    
+    <Route path="/loadAll/service-provider">
+      <ServiceProvider></ServiceProvider>
+
+    </Route>
+    <Route path="/loadAll/consumer">
+      <Consumer></Consumer>
+
+    </Route>
+    <Route path="/shipment">
+      <Shipment></Shipment>
+
+
     </Route>
     
    

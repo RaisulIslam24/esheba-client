@@ -19,21 +19,7 @@ const Services = () => {
    
         
     return (
-//         <div class="container">
-//   <div class="row">
-//     <div class="col">
-//      <img src={service?.image} alt="" />
-//     </div>
-//     <div class="col">
-//     <h2>
-//           
-           
-//     </h2>
-//     <button class="btn btn-primary"> Order</button>
-//     </div>
-//   </div>
-   
-// </div>
+//      
 <header class="services-bg py-5">
 <div class="container px-5">
     <div class="row gx-5 align-items-center justify-content-center">
