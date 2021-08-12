@@ -10,7 +10,7 @@ const NavBar = () => {
             <Navbar.Brand href="#">
             <img
                 src={logo}
-                className="d-inline-block align-top w-75 ms-4"
+                className="d-inline-block align-top w-50 ms-4"
                 alt=""
             />
             </Navbar.Brand>
