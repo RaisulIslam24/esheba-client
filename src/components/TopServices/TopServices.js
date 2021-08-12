@@ -8,13 +8,13 @@ import axios from 'axios';
 
 const TopServices = () => {
   const [features, setFeatures] = useState([]);
-  const [skeletonTimer, setSkeletonTimer] = useState(true);
+  // const [skeletonTimer, setSkeletonTimer] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setSkeletonTimer(false);
-    }, 5000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setSkeletonTimer(false);
+  //   }, 5000);
+  // }, []);
 
   const getAllServices = () => {
     axios.get('https://e-sheba.herokuapp.com/services')
@@ -29,15 +29,7 @@ const TopServices = () => {
     getAllServices();
   }, [])
   return (
-    (((skeletonTimer && features) || (skeletonTimer === features)) ?
-      <div className="row m-3">
-        {[1, 2, 3].map((loading) => (
-          <div className="col-md-4 mt-3">
-            <ServiceSkeleton />
-          </div>
-        ))}
-      </div>
-      :
+    ((features.length) ?
       <div className="row mx-3 mt-5">
         <h1 style={{ textAlign: 'center' }}>Our Top Services</h1>
 
@@ -50,6 +42,14 @@ const TopServices = () => {
 
           </div>
         </Link>
+      </div>
+      :
+      <div className="row m-3">
+        {[1, 2, 3].map((loading) => (
+          <div className="col-md-4 mt-3">
+            <ServiceSkeleton />
+          </div>
+        ))}
       </div>
     ));
 };
