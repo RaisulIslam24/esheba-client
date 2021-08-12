@@ -67,9 +67,14 @@
     font-weight: bold;
 }
 
-.loginbox input{
+.loginbox .login-form input{
     width: 100%;
     margin-bottom: 20px;
+}
+
+.login-as input{
+    width: 14px;
+    height: 14px;
 }
 
 .loginbox input[type="text"], input[type="password"]

@@ -1,7 +1,7 @@
-body{
+.aboutContainer{
     text-align: justify;
 }
-img{
+.aboutContainer img{
     width: 150px;
     margin: 10px;
     background-color: white;

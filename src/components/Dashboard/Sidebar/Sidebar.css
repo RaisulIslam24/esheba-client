@@ -1,14 +1,46 @@
 .sidebar{
-    background-image: linear-gradient(40deg, #d8290a, tomato);
-    position: fixed;
+    background-image: linear-gradient(40deg, tomato,#0a97d8);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 25px;
 }
 .sidebar li{
     margin-bottom: 2em;
 }
+
+.link {
+    text-decoration: none;
+}
 .sidebar li:hover span{
+    /* display: inline-block;
+    transform: translate(5px); */
+}
+
+.sidebar > .userInfo {
+    margin-right: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sidebar >.userInfo >img{
+    max-width: 70px;
+    max-height: 70px;
+    border-radius: 50%;
+}
+.sidebar >.userInfo >span{
+    font-size: 24px;
+    color: white;
     display: inline-block;
-    transform: translate(5px);
 }
-.sidebar svg{
-    margin-right: 5px;
-}
+
+@media only screen and (max-width: 600px) {
+    .sidebar {
+        height: 100%;
+    }
+    
+  }
+  

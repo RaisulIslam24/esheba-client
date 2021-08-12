@@ -10,9 +10,7 @@ import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
 import MakeAdmin from "./components/Dashboard/MakeAdmin/MakeAdmin";
 import ManageServices from "./components/Dashboard/ManageService/ManageService";
 import OrderList from "./components/Dashboard/OrderList/OrderList";
-import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
-import NavBar from "./components/Home/NavBar/NavBar";
 import Login from "./components/Login/Login";
 import Services from "./components/Services/Services";
 import Subscribe from "./components/Subscribe/Subscribe";
@@ -20,9 +18,12 @@ import AllBlogs from "./pages/AllBlogs/AllBlogs";
 import BlogDetails from "./pages/BlogDetails/BlogDetails";
 import gif from './images/uu.gif';
 import AboutUs from './components/AboutUs/AboutUs';
+import { createContext } from 'react';
+
+export const userContext = createContext();
 
 function App() {
-
+  const [loggedInUser, setLoggedInUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -36,13 +37,16 @@ function App() {
     height: "100vh"
   }
   return (
-    <>
+    <userContext.Provider value={[loggedInUser, setLoggedInUser]}>
       {
         isLoading ? <img style={gifStyle} src={gif} alt="" /> :
 
           <Router>
-            <NavBar />
+            {/* <NavBar /> */}
             <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
               <Route path="/home">
                 <Home />
               </Route>
@@ -63,9 +67,6 @@ function App() {
               </Route>
               <Route path="/services">
                 <AllServices />
-              </Route>
-              <Route exact path="/">
-                <Home />
               </Route>
               <Route path="/subscribe">
                 <Subscribe />
@@ -102,7 +103,7 @@ function App() {
             <ChatWithUs />
           </Router>
       }
-    </>
+    </userContext.Provider>
   );
 }
 
