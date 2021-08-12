@@ -17,6 +17,8 @@ import BlogDetails from "./pages/BlogDetails/BlogDetails";
 import gif from './images/uu.gif';
 import AboutUs from './components/AboutUs/AboutUs';
 import { createContext } from 'react';
+import Dashboard from './pages/Dashboard/Dashboard';
+import AllServices from './pages/AllServices/AllServices';
 
 export const userContext = createContext();
 
