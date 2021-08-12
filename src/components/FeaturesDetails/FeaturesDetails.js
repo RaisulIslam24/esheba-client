@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import './FeaturesDetails.css';
 
 const FeaturesDetails = (props) => {
-
   const { id, name, image } = props.feature;
   return (
 
