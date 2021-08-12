@@ -1,7 +1,7 @@
 import React from 'react';
 import './GoogleMap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faMapMarkerAlt, faPhone, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import { faClock, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 const GoogleMap = () => {
     return (
         <section className="map-container w-100 mb-5 mt-5 container">
