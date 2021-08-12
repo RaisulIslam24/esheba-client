@@ -98,7 +98,7 @@ function App() {
                 <ManageServices />
               </Route>
             </Switch>
-            <Footer />
+            {/* <Footer /> */}
             <ChatWithUs />
           </Router>
       }
