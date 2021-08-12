@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import featuresData from '../../data/data.json'
-import ServiceSkeleton from '../../Skeleton/ServiceSkeleton/ServiceSkeleton';
-import AllServicesDetails from '../AllServicesDetails/AllServicesDetails';
-import Footer from '../Footer/Footer';
-import NavBar from '../Home/NavBar/NavBar';
 import './AllServices.css';
+import Footer from '../../components/Footer/Footer';
+import NavBar from '../../components/Home/NavBar/NavBar';
+import ServiceSkeleton from '../../Skeleton/ServiceSkeleton/ServiceSkeleton';
+import SingleService from '../../components/SingleService/SingleService';
+import axios from 'axios';
 
 
 const AllServices = () => {
@@ -13,17 +13,25 @@ const AllServices = () => {
     useEffect(() => {
         setTimeout(() => {
             setSkeletonTimer(false);
-        }, 4000);
+        }, 3000);
     }, []);
 
+    const getAllServices = () => {
+        axios.get('https://e-sheba.herokuapp.com/services')
+            .then((response) => {
+                if (response.status === 200) {
+                    setAllServices(response.data);
+                }
+            })
+    }
+
     useEffect(() => {
-        setAllServices(featuresData);
+        getAllServices();
     }, [])
     return (
         <>
             <NavBar />
-                    <h1 style={{ textAlign: 'center' }}>All Services</h1>
-            {(skeletonTimer) ?
+            {((skeletonTimer && allServices) || (skeletonTimer === allServices)) ?
 
                 <div className="row m-5">
                     {allServices.map((loading) => (
@@ -33,9 +41,9 @@ const AllServices = () => {
                     ))}
                 </div>
                 :
-                <div className="row mx-3 all-services"  >
+                <div className="row mx-3 mb-5 mt-3">
                     {
-                        allServices.map(allService => <AllServicesDetails allService={allService}></AllServicesDetails>)
+                        allServices.map(feature => <SingleService feature={feature}></SingleService>)
                     }
                 </div>
             }

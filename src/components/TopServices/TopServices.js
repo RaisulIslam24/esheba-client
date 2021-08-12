@@ -1,29 +1,35 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
-import featuresData from '../../data/data.json'
-import FeaturesDetails from '../FeaturesDetails/FeaturesDetails';
-import './Features.css';
+import React, { useState, useEffect } from 'react';
+import './TopServices.css';
 import { Link } from "react-router-dom";
 import ServiceSkeleton from '../../Skeleton/ServiceSkeleton/ServiceSkeleton';
+import SingleService from '../SingleService/SingleService';
+import axios from 'axios';
 
 
-const Features = () => {
+const TopServices = () => {
   const [features, setFeatures] = useState([]);
   const [skeletonTimer, setSkeletonTimer] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       setSkeletonTimer(false);
-    }, 8000);
+    }, 5000);
   }, []);
 
+  const getAllServices = () => {
+    axios.get('https://e-sheba.herokuapp.com/services')
+      .then((response) => {
+        if (response.status === 200) {
+          setFeatures(response.data);
+        }
+      })
+  }
+
   useEffect(() => {
-    setFeatures(featuresData);
-    console.log(featuresData);
+    getAllServices();
   }, [])
   return (
-    (( skeletonTimer) ?
-
+    (((skeletonTimer && features) || (skeletonTimer === features)) ?
       <div className="row m-3">
         {[1, 2, 3].map((loading) => (
           <div className="col-md-4 mt-3">
@@ -36,7 +42,7 @@ const Features = () => {
         <h1 style={{ textAlign: 'center' }}>Our Top Services</h1>
 
         {
-          features?.slice(0, 3).map(feature => <FeaturesDetails feature={feature}></FeaturesDetails>)
+          features?.slice(0, 3).map(feature => <SingleService feature={feature}></SingleService>)
         }
         <Link to="/services" >
           <div class="d-grid gap-2 col-4 my-5 mx-auto">
@@ -48,4 +54,4 @@ const Features = () => {
     ));
 };
 
-export default Features;
+export default TopServices;
