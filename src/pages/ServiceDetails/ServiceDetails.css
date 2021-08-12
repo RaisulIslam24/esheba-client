@@ -15,6 +15,13 @@
 
 .service-details-div{
     padding-left: 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.service-details-div > button{
+    width: 200px;
 }
 
 .service-details-div h2{

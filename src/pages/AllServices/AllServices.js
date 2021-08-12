@@ -8,13 +8,14 @@ import axios from 'axios';
 
 
 const AllServices = () => {
-    const [allServices, setAllServices] = useState([]); const [skeletonTimer, setSkeletonTimer] = useState(true);
+    const [allServices, setAllServices] = useState([]);
+    // const [skeletonTimer, setSkeletonTimer] = useState(true);
 
-    useEffect(() => {
-        setTimeout(() => {
-            setSkeletonTimer(false);
-        }, 3000);
-    }, []);
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setSkeletonTimer(false);
+    //     }, 3000);
+    // }, []);
 
     const getAllServices = () => {
         axios.get('https://e-sheba.herokuapp.com/services')
@@ -31,20 +32,18 @@ const AllServices = () => {
     return (
         <>
             <NavBar />
-            {((skeletonTimer && allServices) || (skeletonTimer === allServices)) ?
-
-                <div className="row m-5">
-                    {allServices.map((loading) => (
-                        <div className="col-md-4 mt-3">
-                            <ServiceSkeleton />
-                        </div>
-                    ))}
-                </div>
-                :
+            {(allServices.length) ?
                 <div className="row mx-3 mb-5 mt-3">
                     {
                         allServices.map(feature => <SingleService feature={feature}></SingleService>)
                     }
+                </div> :
+                <div className="row m-5">
+                    {[1, 2, 3, 4, 5, 6].map((loading) => (
+                        <div className="col-md-4 mt-3">
+                            <ServiceSkeleton />
+                        </div>
+                    ))}
                 </div>
             }
             <Footer />
