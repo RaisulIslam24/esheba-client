@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faCar, faPaintRoller, faBolt, faHammer, faChair } from '@fortawesome/free-solid-svg-icons';
 import './AboutUs.css';
+import Aos from 'aos';
 import Competencies from './Competencies/Competencies';
 import react from '../../images/react.png';
 import javascript from '../../images/javascript.png';
