@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Form from './Form/Form';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const FAQs = () => {
+    useEffect(() => {
+        Aos.init({ duration: 1500 });
+    }, []);
     return (
         <section className="container">
-            <div className="row">
-                <div className="col-md-6 col-12 bg-white p-5 rounded">
+            <div className="row pt-5">
+                <div data-aos="fade-right" className="col-md-6 col-12 bg-white p-5 rounded">
                     <h2>Frequently Asked Questions</h2>
                     <details className="mt-5">
                         <summary><strong>What payment methods do you accept?</strong></summary>
@@ -31,7 +36,7 @@ const FAQs = () => {
                         <p>Yes, you can cancel any orders within 12 hours after ordering any service.</p>
                     </details>
                 </div>
-                <div className="col-md-6 col-12">
+                <div data-aos="fade-left" className="col-md-6 col-12">
                     <Form />
                 </div>
             </div>

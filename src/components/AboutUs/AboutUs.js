@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faCar, faPaintRoller, faBolt, faHammer, faChair } from '@fortawesome/free-solid-svg-icons';
 import './AboutUs.css';
@@ -46,6 +46,9 @@ const competencies = [
 ]
 
 const AboutUs = () => {
+    useEffect(() => {
+        Aos.init({ duration: 1500 });
+    }, []);
     return (
         <>
             <NavBar />
