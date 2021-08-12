@@ -10,7 +10,6 @@ import ManageServices from "./pages/Dashboard/ManageService/ManageService";
 import OrderList from "./pages/Dashboard/OrderList/OrderList";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
-import ServiceDetails from "./pages/ServiceDetails/ServiceDetails";
 import Subscribe from "./components/Subscribe/Subscribe";
 import AllBlogs from "./pages/AllBlogs/AllBlogs";
 import BlogDetails from "./pages/BlogDetails/BlogDetails";
@@ -19,6 +18,7 @@ import AboutUs from './components/AboutUs/AboutUs';
 import { createContext } from 'react';
 import Dashboard from './pages/Dashboard/Dashboard';
 import AllServices from './pages/AllServices/AllServices';
+import Services from './pages/ServiceDetails/ServiceDetails';
 
 export const userContext = createContext();
 
@@ -62,7 +62,7 @@ function App() {
                 <BlogDetails />
               </Route>
               <Route path="/services/:id">
-                <ServiceDetails />
+                <Services />
               </Route>
               <Route path="/services">
                 <AllServices />

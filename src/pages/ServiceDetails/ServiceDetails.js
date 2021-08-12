@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import featuresData from '../../data/data.json'
 import { useParams } from 'react-router-dom';
 import './ServiceDetails.css';
 import DetailsSkeleton from '../../Skeleton/DetailsSkeleton/DetailsSkeleton';
@@ -20,7 +19,7 @@ const Services = () => {
     // }, []);
 
     const getService = () => {
-        axios.get('http://localhost:5000/serviceDetails/' + id)
+        axios.get('https://e-sheba.herokuapp.com/serviceDetails/' + id)
             .then((response) => {
                 if (response.status === 200) {
                     setServiceInfo(response.data);
