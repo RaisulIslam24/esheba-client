@@ -7,13 +7,13 @@ import { userContext } from '../../../App';
 
 const Sidebar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
-    console.log(loggedInUser);
+
 
     return (
         <div className="sidebar">
             <div className="userInfo">
-                <img src="https://i.ibb.co/mG1fZpp/shahin.jpg" alt="" />
-                <span>Shahin Bhuiyan</span>
+                <img src={loggedInUser.photo} alt="" />
+                <span>{loggedInUser.name}</span>
             </div>
             <ul className="list-unstyled">
                 <li>
