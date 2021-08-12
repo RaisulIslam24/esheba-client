@@ -6,11 +6,11 @@ const OrderList = () => {
 
     return (
         <section className="row">
-            <div className="col-3">
+            <div className="col-md-3">
                 <Sidebar></Sidebar>
             </div>
-            <div className="col-md-10 p-4 pr-5" style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB" }}>
-                <table class="table table-striped">
+            <div className="col-md-8">
+                <table>
                     <thead>
                         <tr>
                             <th scope="col">Service Owner</th>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import ServiceProviderDetails from '../ServiceProviderDetails/ServiceProviderDetails';
+import ServiceProviderDetails from '../../../components/ServiceProviderDetails/ServiceProviderDetails';
 
 const ServiceProvider = () => { 
     const [serviceProvider,setServiceProvider] =  useState([]);

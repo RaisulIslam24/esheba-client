@@ -45,7 +45,7 @@ const Login = () => {
                 setUser(signedInUser);
 
                 if (user.role === 'consumer' || user.role === 'service-provider') {
-                    fetch('http://localhost:5000/addUser', {
+                    fetch('https://e-sheba.herokuapp.com/addUser', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(signedInUser)
@@ -61,7 +61,7 @@ const Login = () => {
                         })
                 }
                 else if(user.role === 'admin'){
-                    fetch('http://localhost:5000/checkAdmin', {
+                    fetch('https://e-sheba.herokuapp.com/checkAdmin', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({email: signedInUser.email})
@@ -69,6 +69,7 @@ const Login = () => {
                         .then(res => res.json())
                         .then(data => {
                             if(data){
+                                setLoggedInUser(signedInUser);
                                 history.push("/dashboard");
                             } else {
                                 alert("This person is not admin");
@@ -76,6 +77,7 @@ const Login = () => {
                         })
                 }
                 else {
+                    setLoggedInUser(signedInUser);
                     alert('Please select what you want to log in as?');
                 }
                 // setLoggedInUser(signedInUser)

@@ -19,6 +19,9 @@ import { createContext } from 'react';
 import Dashboard from './pages/Dashboard/Dashboard';
 import AllServices from './pages/AllServices/AllServices';
 import Services from './pages/ServiceDetails/ServiceDetails';
+import Consumer from './pages/Dashboard/Consumer/Consumer';
+import ServiceProvider from './pages/Dashboard/ServiceProvider/ServiceProvider';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export const userContext = createContext();
 
@@ -73,30 +76,36 @@ function App() {
               <Route path="/brands">
                 <Brands />
               </Route>
-              <Route path="/dashboard">
+              <PrivateRoute path="/dashboard">
                 <Dashboard />
-              </Route>
-              <Route path="/review">
+              </PrivateRoute>
+              <PrivateRoute path="/review">
                 <AddReview />
-              </Route>
-              <Route path="/AdminOrderList">
+              </PrivateRoute>
+              <PrivateRoute path="/AdminOrderList">
                 <AdminOrderList />
-              </Route>
-              <Route path="/orderList">
+              </PrivateRoute>
+              <PrivateRoute path="/orderList">
                 <OrderList />
-              </Route>
-              <Route path="/makeAdmin">
+              </PrivateRoute>
+              <PrivateRoute path="/makeAdmin">
                 <MakeAdmin />
-              </Route>
-              <Route path="/orderList">
+              </PrivateRoute>
+              <PrivateRoute path="/orderList">
                 <orderList />
-              </Route>
-              <Route path="/addService">
+              </PrivateRoute>
+              <PrivateRoute path="/addService">
                 <AddService />
-              </Route>
-              <Route path="/manageServices">
+              </PrivateRoute>
+              <PrivateRoute path="/manageServices">
                 <ManageServices />
-              </Route>
+              </PrivateRoute>
+              <PrivateRoute path="/consumersList">
+                <Consumer />
+              </PrivateRoute>
+              <PrivateRoute path="/serviceProvidersList">
+                <ServiceProvider />
+              </PrivateRoute>
             </Switch>
             <ChatWithUs />
           </Router>

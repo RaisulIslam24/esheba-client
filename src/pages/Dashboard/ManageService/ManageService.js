@@ -6,10 +6,10 @@ const ManageServices = () => {
 
     return (
         <section className="row">
-            <div className="col-3">
+            <div className="col-md-3">
                 <Sidebar></Sidebar>
             </div>
-            <div className="col-md-10 p-4 pr-5" style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB" }}>
+            <div className="col-md-9 p-4 pr-5" style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB" }}>
                 <table class="table table-striped">
                     <thead>
                         <tr>
