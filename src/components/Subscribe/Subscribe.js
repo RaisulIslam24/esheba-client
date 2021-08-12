@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Subscribe.css';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Subscribe = () => {
+    useEffect(() => {
+        Aos.init({ duration: 1500 });
+    }, []);
     return (
         <div className="container">
             <div className="row">
-                <div className="col-md-6 col-10 signUp border rounded p-3 bg-light shadow">
+                <div data-aos="fade-down" className="col-md-6 col-10 signUp border rounded p-3 bg-light shadow">
                     <h3 className="mb-2">Sign Up here for more information</h3>
                     <form>
                         <div className="form-group">
@@ -27,7 +32,7 @@ const Subscribe = () => {
                         </div>
                     </form>
                 </div>
-                <div className="col-md-6">
+                <div data-aos="fade-up" className="col-md-6">
                     <img src="https://previews.123rf.com/images/liravega258/liravega2581901/liravega258190100029/122214330-e-mail-news-subscription-promotion-flat-vector-illustration-design-online-news-news-update-informati.jpg" alt="" />
                 </div>
             </div>
