@@ -12,11 +12,11 @@ const AllServicesDetails = (props) => {
 
     return (
         <div  className="col-md-4 mt-3 services-details">
-        <Link to={`/services/${id}`}>
+        <Link to={`/services/${id}`} style={{textDecoration:'none'}}>
         <div className="card  img-card my-3 mx-2">
         <img src={image} className="card-img-top " alt="..."style={{height:'24rem'}} />
             <div className="card-body body-bg">
-              <h5 className="card-title">{name}</h5>
+            <h4 className="card-title" style={{fontWeight:'600',textAlign:'center'}}>{name}</h4>
             </div>
            </div>
         </Link>
