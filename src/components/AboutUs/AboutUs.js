@@ -11,37 +11,32 @@ import it_support from '../../images/it_support.jpg';
 import android from '../../images/android.png';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import CountUp from 'react-countup';
 
 const competencies = [
     {
         name: "Home Cleaning",
-        icon: <FontAwesomeIcon icon={faHome} className="fa-2x text-success" />,
-        description: "Lorem ipsum dolor sit amet"
+        icon: <FontAwesomeIcon icon={faHome} className="fa-3x text-success" />
     },
     {
         name: "Car Wash",
-        icon: <FontAwesomeIcon icon={faCar} className="fa-2x text-success" />,
-        description: "Lorem ipsum dolor sit amet"
+        icon: <FontAwesomeIcon icon={faCar} className="fa-3x text-success" />
     },
     {
         name: "Painting service",
-        icon: <FontAwesomeIcon icon={faPaintRoller} className="fa-2x text-success" />,
-        description: "Lorem ipsum dolor sit amet"
+        icon: <FontAwesomeIcon icon={faPaintRoller} className="fa-3x text-success" />
     },
     {
         name: "Electrical Service",
-        icon: <FontAwesomeIcon icon={faBolt} className="fa-2x text-success" />,
-        description: "Lorem ipsum dolor sit amet"
+        icon: <FontAwesomeIcon icon={faBolt} className="fa-3x text-success" />
     },
     {
         name: "Carpentry service",
-        icon: <FontAwesomeIcon icon={faHammer} className="fa-2x text-success" />,
-        description: "Lorem ipsum dolor sit amet"
+        icon: <FontAwesomeIcon icon={faHammer} className="fa-3x text-success" />
     },
     {
         name: "Furniture service",
-        icon: <FontAwesomeIcon icon={faChair} className="fa-2x text-success" />,
-        description: "Lorem ipsum dolor sit amet"
+        icon: <FontAwesomeIcon icon={faChair} className="fa-3x text-success" />
     }
 ]
 
@@ -60,6 +55,24 @@ const AboutUs = () => {
                 <p>We offer full spectrum of services to help organizations function more effectively. Some of our services are highlighted below:</p>
                 <div className="row row-cols-2 row-cols-md-6 mt-3">
                     {competencies.map(competence => <Competencies competence={competence}></Competencies>)}
+                </div>
+            </div>
+            <div className="fade-down">
+                <h2 className="mt-5 mb-4 fw-bold text-success">KEY FACTS AND FIGURES</h2>
+                <p>Discover the key facts and figures behind E-Sheba:</p>
+                <div className="d-flex justify-content-around flex-wrap">
+                    <div className="item">
+                        <h1 className="fw-lg"><CountUp start={600} end={800} suffix="+" duration={3} /></h1>
+                        <h6>Services Provided</h6>
+                    </div>
+                    <div className="item">
+                        <h1 className="fw-lg"><CountUp end={450} suffix="+" duration={3} /></h1>
+                        <h6>Clients Visits Each Month</h6>
+                    </div>
+                    <div className="item">
+                        <h1 className="fw-lg"><CountUp end={200} suffix="%" duration={3} /></h1>
+                        <h6>Our Client Satisfaction Rate</h6>
+                    </div>
                 </div>
             </div>
             <div data-aos="fade-up">
