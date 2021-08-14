@@ -25,6 +25,8 @@ const MakeAdmin = () => {
             });
     }
 
+    console.log(imageUrl)
+
     const onSubmit = data => {
         if (imageUrl) {
             let newObject = { ...data }
@@ -57,9 +59,7 @@ const MakeAdmin = () => {
 
     return (
         <section className="makeAdmin">
-            <div className="makeAdminLeft">
-                <Sidebar></Sidebar>
-            </div>
+            <Sidebar />
             <div className="makeAdminRight">
                 <form onSubmit={handleSubmit(onSubmit)} className="makeAdminForm">
                     <div className="makeAdminItem">

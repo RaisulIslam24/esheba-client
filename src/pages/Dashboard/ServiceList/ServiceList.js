@@ -62,7 +62,7 @@ const ServiceList = () => {
                             <tbody>
                                 <tr>
                                     <td>{service.serviceName}</td>
-                                    <td><img style={{ width: '80px' }} src={service.image} alt="" /></td>
+                                    <td><img className="serviceImageDashboard" src={service.image} alt="" /></td>
                                     <td>$ {service.price}</td>
                                     <td>{service.isAvaiable}</td>
                                     <td>

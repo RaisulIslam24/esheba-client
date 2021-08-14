@@ -34,7 +34,7 @@ const AddService = () => {
             newObject.serviceProviderName = "Shahinur Alam Bhuiyan"
             newObject.serviceProviderEmail = "shahin12@gmail.com"
             setServiceInfo(newObject)
-            
+
 
             fetch('https://e-sheba.herokuapp.com/addService', {
                 method: 'POST',
@@ -54,10 +54,8 @@ const AddService = () => {
                 })
                 .catch(error => {
                     console.error(error)
-                })
-            // axios.post('https://e-sheba.herokuapp.com/addService', newObject)
-            //     .then(response => console.log(response.data));
-            reset()
+                });
+            reset();
         } else {
             alert('please upload  your service photo')
         }
@@ -77,9 +75,7 @@ const AddService = () => {
 
     return (
         <section className="addService">
-            <div className="addServiceLeft">
-                <Sidebar ></Sidebar>
-            </div>
+            <Sidebar />
             <div className="addServiceRight">
                 <h2 className="text-center p-3">Add your service information</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="addProductForm">
@@ -109,7 +105,7 @@ const AddService = () => {
                         <Select label="Age" {...register("isAvaiable", { required: true })} />
 
                     </div>
-                    <input className="addProductButton" style={{display: imageUrl ? 'block' : 'none'}} type="submit" />
+                    <input className="addProductButton" style={{ display: imageUrl ? 'block' : 'none' }} type="submit" />
                 </form>
             </div>
         </section>

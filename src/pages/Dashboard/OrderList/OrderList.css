@@ -1,0 +1,7 @@
+.orderList{
+    display: flex;
+}
+
+.orderListRight{
+    flex: 4;
+}

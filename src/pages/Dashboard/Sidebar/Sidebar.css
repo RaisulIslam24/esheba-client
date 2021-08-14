@@ -1,46 +1,49 @@
 .sidebar{
-    background-image: linear-gradient(40deg, tomato,#0a97d8);
+    flex: 1;
+    /* height: calc(100vh - 50px); */
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding-left: 25px;
-}
-.sidebar li{
-    margin-bottom: 2em;
+    background-color: rgb(132, 132, 223);
+    position: sticky;
+    top: 50px;
 }
 
-.link {
-    text-decoration: none;
-}
-.sidebar li:hover span{
-    /* display: inline-block;
-    transform: translate(5px); */
+.sidebarWrapper{
+    padding: 20px;
+    color: #fff;
 }
 
-.sidebar > .userInfo {
-    margin-right: 45px;
+.sidebarMenu{
+    margin-bottom: 10px;
+}
+
+.sidebarTitle{
+    font-size: 23px !important;
+    color: rgb(31, 22, 22);
+}
+
+.sidebarList{
+    list-style: none;
+    padding: 5px;
+}
+
+.sidebarListItem{
+    padding: 5px;
+    cursor: pointer;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     align-items: center;
+    border-radius: 10px;
 }
 
-.sidebar >.userInfo >img{
-    max-width: 70px;
-    max-height: 70px;
-    border-radius: 50%;
-}
-.sidebar >.userInfo >span{
-    font-size: 24px;
-    color: white;
-    display: inline-block;
+/* .sidebarListItem.active, .sidebarListItem:hover{
+    background-color: rgb(240, 240, 250);
+} */
+
+.sidebarIcon{
+    margin-right: 5px;
+    font-style: 20px !important;
 }
 
-@media only screen and (max-width: 600px) {
-    .sidebar {
-        height: 100%;
-    }
-    
-  }
-  
+.link{
+    text-decoration: none;
+    color: inherit;
+}
