@@ -9,20 +9,35 @@ import { Link } from "react-router-dom";
 
 const ServiceList = () => {
     const [services, setServices] = useState([]);
-    // const [deleteServices, setDeleteServices] = useState([]);
+    const [ids, setIds] = useState(null);
+
+    // Fetch all service
     useEffect(() => {
         fetch('https://e-sheba.herokuapp.com/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, []);
 
-    const handleDelete = (id) => {
-        setServices(services.filter((item) => item._id !== id));
-        console.log('datate')
-    };
+    // Immediately delete form frontEnd
+    useEffect(() => {
+        setServices(services.filter((item) => item._id !== ids))
+    }, [ids])
+
+    // Delete service onClick
+    const deleteService = (id) => {
+        setIds(id)
+        console.log(id, 'clicked')
+        fetch(`http://localhost:5000/deleteService/${id}`, {
+            method: 'DELETE',
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+            })
+    }
 
     const columns = [
-        { field: "_id",hide: true  },
+        { field: "_id", hide: true },
         {
             field: "service",
             headerName: "Service",
@@ -63,7 +78,7 @@ const ServiceList = () => {
                         </Link>
                         <DeleteOutlineIcon
                             className="productListDelete"
-                            onClick={() => handleDelete(params?.row?._id)}
+                            onClick={() => deleteService(params?.row?._id)}
                         />
                     </>
                 );
@@ -88,17 +103,6 @@ const ServiceList = () => {
     //         })
     // }
 
-    // const deleteService = id => {
-    //     fetch(`https://e-sheba.herokuapp.com/deleteService/${id}`, {
-    //         method: 'DELETE',
-    //     })
-    //         .then(res => res.json())
-    //         .then(result => {
-    //             const remainService = deleteServices.filter(service => service._id !== result)
-    //             setDeleteServices(remainService)
-    //             alert('Service have been deleted successfully')
-    //         })
-    // }
     return (
         <section className="serviceList">
             <div className="serviceListLeft">
@@ -106,7 +110,7 @@ const ServiceList = () => {
             </div>
             <div className="productList">
                 <DataGrid
-                 className="productDataTable"
+                    className="productDataTable"
                     rows={services}
                     columns={columns}
                     getRowId={(row) => row?._id}
@@ -116,7 +120,7 @@ const ServiceList = () => {
                 />
             </div>
         </section>
-        
+
     );
 };
 

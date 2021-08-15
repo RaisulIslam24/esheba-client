@@ -5,13 +5,14 @@ import { useForm } from "react-hook-form";
 import Sidebar from '../Sidebar/Sidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
+import { useHistory } from 'react-router-dom';
 
 const AddService = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const [imageUrl, setImageUrl] = useState();
     const [serviceInfo, setServiceInfo] = useState();
-
+    const history = useHistory();
     const handleImageUpload = event => {
         const imageData = new FormData();
         imageData.set('key', '5fb422405e02b3782f9ac55b36d77374');
@@ -46,6 +47,7 @@ const AddService = () => {
                         .then((res) => {
                             if (response.status === 200) {
                                 alert('your service uploaded')
+                                history.push('/serviceList')
                             }
                             if (response.status === 401) {
                                 alert('data not uploaded')

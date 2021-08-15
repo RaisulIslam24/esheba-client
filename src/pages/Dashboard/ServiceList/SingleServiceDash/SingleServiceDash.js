@@ -67,6 +67,9 @@ const SingleServiceDash = () => {
                         </div>
                     </div>
                 </div>
+
+
+                {/* for updating data */}
                 <div className="serviceBottom">
                     <form className="serviceForm">
                         <div className="serviceFormLeft">
