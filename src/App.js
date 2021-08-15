@@ -23,6 +23,7 @@ import Consumer from './pages/Dashboard/Consumer/Consumer';
 import ServiceProvider from './pages/Dashboard/ServiceProvider/ServiceProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ServiceList from './pages/Dashboard/ServiceList/ServiceList';
+import SingleServiceDash from './pages/Dashboard/ServiceList/SingleServiceDash/SingleServiceDash';
 
 export const userContext = createContext();
 
@@ -111,6 +112,9 @@ function App() {
               </Route>
               <Route path="/serviceList">
                 <ServiceList />
+              </Route>
+              <Route path="/service/:id">
+                <SingleServiceDash />
               </Route>
               {/* Dashboard end */}
             </Switch>

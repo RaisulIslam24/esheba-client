@@ -1,11 +1,11 @@
-.serviceList {
+ .serviceList {
     display: flex;
   }
   
   .serviceListLeft {
     flex: 1;
   }
-  
+  /*
   .serviceListRight {
     flex: 4;
   }
@@ -19,10 +19,51 @@
   .serviceListRight > table{
       padding: 80px;
   }
-
+*/
   @media only screen and (max-width: 600px) {
     .serviceList {
       display: flex;
       flex-direction: column-reverse;
     }
-  }
+  } 
+
+  .productList{
+    flex: 4;
+    /* height: 400px;
+    width: 425px; */
+}
+
+.productDataTable {
+  /* table-layout: fixed;
+     width:95%;
+    display:block;
+    overflow-x:auto; */
+}
+
+.productListItem{
+    display: flex;
+    align-items: center;
+}
+
+.productListImg{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.productListEdit{
+    border:none;
+    border-radius: 10px;
+    padding: 0px 13px 0px 13px;
+    background-color: #3bb077;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.productListDelete{
+    color: red;
+    cursor: pointer;
+}

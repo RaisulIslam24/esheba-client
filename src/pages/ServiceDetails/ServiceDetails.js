@@ -11,12 +11,6 @@ import axios from 'axios';
 const Services = () => {
     const [serviceInfo, setServiceInfo] = useState({});
     const { id } = useParams();
-    // const [skeletonTimer, setSkeletonTimer] = useState(true)
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         setSkeletonTimer(false);
-    //     }, 3000);
-    // }, []);
 
     const getService = () => {
         axios.get('https://e-sheba.herokuapp.com/serviceDetails/' + id)
