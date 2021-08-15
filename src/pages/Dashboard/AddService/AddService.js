@@ -13,6 +13,8 @@ const AddService = () => {
     const [imageUrl, setImageUrl] = useState();
     const [serviceInfo, setServiceInfo] = useState();
     const history = useHistory();
+
+    // Upload Image to imgBB and take url
     const handleImageUpload = event => {
         const imageData = new FormData();
         imageData.set('key', '5fb422405e02b3782f9ac55b36d77374');
@@ -31,6 +33,7 @@ const AddService = () => {
     const onSubmit = data => {
         if (imageUrl) {
             let newObject = { ...data }
+            
             newObject.image = imageUrl;
             newObject.serviceProviderName = "Shahinur Alam Bhuiyan"
             newObject.serviceProviderEmail = "shahin12@gmail.com"

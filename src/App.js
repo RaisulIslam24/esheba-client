@@ -113,7 +113,7 @@ function App() {
               <Route path="/serviceList">
                 <ServiceList />
               </Route>
-              <Route path="/service/:id">
+              <Route path="/singleService/:id">
                 <SingleServiceDash />
               </Route>
               {/* Dashboard end */}

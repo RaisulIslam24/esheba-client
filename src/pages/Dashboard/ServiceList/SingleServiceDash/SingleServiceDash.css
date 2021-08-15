@@ -49,9 +49,8 @@
   font-weight: 600;
 }
 
-
-.providerInfoDash{
-    margin-top: 20px;
+.providerInfoDash {
+  margin-top: 20px;
 }
 
 .serviceInfoItem {
@@ -123,4 +122,15 @@
   color: white;
   font-weight: 600;
   cursor: pointer;
+}
+
+.serviceUpdateIconRed {
+  cursor: pointer;
+  color: rgb(180, 167, 167);
+  font-size: 24px !important;
+}
+.serviceUpdateIconGreen {
+  color: green;
+  cursor: pointer;
+  font-size: 24px !important;
 }

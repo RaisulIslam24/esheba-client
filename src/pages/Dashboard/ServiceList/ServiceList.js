@@ -73,7 +73,7 @@ const ServiceList = () => {
             renderCell: (params) => {
                 return (
                     <>
-                        <Link to={"/service/" + params?.row?._id}>
+                        <Link to={"/singleService/" + params?.row?._id}>
                             <button className="productListEdit">Edit</button>
                         </Link>
                         <DeleteOutlineIcon
