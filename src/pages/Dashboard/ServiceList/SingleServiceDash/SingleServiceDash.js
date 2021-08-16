@@ -6,13 +6,11 @@ import Sidebar from '../../Sidebar/Sidebar';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
-// import Chart from '../../components/Chart/Chart';
 
 
 const SingleServiceDash = () => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const [serviceInfo, setServiceInfo] = useState({})
-    const [newServiceInfo, setNewServiceInfo] = useState({})
     const [imageUrl, setImageUrl] = useState();
     const { id } = useParams();
 

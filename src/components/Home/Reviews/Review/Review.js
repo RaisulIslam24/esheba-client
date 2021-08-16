@@ -7,7 +7,7 @@ const Review = ({ review }) => {
     return (
         <div className="item">
             <div className="shadow-effect">
-                <img className="img-circle" src={photo} />
+                <img className="img-circle" src={photo} alt="reviewer" />
                 <p>{description}</p>
             </div>
             <div className="testimonial-name">
