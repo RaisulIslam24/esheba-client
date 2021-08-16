@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
-import { Col, Row } from 'react-bootstrap';
 import { userContext } from '../../../App';
 
 
