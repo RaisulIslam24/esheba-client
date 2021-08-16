@@ -3,6 +3,7 @@ import './ServiceList.css';
 import Sidebar from '../Sidebar/Sidebar';
 import { DataGrid } from "@material-ui/data-grid";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import EditIcon from '@material-ui/icons/Edit';
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
 
@@ -96,8 +97,9 @@ const ServiceList = () => {
                 return (
                     <>
                         <Link to={"/singleService/" + params?.row?._id}>
-                            <button className="productListEdit">Edit</button>
+                            <EditIcon className="productListEdit" />
                         </Link>
+
                         <DeleteOutlineIcon
                             className="productListDelete"
                             onClick={() => deleteService(params?.row?._id)}
