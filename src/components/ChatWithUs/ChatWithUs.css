@@ -1,0 +1,38 @@
+.chat{
+    position: fixed;
+    bottom: 5px;
+    right: 10px;
+}
+
+.chat-btn{
+    font-size: 24pt;
+    padding: 10px 22px;
+    border: none;
+    background-color: darkred;
+    border-radius: 50%;
+    color: white;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+}
+
+.chat-description{
+    background-color: darkred;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 75px;
+    position: relative;
+}
+
+.minus{
+    border: none;
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    background-color: rgb(161, 67, 67);
+    border-radius: 50%;
+    padding: 1px 8px;
+    color: white;
+    font-size: 14pt;
+}

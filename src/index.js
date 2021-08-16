@@ -5,10 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// AOS FOR ANIMATION
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { BrowserRouter } from 'react-router-dom';
+AOS.init();
+
 ReactDOM.render(
-  <React.StrictMode>
+  <BrowserRouter>
     <App />
-  </React.StrictMode>,
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

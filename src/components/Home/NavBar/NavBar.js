@@ -2,18 +2,17 @@ import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
+import logo from '../../../images/default-monochrome.svg'
 
 const NavBar = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand href="#">
-            {/* <img
+            <img
                 src={logo}
-                width="200px"
-                className="d-inline-block align-top"
-                alt="Store 2 Door"
-            /> */}
-            <h3 className="ms-3">E-Sheba</h3>
+                className="d-inline-block align-top w-50 ms-4"
+                alt=""
+            />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
@@ -22,8 +21,8 @@ const NavBar = () => {
                 <Link className="link" to="/home">Home </Link>
                 <Link className="link" to="/services">Services </Link>
                 <Link className="link" to="/blogs">Blogs </Link>
-                <Link className="link" to="/contact">Contact </Link>
                 <Link className="link" to="/about">About </Link>
+                <Link className="link" to="/dashboard">Dashboard</Link>
                 <Link className="link" to="/login">Login </Link>
                 {/* Dynamically change login button to user image */}
                 {/* {

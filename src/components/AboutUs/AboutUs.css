@@ -1,0 +1,9 @@
+.aboutContainer{
+    text-align: justify;
+}
+.aboutContainer img{
+    width: 150px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 15px;
+}

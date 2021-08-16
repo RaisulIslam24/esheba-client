@@ -6,6 +6,11 @@ import "firebase/auth";
 import firebaseConfig from './firebase.config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
+import NavBar from '../Home/NavBar/NavBar';
+import Footer from '../Footer/Footer';
+import { useHistory } from 'react-router-dom';
+import { useContext } from 'react';
+import { userContext } from '../../App';
 
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
@@ -13,7 +18,9 @@ if (!firebase.apps.length) {
     firebase.app();
 }
 const Login = () => {
-    const [newUser, setNewUser] = useState(false)
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
+    const [newUser, setNewUser] = useState(false);
+    const history = useHistory();
     const [user, setUser] = useState({
         isSignedIn: false,
         // newUser: false,
@@ -21,6 +28,7 @@ const Login = () => {
         email: '',
         password: '',
         phone: '',
+        role: ''
     })
     const provider = new firebase.auth.GoogleAuthProvider();
     const handleGoogleSignIn = () => {
@@ -31,12 +39,49 @@ const Login = () => {
                     isSignedIn: true,
                     name: displayName,
                     email: email,
-                    photo: photoURL
+                    photo: photoURL,
+                    role: user.role
                 }
-                setUser(signedInUser)
+                setUser(signedInUser);
+
+                if (user.role === 'consumer' || user.role === 'service-provider') {
+                    fetch('https://e-sheba.herokuapp.com/addUser', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(signedInUser)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data) {
+                                setLoggedInUser(signedInUser);
+                                history.push('/dashboard');
+                            } else {
+                                alert('Please give correct value');
+                            }
+                        })
+                }
+                else if(user.role === 'admin'){
+                    fetch('https://e-sheba.herokuapp.com/checkAdmin', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({email: signedInUser.email})
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if(data){
+                                setLoggedInUser(signedInUser);
+                                history.push("/dashboard");
+                            } else {
+                                alert("This person is not admin");
+                            }
+                        })
+                }
+                else {
+                    setLoggedInUser(signedInUser);
+                    alert('Please select what you want to log in as?');
+                }
                 // setLoggedInUser(signedInUser)
                 // history.replace(from);
-                console.log(displayName, email, photoURL);
             })
             // console.log('sign in clicked');
             .catch(error => {
@@ -133,44 +178,66 @@ const Login = () => {
         e.preventDefault();
     }
 
+    const handleRadioBtn = (e) => {
+        const userData = { ...user, role: e.target.value };
+        setUser(userData);
+    }
+
     return (
-        <section className="section-header">
-            <div class="loginbox ">
-                <img src={avatar} class="avatar" />
-                {/* <h1 className="login-title">Login Here</h1> */}
-                <div className="text-center social-btn">
-                    <button onClick={handleGoogleSignIn}> <FontAwesomeIcon className="google-icon" icon={faGoogle} size="lg" /> Continue With Google</button><br />
-                </div>
-                {/* <hr /> */}
-                <h5 className="text-center mt-3 text-or">Or</h5>
-                <form>
-                   {
-                       newUser &&  <input type="text" name="" placeholder="Enter your name" onBlur={handleBlur} required />
-                   }
-                    <input type="text" name="" placeholder="Enter Email" onBlur={handleBlur} required />
-                    <input type="password" name="" placeholder="Enter Password" onBlur={handleBlur} required />
-                    <input type="submit" name="" value="Login" onSubmit={handleSubmit}/>
-                    {/* <div className="link-text text-center">
+        <>
+            <NavBar />
+            <section className="section-header">
+                <div className="loginbox ">
+                    <img src={avatar} className="avatar" />
+                    {/* <h1 className="login-title">Login Here</h1> */}
+
+                    <form className="mb-3 text-center login-as">
+                        <p className="pb-2">What do you want to {newUser ? "sign up" : "log in"} as?</p>
+                        <input type="radio" onChange={handleRadioBtn} id="consumer" name="role" value="consumer" />
+                        <label for="consumer">Consumer</label>
+
+                        <input className="ms-2" type="radio" onChange={handleRadioBtn} id="service_provider" name="role" value="service-provider" />
+                        <label for="service_provider">Service Provider</label>
+
+                        {!newUser && <span><input className="ms-2" type="radio" onChange={handleRadioBtn} id="admin" name="role" value="admin" />
+                            <label for="admin">Admin</label></span>}
+                    </form>
+
+                    <div className="text-center social-btn">
+                        <button onClick={handleGoogleSignIn} disabled={!user.role && "disabled"}> <FontAwesomeIcon className="google-icon" icon={faGoogle} size="lg" /> Continue With Google</button><br />
+                    </div>
+                    {/* <hr /> */}
+                    <h5 className="text-center mt-3 text-or">Or</h5>
+                    <form onSubmit={handleSubmit} className="login-form">
+                        {
+                            newUser && <input type="text" name="" placeholder="Enter your name" onBlur={handleBlur} disabled required />
+                        }
+                        <input type="text" name="" placeholder="Enter Email" onBlur={handleBlur} required disabled />
+                        <input type="password" name="" placeholder="Enter Password" onBlur={handleBlur} required disabled />
+                        <input type="submit" name="" value={newUser ? "Sign Up" : "Login"} disabled/>
+                        {/* <div className="link-text text-center">
                         <a href="#">Forget password?</a>
                         {" "}
                         <a href="#">Don't have an account?</a>
                     </div> */}
 
-                    <div className="a mt-3 text-center text-logSign">
-                        {
-                            newUser ? 'already have an account?'  : "Don't have an account? "
-                        }
-
-                        <span onClick={() => setNewUser(!newUser)} style={{ cursor: 'pointer' }}>
+                        <div className="a mt-3 text-center text-logSign">
                             {
-                                newUser ? 'login' : 'sign up'
+                                newUser ? 'already have an account?' : "Don't have an account? "
                             }
-                        </span>
 
-                    </div>
-                </form>
-            </div>
-        </section>
+                            <span onClick={() => setNewUser(!newUser)} style={{ cursor: 'pointer' }}>
+                                {
+                                    newUser ? 'login' : 'sign up'
+                                }
+                            </span>
+
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <Footer />
+        </>
     );
 };
 

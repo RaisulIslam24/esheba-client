@@ -1,0 +1,22 @@
+.serviceList {
+    display: flex;
+  }
+  
+  .serviceListLeft {
+    flex: 1;
+  }
+  
+  .serviceListRight {
+    flex: 4;
+  }
+
+  .serviceListRight > table{
+      padding: 80px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .serviceList {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }

@@ -1,0 +1,15 @@
+.dashboard {
+  display: flex;
+}
+
+.dashboardLeft {
+  flex: 1;
+}
+
+.dashboardRight {
+  flex: 4;
+  background-color: #f4fdfb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,23 @@
+.popular-blog{
+    overflow-x: hidden;
+}
+.popular-blog h2{
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.blog-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.blogs-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 25px;
+}
+
