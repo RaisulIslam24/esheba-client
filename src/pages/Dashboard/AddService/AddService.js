@@ -10,8 +10,7 @@ import { useHistory } from 'react-router-dom';
 const AddService = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    const [imageUrl, setImageUrl] = useState();
-    const [serviceInfo, setServiceInfo] = useState();
+    const [imageUrl, setImageUrl] = useState()
     const history = useHistory();
 
     // Upload Image to imgBB and take url
