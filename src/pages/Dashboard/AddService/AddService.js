@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './AddService.css';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
@@ -7,15 +7,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { userContext } from '../../../App';
 
 const AddService = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
+
 
     const [imageUrl, setImageUrl] = useState();
     const [serviceInfo, setServiceInfo] = useState();
     const history = useHistory();
 
-    // Upload Image to imgBB and take url
+    // Upload Image to imgBB and take url...
     const handleImageUpload = event => {
         const imageData = new FormData();
         imageData.set('key', '5fb422405e02b3782f9ac55b36d77374');
@@ -37,8 +40,8 @@ const AddService = () => {
             let newObject = { ...data }
 
             newObject.image = imageUrl;
-            newObject.serviceProviderName = "Shahinur Alam Bhuiyan"
-            newObject.serviceProviderEmail = "shahin12@gmail.com"
+            newObject.serviceProviderName = loggedInUser.name;
+            newObject.serviceProviderEmail = loggedInUser.email;
             setServiceInfo(newObject)
 
             fetch('https://e-sheba.herokuapp.com/addService', {
