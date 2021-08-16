@@ -3,12 +3,10 @@ import './Competencies.css';
 
 const Competencies = ({ competence }) => {
     return (
-        <section className="container">
-            <div className="p-5 animation">
-                <p className="text-center">{competence.icon}</p>
-                <h6 className="text-center">{competence.name}</h6>
-            </div>
-        </section>
+        <div className="d-flex flex-column justify-content-center align-items-center flex-wrap">
+            <p className="animation p-4">{competence.icon}</p>
+            <p className="text-center fw-bold">{competence.name}</p>
+        </div>
     );
 };
 

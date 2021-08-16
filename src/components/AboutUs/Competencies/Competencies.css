@@ -1,9 +1,9 @@
 .animation{
+    text-align: center;
     border-radius: 50%;
     background-color: aliceblue;
-    width: 180px;
-    height: 180px;
-    margin: 10px;
+    width: 105px;
+    height: 105px;
 }
 .animation:hover{
     background-color: rgba(120, 207, 131, 0.856);
