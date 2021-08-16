@@ -2,10 +2,6 @@
   display: flex;
 }
 
-.dashboardLeft {
-  flex: 1;
-}
-
 .dashboardRight {
   flex: 4;
   background-color: #f4fdfb;

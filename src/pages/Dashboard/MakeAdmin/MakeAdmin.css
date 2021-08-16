@@ -2,14 +2,9 @@
   display: flex;
 }
 
-.makeAdminLeft {
-  flex: 1;
-}
-
 .makeAdminRight {
   flex: 4;
 }
-
 
 .makeAdminForm{
     display: flex;

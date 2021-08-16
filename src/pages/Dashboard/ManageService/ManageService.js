@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
+import './ManageService.css';
 import Sidebar from '../Sidebar/Sidebar';
 
 const ManageServices = () => {
     const [orders, setOrders] = useState([]);
 
     return (
-        <section className="row">
-            <div className="col-md-3">
-                <Sidebar></Sidebar>
-            </div>
-            <div className="col-md-9 p-4 pr-5" style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB" }}>
+        <section className="manageService">
+            <Sidebar />
+            <div className="manageServiceRight">
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -24,7 +23,7 @@ const ManageServices = () => {
                             <tbody>
                                 <tr>
                                     <td></td>
-                                    <td><img style={{width: '80px'}} src="" alt=""/></td>
+                                    <td><img style={{ width: '80px' }} src="" alt="" /></td>
                                     <td></td>
                                     <td><button className="btn btn-danger">Delete</button></td>
                                 </tr>

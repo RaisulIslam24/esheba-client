@@ -1,0 +1,6 @@
+.addReview{
+    display: flex;
+}
+.addReviewRight{
+    flex: 4;
+}

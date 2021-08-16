@@ -1,0 +1,6 @@
+.serviceProvider{
+    display: flex;
+}
+.serviceProviderRight{
+    flex: 4;
+}

@@ -1,10 +1,7 @@
 import React from 'react';
-import './ServiceProviderDetails.css';
 
-const ServiceProviderDetails = (props) => {
-
-  const { _id, photo, role, email, name, isSignedIn } = props.serviceProviders;
-  console.log()
+const ConsumerDetails = (props) => {
+  const { _id, photo, role, email, name, isSignedIn } = props.consumers;
   return (
     <div>
       <table className="table table-dark table-hover">
@@ -23,11 +20,10 @@ const ServiceProviderDetails = (props) => {
             <td>{email}</td>
             <td>{role}</td>
           </tr>
-
         </tbody>
       </table>
     </div>
   );
 };
 
-export default ServiceProviderDetails;
+export default ConsumerDetails;

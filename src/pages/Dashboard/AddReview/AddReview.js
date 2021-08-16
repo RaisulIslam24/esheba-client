@@ -1,5 +1,6 @@
 import React from 'react';
 // import { useForm } from "react-hook-form";
+import './AddReview.css';
 import Sidebar from '../Sidebar/Sidebar';
 
 
@@ -7,11 +8,9 @@ const AddReview = () => {
     // const { register, handleSubmit } = useForm();
 
     return (
-        <section className="row">
-            <div className="col-md-3">
-                <Sidebar></Sidebar>
-            </div>
-            <div className="col-md-9 p-4 pr-5" style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB" }}>
+        <section className="addReview">
+                <Sidebar />
+            <div className="addReviewRight">
                 <div>
                     <h3>Review</h3>
                     <br />
