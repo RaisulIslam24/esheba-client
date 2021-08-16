@@ -1,5 +1,4 @@
-import React from 'react';
-import fakeReviewsData from '../../../data/fakeReviewsData.json';
+import React, { useEffect, useState } from 'react';
 import Review from './Review/Review';
 import './Reviews.css';
 
@@ -9,6 +8,14 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 const Reviews = () => {
+    const [reviews, setReviews] = useState([])
+
+    // load reviews from database
+    useEffect(() => {
+        fetch('https://e-sheba.herokuapp.com/reviews')
+        .then(res => res.json())
+        .then(data => setReviews(data))
+    }, [])
 
     // Owl Carousel Settings
     const options = {
@@ -36,7 +43,7 @@ const Reviews = () => {
                 <div className="row">
                     <div className="col-md-12">
                         <OwlCarousel id="customer-testimonial" className="owl-carousel owl-theme" {...options}>
-                            {fakeReviewsData.map((review, index) => <Review review={review} key={index} />)}
+                            {reviews?.map((review) => <Review review={review} key={review._id} />)}
                         </OwlCarousel>
                     </div>
                 </div>

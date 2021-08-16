@@ -27,7 +27,7 @@ const ServiceList = () => {
     const deleteService = (id) => {
         setIds(id)
         console.log(id, 'clicked')
-        fetch(`http://localhost:5000/deleteService/${id}`, {
+        fetch(`https://e-sheba.herokuapp.com/deleteService/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
