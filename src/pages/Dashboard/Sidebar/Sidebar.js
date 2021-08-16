@@ -1,7 +1,5 @@
 import React, { useContext, useState } from 'react';
 import './Sidebar.css';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCommentAlt, faBriefcase, faPlus, faUserPlus, faTasks, faSignOutAlt, faHome } from '@fortawesome/free-solid-svg-icons';
 import {
     MailOutline,
     People,
@@ -18,6 +16,11 @@ import { userContext } from '../../../App';
 const Sidebar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
     console.log(loggedInUser)
+    const handleLogOut = () => {
+        sessionStorage.removeItem('user');
+        setLoggedInUser({})
+    }
+
 
     return (
         <div className="sidebar">
@@ -96,7 +99,7 @@ const Sidebar = () => {
                             <Home className="sidebarIcon" />
                             Home
                         </Link>
-                        <li className="sidebarListItem link">
+                        <li className="sidebarListItem link" onClick={handleLogOut}>
                             <ExitToApp className="sidebarIcon" />
                             Logout
                         </li>
@@ -108,40 +111,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-
-
-{/* <div className="sidebarMenu">
-                    <h3 className="sidebarTitle">Notification</h3>
-                    <ul className="sidebarList">
-                        <li className="sidebarListItem link">
-                            <MailOutline className="sidebarIcon" />
-                            Mail
-                        </li>
-                        <li className="sidebarListItem link">
-                            <DynamicFeed className="sidebarIcon" />
-                            Feedback
-                        </li>
-                        <li className="sidebarListItem link">
-                            <ChatBubbleOutline className="sidebarIcon" />
-                            Messages
-                        </li>
-                    </ul>
-                </div> */}
-{/* <div className="sidebarMenu">
-                    <h3 className="sidebarTitle">Staff</h3>
-                    <ul className="sidebarList">
-                        <li className="sidebarListItem link">
-                            <WorkOutline className="sidebarIcon" />
-                            Make Admin
-                        </li>
-                        <li className="sidebarListItem link">
-                            <Timeline className="sidebarIcon" />
-                            Analytics
-                        </li>
-                        <li className="sidebarListItem link">
-                            <Report className="sidebarIcon" />
-                            Reports
-                        </li>
-                    </ul>
-                </div> */}

@@ -31,6 +31,15 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
+    const USER = JSON.parse(sessionStorage.getItem('user'));
+    if (USER) {
+      setLoggedInUser(USER)
+    }
+  }, [])
+
+
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
     }, 2200);
@@ -80,42 +89,42 @@ function App() {
               </Route>
 
               {/* Dashboard Item */}
-              <Route path="/dashboard">
+              <PrivateRoute path="/dashboard">
                 <Dashboard />
-              </Route>
-              <Route path="/review">
+              </PrivateRoute>
+              <PrivateRoute path="/review">
                 <AddReview />
-              </Route>
-              <Route path="/AdminOrderList">
+              </PrivateRoute>
+              <PrivateRoute path="/AdminOrderList">
                 <AdminOrderList />
-              </Route>
-              <Route path="/orderList">
+              </PrivateRoute>
+              <PrivateRoute path="/orderList">
                 <OrderList />
-              </Route>
-              <Route path="/makeAdmin">
+              </PrivateRoute>
+              <PrivateRoute path="/makeAdmin">
                 <MakeAdmin />
-              </Route>
-              <Route path="/orderList">
+              </PrivateRoute>
+              <PrivateRoute path="/orderList">
                 <orderList />
-              </Route>
-              <Route path="/addService">
+              </PrivateRoute>
+              <PrivateRoute path="/addService">
                 <AddService />
-              </Route>
-              <Route path="/manageServices">
+              </PrivateRoute>
+              <PrivateRoute path="/manageServices">
                 <ManageServices />
-              </Route>
-              <Route path="/consumersList">
+              </PrivateRoute>
+              <PrivateRoute path="/consumersList">
                 <Consumer />
-              </Route>
-              <Route path="/serviceProvidersList">
+              </PrivateRoute>
+              <PrivateRoute path="/serviceProvidersList">
                 <ServiceProvider />
-              </Route>
-              <Route path="/serviceList">
+              </PrivateRoute>
+              <PrivateRoute path="/serviceList">
                 <ServiceList />
-              </Route>
-              <Route path="/singleService/:id">
+              </PrivateRoute>
+              <PrivateRoute path="/singleService/:id">
                 <SingleServiceDash />
-              </Route>
+              </PrivateRoute>
               {/* Dashboard end */}
             </Switch>
             <ChatWithUs />
