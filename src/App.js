@@ -21,7 +21,7 @@ import AllServices from './pages/AllServices/AllServices';
 import Services from './pages/ServiceDetails/ServiceDetails';
 import Consumer from './pages/Dashboard/Consumer/Consumer';
 import ServiceProvider from './pages/Dashboard/ServiceProvider/ServiceProvider';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+
 
 export const userContext = createContext();
 
@@ -76,36 +76,36 @@ function App() {
               <Route path="/brands">
                 <Brands />
               </Route>
-              <PrivateRoute path="/dashboard">
+              <Route path="/dashboard">
                 <Dashboard />
-              </PrivateRoute>
-              <PrivateRoute path="/review">
+              </Route>
+              <Route path="/review">
                 <AddReview />
-              </PrivateRoute>
-              <PrivateRoute path="/AdminOrderList">
+              </Route>
+              <Route path="/AdminOrderList">
                 <AdminOrderList />
-              </PrivateRoute>
-              <PrivateRoute path="/orderList">
+              </Route>
+              <Route path="/orderList">
                 <OrderList />
-              </PrivateRoute>
-              <PrivateRoute path="/makeAdmin">
+              </Route>
+              <Route path="/makeAdmin">
                 <MakeAdmin />
-              </PrivateRoute>
-              <PrivateRoute path="/orderList">
+              </Route>
+              <Route path="/orderList">
                 <orderList />
-              </PrivateRoute>
-              <PrivateRoute path="/addService">
+              </Route>
+              <Route path="/addService">
                 <AddService />
-              </PrivateRoute>
-              <PrivateRoute path="/manageServices">
+              </Route>
+              <Route path="/manageServices">
                 <ManageServices />
-              </PrivateRoute>
-              <PrivateRoute path="/consumersList">
+              </Route>
+              <Route path="/consumersList">
                 <Consumer />
-              </PrivateRoute>
-              <PrivateRoute path="/serviceProvidersList">
+              </Route>
+              <Route path="/serviceProvidersList">
                 <ServiceProvider />
-              </PrivateRoute>
+              </Route>
             </Switch>
             <ChatWithUs />
           </Router>

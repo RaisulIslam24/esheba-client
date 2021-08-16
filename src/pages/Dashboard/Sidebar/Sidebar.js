@@ -23,17 +23,17 @@ const Sidebar = () => {
                 </li>
                 
                 {/* Consumer */}
-                {loggedInUser.role === 'consumer' && <div>
+                <div>
 
                     <li>
                         <Link to="/review" className="text-white link">
                             <FontAwesomeIcon icon={faCommentAlt} /> <span>Review</span>
                         </Link>
                     </li>
-                </div>}
+                </div>
 
                 {/* Admin */}
-                {loggedInUser.role === 'admin' && <div>
+                <div>
                     <li>
                         <Link to="/AdminOrderList" className="text-white link">
                             <FontAwesomeIcon icon={faBriefcase} /> <span>Order List</span>
@@ -59,10 +59,10 @@ const Sidebar = () => {
                             <FontAwesomeIcon icon={faTasks} /> <span>Service Providers List</span>
                         </Link>
                     </li>
-                </div>}
+                </div>
 
                 {/* Service Provider */}
-                {loggedInUser.role === 'service-provider' && <div>
+                <div>
                     <li>
                         <Link to="/addService" className="text-white link">
                             <FontAwesomeIcon icon={faPlus} /> <span>Add Service</span>
@@ -73,7 +73,7 @@ const Sidebar = () => {
                             <FontAwesomeIcon icon={faTasks} /> <span>Manage Services</span>
                         </Link>
                     </li>
-                </div>}
+                </div>
 
             </ul>
             <div>
