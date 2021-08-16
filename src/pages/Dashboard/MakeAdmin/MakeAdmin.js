@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import Sidebar from '../Sidebar/Sidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2';
 
 const MakeAdmin = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -41,7 +42,15 @@ const MakeAdmin = () => {
                     response.json()
                         .then((res) => {
                             if (response.status === 200) {
-                                alert('Admin of the website is created!')
+                                Swal.fire({
+                                    title: 'Good job!',
+                                    text: 'Admin added!',
+                                    icon: 'success'
+                                }).then((result) => {
+                                    if (result) {
+                                        reset();
+                                    }
+                                })
                             }
                             if (response.status === 401) {
                                 alert('something went wrong.Please, try again later!')
@@ -51,7 +60,6 @@ const MakeAdmin = () => {
                 .catch(error => {
                     console.error(error)
                 })
-            reset()
         } else {
             alert('please upload  your service photo')
         }

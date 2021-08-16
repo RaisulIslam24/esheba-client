@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import Sidebar from '../../Sidebar/Sidebar';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
+import Swal from 'sweetalert2';
 // import Chart from '../../components/Chart/Chart';
 
 
@@ -45,7 +46,7 @@ const SingleServiceDash = () => {
             });
     }
 
-
+    // ............handle update ..........
     const onSubmit = (data) => {
         let newServiceInfo = { ...serviceInfo }
         if (data.serviceName) {
@@ -62,22 +63,38 @@ const SingleServiceDash = () => {
             newServiceInfo.image = imageUrl;
         }
 
-        fetch(`http://localhost:5000/updateService/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newServiceInfo)
-        })
-            .then(res => res.json())
-            .then(data => {
-                alert('updated done');
-                reset();
-            })
-            .catch((err) => console.log(err))
+        Swal.fire({
+            title: 'Do you want to save the changes?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: `Save`,
+            denyButtonText: `Don't save`,
+        }).then((result) => {
+            if (result.isConfirmed) {
 
-        console.log(newServiceInfo)
-        console.log(serviceInfo)
+                fetch(`http://localhost:5000/updateService/${id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(newServiceInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+
+
+                        Swal.fire('Saved!', '', 'success');
+                        getService();
+                        reset();
+
+
+                    }).catch((err) => console.log(err))
+
+            } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info');
+                reset();
+            }
+        })
 
     };
 

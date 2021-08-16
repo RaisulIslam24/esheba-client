@@ -6,6 +6,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const AddService = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -30,15 +31,15 @@ const AddService = () => {
             });
     }
 
+    // Upload service to the database..
     const onSubmit = data => {
         if (imageUrl) {
             let newObject = { ...data }
-            
+
             newObject.image = imageUrl;
             newObject.serviceProviderName = "Shahinur Alam Bhuiyan"
             newObject.serviceProviderEmail = "shahin12@gmail.com"
             setServiceInfo(newObject)
-
 
             fetch('https://e-sheba.herokuapp.com/addService', {
                 method: 'POST',
@@ -49,8 +50,15 @@ const AddService = () => {
                     response.json()
                         .then((res) => {
                             if (response.status === 200) {
-                                alert('your service uploaded')
-                                history.push('/serviceList')
+                                Swal.fire({
+                                    title: 'Good job!',
+                                    text: 'Your service added!',
+                                    icon: 'success'
+                                }).then((result) => {
+                                    if (result) {
+                                        history.push('/serviceList')
+                                    }
+                                })
                             }
                             if (response.status === 401) {
                                 alert('data not uploaded')
