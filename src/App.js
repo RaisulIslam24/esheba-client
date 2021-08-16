@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { createContext } from 'react';
+import gif from './images/uu.gif';
+// Routers
 import Brands from "./components/Brands/Brands";
 import ChatWithUs from "./components/ChatWithUs/ChatWithUs";
 import AddReview from "./pages/Dashboard/AddReview/AddReview";
@@ -13,19 +16,19 @@ import Login from "./components/Login/Login";
 import Subscribe from "./components/Subscribe/Subscribe";
 import AllBlogs from "./pages/AllBlogs/AllBlogs";
 import BlogDetails from "./pages/BlogDetails/BlogDetails";
-import gif from './images/uu.gif';
 import AboutUs from './components/AboutUs/AboutUs';
-import { createContext } from 'react';
 import Dashboard from './pages/Dashboard/Dashboard';
 import AllServices from './pages/AllServices/AllServices';
 import Services from './pages/ServiceDetails/ServiceDetails';
 import Consumer from './pages/Dashboard/Consumer/Consumer';
 import ServiceProvider from './pages/Dashboard/ServiceProvider/ServiceProvider';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ServiceList from './pages/Dashboard/ServiceList/ServiceList';
 import SingleServiceDash from './pages/Dashboard/ServiceList/SingleServiceDash/SingleServiceDash';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export const userContext = createContext();
+
+
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
@@ -36,8 +39,6 @@ function App() {
       setLoggedInUser(USER)
     }
   }, [])
-
-
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -89,42 +90,19 @@ function App() {
               </Route>
 
               {/* Dashboard Item */}
-              <PrivateRoute path="/dashboard">
-                <Dashboard />
-              </PrivateRoute>
-              <PrivateRoute path="/review">
-                <AddReview />
-              </PrivateRoute>
-              <PrivateRoute path="/AdminOrderList">
-                <AdminOrderList />
-              </PrivateRoute>
-              <PrivateRoute path="/orderList">
-                <OrderList />
-              </PrivateRoute>
-              <PrivateRoute path="/makeAdmin">
-                <MakeAdmin />
-              </PrivateRoute>
-              <PrivateRoute path="/orderList">
-                <orderList />
-              </PrivateRoute>
-              <PrivateRoute path="/addService">
-                <AddService />
-              </PrivateRoute>
-              <PrivateRoute path="/manageServices">
-                <ManageServices />
-              </PrivateRoute>
-              <PrivateRoute path="/consumersList">
-                <Consumer />
-              </PrivateRoute>
-              <PrivateRoute path="/serviceProvidersList">
-                <ServiceProvider />
-              </PrivateRoute>
-              <PrivateRoute path="/serviceList">
-                <ServiceList />
-              </PrivateRoute>
-              <PrivateRoute path="/singleService/:id">
-                <SingleServiceDash />
-              </PrivateRoute>
+
+              <PrivateRoute path="/dashboard"><Dashboard /></PrivateRoute>
+              <PrivateRoute path="/review"><AddReview /> </PrivateRoute>
+              <PrivateRoute path="/AdminOrderList"><AdminOrderList /></PrivateRoute>
+              <PrivateRoute path="/orderList"> <OrderList /> </PrivateRoute>
+              <PrivateRoute path="/makeAdmin"> <MakeAdmin /> </PrivateRoute>
+              <PrivateRoute path="/addService"> <AddService /></PrivateRoute>
+              <PrivateRoute path="/manageServices"> <ManageServices /> </PrivateRoute>
+              <PrivateRoute path="/consumersList"> <Consumer /> </PrivateRoute>
+              <PrivateRoute path="/serviceProvidersList"> <ServiceProvider /> </PrivateRoute>
+              <PrivateRoute path="/serviceList"> <ServiceList /> </PrivateRoute>
+              <PrivateRoute path="/singleService/:id"> <SingleServiceDash /> </PrivateRoute>
+
               {/* Dashboard end */}
             </Switch>
             <ChatWithUs />

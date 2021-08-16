@@ -6,6 +6,7 @@ import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import EditIcon from '@material-ui/icons/Edit';
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
+import TopBarDash from '../TopBarDash/TopBarDash';
 
 const ServiceList = () => {
     const [services, setServices] = useState([]);
@@ -67,8 +68,8 @@ const ServiceList = () => {
             width: 200,
             renderCell: (params) => {
                 return (
-                    <div className="productListItem">
-                        <img className="productListImg" src={params?.row?.image} alt="" />
+                    <div className="serviceListItem">
+                        <img className="serviceListImg" src={params?.row?.image} alt="" />
                         {params?.row?.serviceName}
                     </div>
                 );
@@ -97,11 +98,11 @@ const ServiceList = () => {
                 return (
                     <>
                         <Link to={"/singleService/" + params?.row?._id}>
-                            <EditIcon className="productListEdit" />
+                            <EditIcon className="serviceListEdit" />
                         </Link>
 
                         <DeleteOutlineIcon
-                            className="productListDelete"
+                            className="serviceListDelete"
                             onClick={() => deleteService(params?.row?._id)}
                         />
                     </>
@@ -111,23 +112,23 @@ const ServiceList = () => {
     ];
 
     return (
-        <section className="serviceList">
-            <div className="serviceListLeft">
+        <>
+            <TopBarDash />
+            <section className="serviceList">
                 <Sidebar></Sidebar>
-            </div>
-            <div className="productList">
-                <DataGrid
-                    className="productDataTable"
-                    rows={services}
-                    columns={columns}
-                    getRowId={(row) => row?._id}
-                    pageSize={12}
-                    checkboxSelection
-                    disableSelectionOnClick
-                />
-            </div>
-        </section>
-
+                <div className="serviceListRight">
+                    <DataGrid
+                        className="serviceDataTable"
+                        rows={services}
+                        columns={columns}
+                        getRowId={(row) => row?._id}
+                        pageSize={12}
+                        checkboxSelection
+                        disableSelectionOnClick
+                    />
+                </div>
+            </section>
+        </>
     );
 };
 

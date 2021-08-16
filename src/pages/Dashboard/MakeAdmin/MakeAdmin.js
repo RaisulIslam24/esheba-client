@@ -6,6 +6,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
+import TopBarDash from '../TopBarDash/TopBarDash';
 
 const MakeAdmin = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -66,35 +67,39 @@ const MakeAdmin = () => {
     };
 
     return (
-        <section className="makeAdmin">
-            <Sidebar />
-            <div className="makeAdminRight">
-                <form onSubmit={handleSubmit(onSubmit)} className="makeAdminForm">
-                    <div className="makeAdminItem">
-                        <label>Admin Name</label>
-                        <input type="text" {...register("adminName", { required: true })} placeholder="Shahinur Alam Bhuiyan" />
-                    </div>
-                    <div className="makeAdminItem">
-                        <label htmlFor="file">
-                            <span>Upload Admin Image</span>
-                            <FontAwesomeIcon
-                                className={imageUrl ? "makeAdminIconGreen" : "makeAdminIconRed"}
-                                icon={faUpload} />
-                        </label>
-                        <input style={{ display: 'none' }} type="file" onChange={handleImageUpload} id="file" />
-                    </div>
-                    <div className="makeAdminItem">
-                        <label>Admin Email</label>
-                        <input type="email" {...register("adminEmail", { required: true })} placeholder="shahinur@gmail.com" />
-                    </div>
-                    <div className="makeAdminItem">
-                        <label>Phone Number</label>
-                        <input type="number" {...register("phoneNo", { required: true })} placeholder="+880 1839-78735" />
-                    </div>
-                    <input className="makeAdminButton" style={{ display: imageUrl ? 'block' : 'none' }} type="submit" />
-                </form>
+        <>
+            <TopBarDash />
+            <div className="makeAdmin">
+                <Sidebar />
+                <div className="makeAdminRight">
+                    <h4 className="text-center">Make Admin</h4>
+                    <form onSubmit={handleSubmit(onSubmit)} className="makeAdminForm">
+                        <div className="makeAdminItem">
+                            <label>Admin Name</label>
+                            <input type="text" {...register("adminName", { required: true })} placeholder="Shahinur Alam Bhuiyan" />
+                        </div>
+                        <div className="makeAdminItem">
+                            <label htmlFor="file">
+                                <span>Upload Admin Image</span>
+                                <FontAwesomeIcon
+                                    className={imageUrl ? "makeAdminIconGreen" : "makeAdminIconRed"}
+                                    icon={faUpload} />
+                            </label>
+                            <input style={{ display: 'none' }} type="file" onChange={handleImageUpload} id="file" />
+                        </div>
+                        <div className="makeAdminItem">
+                            <label>Admin Email</label>
+                            <input type="email" {...register("adminEmail", { required: true })} placeholder="shahinur@gmail.com" />
+                        </div>
+                        <div className="makeAdminItem">
+                            <label>Phone Number</label>
+                            <input type="number" {...register("phoneNo", { required: true })} placeholder="+880 1839-78735" />
+                        </div>
+                        <input className="makeAdminButton" style={{ display: imageUrl ? 'block' : 'none' }} type="submit" />
+                    </form>
+                </div>
             </div>
-        </section>
+        </>
     );
 };
 

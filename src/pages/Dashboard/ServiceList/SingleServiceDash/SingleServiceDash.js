@@ -6,6 +6,7 @@ import Sidebar from '../../Sidebar/Sidebar';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
+import TopBarDash from '../../TopBarDash/TopBarDash';
 
 
 const SingleServiceDash = () => {
@@ -108,85 +109,85 @@ const SingleServiceDash = () => {
     ));
 
     return (
-        <section className="service">
-            <Sidebar />
-            <div className="serviceRight">
-                <div className="serviceItemContainer">
-                    <h1 className="serviceTitle">Service Info</h1>
-                    <Link to='/addService'>
-                        <button className="serviceAddButton">Create</button>
-                    </Link>
-                </div>
-                <div className="serviceTop">
-                    {/* <div className="serviceTopLeft">
-                    <Chart data={serviceData} dataKey="Sales" title="Sales Performance" />
-                </div> */}
-                    <div className="serviceTopRight">
-                        <div>
-                            <div className="serviceInfoTop">
-                                <img src={serviceInfo?.image} alt={serviceInfo?.serviceName} className="serviceInfoImg" />
-                                <span className="serviceName">{serviceInfo?.serviceName}</span>
-                            </div>
-                            <div className="serviceInfoBottom">
+        <>
+            <TopBarDash />
+            <section className="service">
+                <Sidebar />
+                <div className="serviceRight">
+                    <div className="serviceItemContainer">
+                        <h1 className="serviceTitle">Service Info</h1>
+                        <Link to='/addService'>
+                            <button className="serviceAddButton">Create</button>
+                        </Link>
+                    </div>
+                    <div className="serviceTop">
+                        <div className="serviceTopRight">
+                            <div>
+                                <div className="serviceInfoTop">
+                                    <img src={serviceInfo?.image} alt={serviceInfo?.serviceName} className="serviceInfoImg" />
+                                    <span className="serviceName">{serviceInfo?.serviceName}</span>
+                                </div>
+                                <div className="serviceInfoBottom">
 
-                                <div className="serviceInfoItem">
-                                    <span className="serviceInfoKey">Price:</span><span className="serviceInfoValue">$ {serviceInfo?.price}</span>
-                                </div>
-                                <div className="serviceInfoItem">
-                                    <span className="serviceInfoKey">Is Available:</span><span className="serviceInfoValue">{serviceInfo?.isAvaiable}</span>
-                                </div>
-                                <div className="providerInfoDash">
-                                    <h6>Provider Info</h6>
                                     <div className="serviceInfoItem">
-                                        <span className="serviceInfoKey">Name: </span><span className="serviceInfoValue"> {serviceInfo?.serviceProviderName}</span>
+                                        <span className="serviceInfoKey">Price:</span><span className="serviceInfoValue">$ {serviceInfo?.price}</span>
                                     </div>
                                     <div className="serviceInfoItem">
-                                        <span className="serviceInfoKey">Email:</span><span className="serviceInfoValue">{serviceInfo?.serviceProviderEmail}</span>
+                                        <span className="serviceInfoKey">Is Available:</span><span className="serviceInfoValue">{serviceInfo?.isAvaiable}</span>
+                                    </div>
+                                    <div className="providerInfoDash">
+                                        <h6>Provider Info</h6>
+                                        <div className="serviceInfoItem">
+                                            <span className="serviceInfoKey">Name: </span><span className="serviceInfoValue"> {serviceInfo?.serviceProviderName}</span>
+                                        </div>
+                                        <div className="serviceInfoItem">
+                                            <span className="serviceInfoKey">Email:</span><span className="serviceInfoValue">{serviceInfo?.serviceProviderEmail}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div style={{ maxWidth: '450px' }}>
-                            <h6>Details: </h6>
-                            <p>{serviceInfo?.serviceDetails}</p>
+                            <div style={{ maxWidth: '450px' }}>
+                                <h6>Details: </h6>
+                                <p>{serviceInfo?.serviceDetails}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
 
-                {/* for updating data */}
-                <div className="serviceBottom">
-                    <form className="serviceForm" onSubmit={handleSubmit(onSubmit)}>
+                    {/* for updating data */}
+                    <div className="serviceBottom">
+                        <form className="serviceForm" onSubmit={handleSubmit(onSubmit)}>
 
-                        <div className="serviceFormLeft">
+                            <div className="serviceFormLeft">
 
-                            <label>Service Name</label>
-                            <input type="text"  {...register("serviceName")} placeholder={serviceInfo?.serviceName} />
+                                <label>Service Name</label>
+                                <input type="text"  {...register("serviceName")} placeholder={serviceInfo?.serviceName} />
 
 
-                            <label>Price</label>
-                            <input type="number"  {...register("price")} placeholder={`$ ${serviceInfo?.price}`} />
+                                <label>Price</label>
+                                <input type="number"  {...register("price")} placeholder={`$ ${serviceInfo?.price}`} />
 
-                            <Select label="Age" {...register("isAvaiable")} />
-                        </div>
-                        <div className="serviceFormRight">
-                            <div className="serviceUpload">
-                                <img src={serviceInfo?.image} alt="" className="serviceUploadImg" />
-                                <label for="file">
-                                    <Publish className={imageUrl ? "serviceUpdateIconGreen" : "serviceUpdateIconRed"} />
-                                </label>
-                                <input type="file" id="file" style={{ display: 'none' }} onChange={handleImageUpload} />
+                                <Select label="Age" {...register("isAvaiable")} />
+                            </div>
+                            <div className="serviceFormRight">
+                                <div className="serviceUpload">
+                                    <img src={serviceInfo?.image} alt="" className="serviceUploadImg" />
+                                    <label for="file">
+                                        <Publish className={imageUrl ? "serviceUpdateIconGreen" : "serviceUpdateIconRed"} />
+                                    </label>
+                                    <input type="file" id="file" style={{ display: 'none' }} onChange={handleImageUpload} />
+
+                                </div>
+                                <button type="submit" className="serviceButton">Update</button>
 
                             </div>
-                            <button type="submit" className="serviceButton">Update</button>
+                        </form>
+                    </div>
 
-                        </div>
-                    </form>
+
                 </div>
-
-
-            </div>
-        </section>
+            </section>
+        </>
     );
 };
 

@@ -1,29 +1,27 @@
 import React, { useContext } from 'react';
 import './TopBarDash.css';
-import { NotificationsNone, Language, Settings } from '@material-ui/icons';
+import { ExitToApp } from '@material-ui/icons';
 import { userContext } from '../../../App';
+import { Tooltip, Zoom } from '@material-ui/core';
 
 const TopBarDash = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
+
+    const handleLogOut = () => {
+        sessionStorage.removeItem('user');
+        setLoggedInUser({})
+    }
     return (
         <div className="topbar">
             <div className="topbarWrapper">
                 <div className="topLeft">
-                    <span className="logo">Admin Panel</span>
+                    <span className="topDashLogo">{loggedInUser.name}</span>
                 </div>
                 <div className="topRight">
-                    <div className="topbarIconContainer">
-                        <NotificationsNone />
-                        <span className="topIconBag">2</span>
-                    </div>
-                    <div className="topbarIconContainer">
-                        <Language />
-                        <span className="topIconBag">2</span>
-                    </div>
-                    <div className="topbarIconContainer">
-                        <Settings />
-                    </div>
-                    <img src={loggedInUser.photo} alt="avatar" className="topAvatar" />
+                    <img src={loggedInUser?.photo} alt="avatar" className="topAvatar" />
+                    <Tooltip className="topbarIconContainer" TransitionComponent={Zoom} title="Log out!">
+                        <ExitToApp onClick={handleLogOut} />
+                    </Tooltip>
                 </div>
             </div>
         </div>

@@ -2,20 +2,20 @@
   display: flex;
 }
 
-.serviceListLeft {
+/* .serviceListLeft {
   flex: 1;
-}
+} */
 
-.productList {
+.serviceListRight {
   flex: 4;
 }
 
-.productListItem {
+.serviceListItem {
   display: flex;
   align-items: center;
 }
 
-.productListImg {
+.serviceListImg {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -23,13 +23,13 @@
   margin-right: 10px;
 }
 
-.productListEdit {
+.serviceListEdit {
   color: #3bb077;
   cursor: pointer;
   margin-right: 30px;
 }
 
-.productListDelete {
+.serviceListDelete {
   color: red;
   cursor: pointer;
 }

@@ -15,7 +15,7 @@ import { userContext } from '../../../App';
 
 const Sidebar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
-    console.log(loggedInUser)
+    
     const handleLogOut = () => {
         sessionStorage.removeItem('user');
         setLoggedInUser({})

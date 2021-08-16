@@ -8,6 +8,7 @@ import { faUpload } from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { userContext } from '../../../App';
+import TopBarDash from '../TopBarDash/TopBarDash';
 
 const AddService = () => {
     const [serviceInfo, setServiceInfo] = useState([])
@@ -90,41 +91,44 @@ const AddService = () => {
 
 
     return (
-        <section className="addService">
-            <Sidebar />
-            <div className="addServiceRight">
-                <h2 className="text-center p-3">Add your service information</h2>
-                <form onSubmit={handleSubmit(onSubmit)} className="addProductForm">
-                    <div className="addProductItem">
-                        <label>Service Name</label>
-                        <input type="text" {...register("serviceName", { required: true })} placeholder="Car Washing" />
-                    </div>
-                    <div className="addProductItem">
-                        <label htmlFor="file">
-                            <span>Upload Service Image</span>
-                            <FontAwesomeIcon
-                                className={imageUrl ? "serviceUpdateIconGreen" : "serviceUpdateIconRed"}
-                                icon={faUpload} />
-                        </label>
-                        <input style={{ display: 'none' }} type="file" onChange={handleImageUpload} id="file" />
-                    </div>
-                    <div className="addProductItem">
-                        <label>Service Details</label>
-                        <input type="text" {...register("serviceDetails", { required: true })} placeholder="This service is about ..." />
-                    </div>
-                    <div className="addProductItem">
-                        <label>Price</label>
-                        <input type="number" {...register("price", { required: true })} placeholder="$ 23" />
-                    </div>
-                    <div className="addProductItem">
+        <>
+            <TopBarDash />
+            <section className="addService">
+                <Sidebar />
+                <div className="addServiceRight">
+                    <h3 className="text-center p-3">Add your service</h3>
+                    <form onSubmit={handleSubmit(onSubmit)} className="addProductForm">
+                        <div className="addProductItem">
+                            <label>Service Name</label>
+                            <input type="text" {...register("serviceName", { required: true })} placeholder="Car Washing" />
+                        </div>
+                        <div className="addProductItem">
+                            <label htmlFor="file">
+                                <span>Upload Service Image</span>
+                                <FontAwesomeIcon
+                                    className={imageUrl ? "serviceUpdateIconGreen" : "serviceUpdateIconRed"}
+                                    icon={faUpload} />
+                            </label>
+                            <input style={{ display: 'none' }} type="file" onChange={handleImageUpload} id="file" />
+                        </div>
+                        <div className="addProductItem">
+                            <label>Service Details</label>
+                            <input type="text" {...register("serviceDetails", { required: true })} placeholder="This service is about ..." />
+                        </div>
+                        <div className="addProductItem">
+                            <label>Price</label>
+                            <input type="number" {...register("price", { required: true })} placeholder="$ 23" />
+                        </div>
+                        <div className="addProductItem">
 
-                        <Select label="Age" {...register("isAvaiable", { required: true })} />
+                            <Select label="Age" {...register("isAvaiable", { required: true })} />
 
-                    </div>
-                    <input className="addProductButton" style={{ display: imageUrl ? 'block' : 'none' }} type="submit" />
-                </form>
-            </div>
-        </section>
+                        </div>
+                        <input className="addProductButton" style={{ display: imageUrl ? 'block' : 'none' }} type="submit" />
+                    </form>
+                </div>
+            </section>
+        </>
     );
 };
 

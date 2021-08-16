@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Consumer.css';
 import ConsumerDetails from '../ConsumerDetails/ConsumerDetails';
 import Sidebar from '../Sidebar/Sidebar';
+import TopBarDash from '../TopBarDash/TopBarDash';
 
 
 const Consumer = () => {
@@ -13,15 +14,17 @@ const Consumer = () => {
     }, [])
     return (
 
-        <div className="consumers">
-            <Sidebar />
-            <div className="consumersRight">
-                {
-                    consumer.map(consumers => <ConsumerDetails consumers={consumers} key={consumers._id}></ConsumerDetails>)
-                }
-            </div>
-        </div>
-
+        <>
+            <TopBarDash />
+            <section className="consumers">
+                <Sidebar />
+                <div className="consumersRight">
+                    {
+                        consumer.map(consumers => <ConsumerDetails consumers={consumers} key={consumers._id}></ConsumerDetails>)
+                    }
+                </div>
+            </section>
+        </>
     );
 };
 

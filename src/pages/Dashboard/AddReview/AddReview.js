@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import { userContext } from '../../../App';
+import TopBarDash from '../TopBarDash/TopBarDash';
 
 
 const AddReview = () => {
-
     const [loggedInUser] = useContext(userContext);
     const [userReview, setUserReview] = useState({
         name: loggedInUser.name || 'Shahinur Alam',
@@ -22,7 +22,7 @@ const AddReview = () => {
 
     // For uploading user review to the database
     const handleSubmit = (e) => {
-        let newData = {...userReview, date: new Date()};
+        let newData = { ...userReview, date: new Date() };
         console.log(newData);
         fetch('https://e-sheba.herokuapp.com/addReview', {
             method: 'POST',
@@ -45,24 +45,26 @@ const AddReview = () => {
 
     console.log(userReview);
     return (
-        <div className="consumers">
-            <Sidebar />
-            <div className="consumersRight">
-                <h3>Review</h3>
-                <br />
-                <div className="d-flex justify-content-center">
-                    <div className="col-md-6">
-                        <form onSubmit={handleSubmit}>
-                            <input type="text" name="address" onBlur={handleBlur} className="form-control mt-2" id="address" placeholder="Your Address" required />
-                            <textarea name="description" onBlur={handleBlur} className="form-control mt-2" rows={3} id="description" placeholder="Description" required></textarea>
-                            <div className="text-center"><button type="submit" className="btn btn-success mt-3">Submit</button></div>
-                        </form>
+        <>
+            <TopBarDash />
+            <div className="consumers">
+                <Sidebar />
+                <div className="consumersRight">
+                    <h3>Add Review</h3>
+                    <br />
+                    <div className="d-flex justify-content-center">
+                        <div className="col-md-6">
+                            <form onSubmit={handleSubmit}>
+                                <input type="text" name="address" onBlur={handleBlur} className="form-control mt-2" id="address" placeholder="Your Address" required />
+                                <textarea name="description" onBlur={handleBlur} className="form-control mt-2" rows={3} id="description" placeholder="Description" required></textarea>
+                                <div className="text-center"><button type="submit" className="btn btn-success mt-3">Submit</button></div>
+                            </form>
+                        </div>
                     </div>
+
                 </div>
-
             </div>
-        </div>
-
+        </>
     );
 };
 
