@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './SpecialOffer.css';
 const SpecialOffer = () => {
     return (
@@ -12,7 +13,7 @@ const SpecialOffer = () => {
                                     <p class="subject">Grand Sale Offer</p>
                                 </div>
                                 <h1 class="title mb-5 mb-sm-6">Summer Time: Grab this deal right now, tomorrow might be gone!</h1>
-                                <a class="btn-offer" href="https://codepen.io/gabrielski" data-slug="See our offer" aria-label="See our offer" role="btn-offer" tabindex="0">See Offer</a>
+                                <Link class="btn-offer" href="" data-slug="See our offer" aria-label="See our offer" role="btn-offer" tabindex="0">See Offer</Link>
 
                                 <div class="mt-3">
                                     <div class="money-back-container">

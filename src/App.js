@@ -22,6 +22,7 @@ import Services from './pages/ServiceDetails/ServiceDetails';
 import Consumer from './pages/Dashboard/Consumer/Consumer';
 import ServiceProvider from './pages/Dashboard/ServiceProvider/ServiceProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import TestLogin from './components/TestLogin/TestLogin';
 
 export const userContext = createContext();
 
@@ -54,6 +55,9 @@ function App() {
               </Route>
               <Route path="/login">
                 <Login />
+              </Route>
+              <Route path="/test">
+                <TestLogin/>
               </Route>
               <Route path="/blogs">
                 <AllBlogs />
