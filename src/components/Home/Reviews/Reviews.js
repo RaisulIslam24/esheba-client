@@ -13,10 +13,10 @@ const Reviews = () => {
     // load reviews from database
     useEffect(() => {
         fetch('https://e-sheba.herokuapp.com/reviews')
-        .then(res => res.json())
-        .then(data => setReviews(data))
-    }, [])
-console.log(reviews)
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [reviews.length])
+
     // Owl Carousel Settings
     const options = {
         loop: true,
@@ -41,11 +41,18 @@ console.log(reviews)
                 <h4 data-aos="fade-right">"TESTIMONIALS"</h4>
                 <h3 data-aos="fade-left">What our clients are Saying</h3>
                 <div className="row">
-                    <div className="col-md-12">
-                        <OwlCarousel id="customer-testimonial" className="owl-carousel owl-theme" {...options}>
-                            {reviews?.map((review) => <Review review={review} key={review._id} />)}
-                        </OwlCarousel>
-                    </div>
+                    {reviews.length ?
+                        <div className="col-md-12">
+                            <OwlCarousel id="customer-testimonial" className="owl-carousel owl-theme" {...options}>
+                                {reviews?.map((review) => <Review review={review} key={review._id} />)}
+                            </OwlCarousel>
+                        </div>
+                        :
+                        <div className="col-md-12">
+                            <h1>Loading...</h1>
+                        </div>
+                    }
+
                 </div>
             </div>
         </section>

@@ -15,7 +15,7 @@ import { userContext } from '../../../App';
 
 const Sidebar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
-    
+
     const handleLogOut = () => {
         sessionStorage.removeItem('user');
         setLoggedInUser({})
@@ -56,6 +56,10 @@ const Sidebar = () => {
                                     <AddShoppingCart className="sidebarIcon" />
                                     Add Services
                                 </Link>
+                                <Link to="/reviewList" className="sidebarListItem link">
+                                    <RateReview className="sidebarIcon" />
+                                    All Reviews
+                                </Link>
                             </ul>
                         </>
                     }
@@ -80,7 +84,7 @@ const Sidebar = () => {
                         <>
                             <h3 className="sidebarTitle">Service Taker Panel</h3>
                             <ul className="sidebarList">
-                                <Link to="/review" className="sidebarListItem link">
+                                <Link to="/addReview" className="sidebarListItem link">
                                     <RateReview className="sidebarIcon" />
                                     Add Review
                                 </Link>

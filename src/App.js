@@ -25,6 +25,7 @@ import ServiceProvider from './pages/Dashboard/ServiceProvider/ServiceProvider';
 import ServiceList from './pages/Dashboard/ServiceList/ServiceList';
 import SingleServiceDash from './pages/Dashboard/ServiceList/SingleServiceDash/SingleServiceDash';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import ReviewList from './pages/Dashboard/ReviewList/ReviewList';
 
 export const userContext = createContext();
 
@@ -92,7 +93,8 @@ function App() {
               {/* Dashboard Item */}
 
               <PrivateRoute path="/dashboard"><Dashboard /></PrivateRoute>
-              <PrivateRoute path="/review"><AddReview /> </PrivateRoute>
+              <PrivateRoute path="/addReview"><AddReview /> </PrivateRoute>
+              <PrivateRoute path="/reviewList"><ReviewList /> </PrivateRoute>
               <PrivateRoute path="/AdminOrderList"><AdminOrderList /></PrivateRoute>
               <PrivateRoute path="/orderList"> <OrderList /> </PrivateRoute>
               <PrivateRoute path="/makeAdmin"> <MakeAdmin /> </PrivateRoute>

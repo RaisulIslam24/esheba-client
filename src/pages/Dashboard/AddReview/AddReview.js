@@ -2,13 +2,14 @@ import React, { useContext, useState } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import { userContext } from '../../../App';
 import TopBarDash from '../TopBarDash/TopBarDash';
+import Swal from 'sweetalert2';
 
 
 const AddReview = () => {
     const [loggedInUser] = useContext(userContext);
     const [userReview, setUserReview] = useState({
-        name: loggedInUser.name || 'Shahinur Alam',
-        email: loggedInUser.email || 'shahin@gmail.com',
+        name: loggedInUser.name,
+        email: loggedInUser.email,
         description: '',
         photo: loggedInUser.photo || 'https://i.ibb.co/CzkSST0/avater.png'
     });
@@ -20,10 +21,12 @@ const AddReview = () => {
         setUserReview(newReview);
     }
 
+
     // For uploading user review to the database
     const handleSubmit = (e) => {
-        let newData = { ...userReview, date: new Date() };
-        console.log(newData);
+        let today = new Date();
+        let todayDate = today.getDate() + "-" + parseInt(today.getMonth() + 1) + "-" + today.getFullYear();
+        let newData = { ...userReview, date: todayDate };
         fetch('https://e-sheba.herokuapp.com/addReview', {
             method: 'POST',
             headers: {
@@ -34,9 +37,18 @@ const AddReview = () => {
             .then(res => res.json())
             .then(data => {
                 if (data) {
-                    alert("Review Uploaded Successfully");
+                    Swal.fire({
+                        title: 'Done!',
+                        text: 'Thank you so much for your valuable review!',
+                        icon: 'success'
+                    })
+                    console.log(data)
                 } else {
-                    alert("Review already exist");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Your review already exist!',
+                    })
                 }
             })
 

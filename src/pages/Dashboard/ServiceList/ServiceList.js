@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './ServiceList.css';
-import Sidebar from '../Sidebar/Sidebar';
 import { DataGrid } from "@material-ui/data-grid";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import EditIcon from '@material-ui/icons/Edit';
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
+import Sidebar from '../Sidebar/Sidebar';
 import TopBarDash from '../TopBarDash/TopBarDash';
 
 const ServiceList = () => {
