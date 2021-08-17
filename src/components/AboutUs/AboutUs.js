@@ -1,14 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faCar, faPaintRoller, faBolt, faHammer, faChair } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faCar, faPaintRoller, faBolt, faHammer, faChair, faShoppingCart, faSmile, faUser, faTrophy } from '@fortawesome/free-solid-svg-icons';
 import './AboutUs.css';
 import Competencies from './Competencies/Competencies';
-import react from '../../images/react.png';
-import javascript from '../../images/javascript.png';
-import nodejs from '../../images/nodejs.png';
-import uxui from '../../images/uxui.jpg';
-import it_support from '../../images/it_support.jpg';
-import android from '../../images/android.png';
 import CountUp from 'react-countup';
 import Developers from './Developers/Developers';
 import Rahat from '../../images/Rahat.png';
@@ -24,27 +18,27 @@ import Award4 from '../../images/a4.jpg';
 const competencies = [
     {
         name: "Home Cleaning",
-        icon: <FontAwesomeIcon icon={faHome} className="fa-3x text-success" />
+        icon: <FontAwesomeIcon icon={faHome} className="fa-3x" />
     },
     {
         name: "Car Wash",
-        icon: <FontAwesomeIcon icon={faCar} className="fa-3x text-success" />
+        icon: <FontAwesomeIcon icon={faCar} className="fa-3x" />
     },
     {
         name: "Painting service",
-        icon: <FontAwesomeIcon icon={faPaintRoller} className="fa-3x text-success" />
+        icon: <FontAwesomeIcon icon={faPaintRoller} className="fa-3x" />
     },
     {
         name: "Electrical Service",
-        icon: <FontAwesomeIcon icon={faBolt} className="fa-3x text-success" />
+        icon: <FontAwesomeIcon icon={faBolt} className="fa-3x" />
     },
     {
         name: "Carpentry service",
-        icon: <FontAwesomeIcon icon={faHammer} className="fa-3x text-success" />
+        icon: <FontAwesomeIcon icon={faHammer} className="fa-3x" />
     },
     {
         name: "Furniture service",
-        icon: <FontAwesomeIcon icon={faChair} className="fa-3x text-success" />
+        icon: <FontAwesomeIcon icon={faChair} className="fa-3x" />
     }
 ]
 
@@ -88,29 +82,39 @@ const AboutUs = () => {
             <div className="container">
                 <h3 className="mt-5 mb-4 fw-bold">CORE COMPETENCIES</h3>
                 <p>We offer full spectrum of services to help organizations function more effectively. Some of our services are highlighted below:</p>
-                <div className="row row-cols-2 row-cols-md-6 mt-3">
+                <div className="row row-cols-2 row-cols-md-6 mt-5">
                     {competencies.map(competence => <Competencies competence={competence}></Competencies>)}
                 </div>
             </div>
-            <div className="container">
-                <h3 className="mt-5 mb-4 fw-bold">KEY FACTS AND FIGURES</h3>
-                <p>Discover the key facts and figures behind E-Sheba:</p>
-                <div className="d-flex justify-content-around flex-wrap">
-                    <div className="item">
-                        <h1 className="fw-lg"><CountUp start={700} end={800} suffix="+" duration={3} /></h1>
-                        <h6>Services Provided</h6>
+            <div className="clients">
+                <div className="container d-flex justify-content-around flex-wrap">
+                    <div className="d-flex align-items-center">
+                        <FontAwesomeIcon icon={faSmile} className="fa-3x" style={{ color: 'orange' }}></FontAwesomeIcon>
+                        <div className="item">
+                            <h1><CountUp start={700} end={800} suffix="+" duration={3} /></h1>
+                            <h6>Happy Clients</h6>
+                        </div>
                     </div>
-                    <div className="item">
-                        <h1 className="fw-lg"><CountUp start={350} end={450} suffix="+" duration={3} /></h1>
-                        <h6>Clients Visits Each Month</h6>
+                    <div className="d-flex align-items-center">
+                        <FontAwesomeIcon icon={faUser} className="fa-3x" style={{ color: 'orange' }}></FontAwesomeIcon>
+                        <div className="item">
+                            <h1><CountUp start={350} end={450} suffix="+" duration={3} /></h1>
+                            <h6>Active Members</h6>
+                        </div>
                     </div>
-                    <div className="item">
-                        <h1 className="fw-lg"><CountUp start={600} end={700} suffix="+" duration={3} /></h1>
-                        <h6>Happy Clients</h6>
+                    <div className="d-flex align-items-center">
+                        <FontAwesomeIcon icon={faShoppingCart} className="fa-3x" style={{ color: 'orange' }}></FontAwesomeIcon>
+                        <div className="item">
+                            <h1><CountUp start={800} end={900} suffix="+" duration={3} /></h1>
+                            <h6>Services For Sale</h6>
+                        </div>
                     </div>
-                    <div className="item">
-                        <h1 className="fw-lg"><CountUp start={60} end={99} suffix="%" duration={3} /></h1>
-                        <h6>Our Client Satisfaction Rate</h6>
+                    <div className="d-flex align-items-center">
+                        <FontAwesomeIcon icon={faTrophy} className="fa-3x" style={{ color: 'orange' }}></FontAwesomeIcon>
+                        <div className="item">
+                            <h1><CountUp start={300} end={400} suffix="+" duration={3} /></h1>
+                            <h6>Cup Of Coffee</h6>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -144,15 +148,27 @@ const AboutUs = () => {
                 </div>
             </div>
             <div className="container mb-5">
-                <h3 className="mt-5 mb-4 fw-bold">OUR EXPERTISE</h3>
-                <p>We are a team of experts, coming together from diverse background and skill sets are shown below:</p>
-                <div className="d-flex flex-wrap justify-content-between mt-5 mb-5">
-                    <img className="tech" src={react} alt="" />
-                    <img className="tech" src={javascript} alt="" />
-                    <img className="tech" src={nodejs} alt="" />
-                    <img className="tech" src={uxui} alt="" />
-                    <img className="tech" src={it_support} alt="" />
-                    <img className="tech" src={android} alt="" />
+                <h3 className="mt-5 mb-4 fw-bold">Our partners</h3>
+                <p>These companies are our lifelong partners whose efforts support our goals.</p>
+                <div className="row pt-4">
+                    <div className="col-md-2 col-6 effect">
+                        <img src="https://i.ibb.co/v4nkQtv/logo-coca-cola.png" alt="" />
+                    </div>
+                    <div className="col-md-2 col-6 effect">
+                        <img src="https://i.ibb.co/VwN2FK3/logo-godrej.png" alt="" />
+                    </div>
+                    <div className="col-md-2 col-6 effect">
+                        <img src="https://i.ibb.co/12JXnD2/logo-oppo.png" alt="" />
+                    </div>
+                    <div className="col-md-2 col-6 effect">
+                        <img src="https://i.ibb.co/ZhktLXH/logo-paypal.png" alt="" />
+                    </div>
+                    <div className="col-md-2 col-6 effect">
+                        <img src="https://i.ibb.co/g9DjCfQ/logo-philips.png" alt="" />
+                    </div>
+                    <div className="col-md-2 col-6 effect">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu-N58w5sQQ1-L2DFCk6b6aGStckDOhEaiaUlLFs4GzPQTI_XFROUNolwUi55wHwrZjXk&usqp=CAU" alt="" />
+                    </div>
                 </div>
             </div>
         </section >
