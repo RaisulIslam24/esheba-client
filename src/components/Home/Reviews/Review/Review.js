@@ -3,7 +3,6 @@ import './Review.css';
 
 const Review = ({ review }) => {
     const { photo, name, address, description } = review;
-    console.log(name)
     return (
         <div className="item">
             <div className="shadow-effect">
