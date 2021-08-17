@@ -63,7 +63,7 @@ const ReviewList = () => {
 
                 setIds(id)
                 console.log(id, 'clicked')
-                fetch(`http://localhost:5000/deleteReview/${id}`, {
+                fetch(`https://e-sheba.herokuapp.com/deleteReview/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
