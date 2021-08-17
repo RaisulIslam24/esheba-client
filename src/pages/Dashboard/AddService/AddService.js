@@ -1,17 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './AddService.css';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 import Sidebar from '../Sidebar/Sidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
+import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { userContext } from '../../../App';
+import TopBarDash from '../TopBarDash/TopBarDash';
 
 const AddService = () => {
+    const [serviceInfo, setServiceInfo] = useState([])
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
 
-    const [imageUrl, setImageUrl] = useState();
-    const [serviceInfo, setServiceInfo] = useState();
 
+    const [imageUrl, setImageUrl] = useState()
+    const history = useHistory();
+
+    // Upload Image to imgBB and take url...
     const handleImageUpload = event => {
         const imageData = new FormData();
         imageData.set('key', '5fb422405e02b3782f9ac55b36d77374');
@@ -27,14 +35,15 @@ const AddService = () => {
             });
     }
 
+    // Upload service to the database..
     const onSubmit = data => {
         if (imageUrl) {
             let newObject = { ...data }
+
             newObject.image = imageUrl;
-            newObject.serviceProviderName = "Shahinur Alam Bhuiyan"
-            newObject.serviceProviderEmail = "shahin12@gmail.com"
+            newObject.serviceProviderName = loggedInUser.name;
+            newObject.serviceProviderEmail = loggedInUser.email;
             setServiceInfo(newObject)
-            
 
             fetch('https://e-sheba.herokuapp.com/addService', {
                 method: 'POST',
@@ -45,7 +54,15 @@ const AddService = () => {
                     response.json()
                         .then((res) => {
                             if (response.status === 200) {
-                                alert('your service uploaded')
+                                Swal.fire({
+                                    title: 'Good job!',
+                                    text: 'Your service added!',
+                                    icon: 'success'
+                                }).then((result) => {
+                                    if (result) {
+                                        history.push('/serviceList')
+                                    }
+                                })
                             }
                             if (response.status === 401) {
                                 alert('data not uploaded')
@@ -54,10 +71,8 @@ const AddService = () => {
                 })
                 .catch(error => {
                     console.error(error)
-                })
-            // axios.post('https://e-sheba.herokuapp.com/addService', newObject)
-            //     .then(response => console.log(response.data));
-            reset()
+                });
+            reset();
         } else {
             alert('please upload  your service photo')
         }
@@ -76,43 +91,44 @@ const AddService = () => {
 
 
     return (
-        <section className="addService">
-            <div className="addServiceLeft">
-                <Sidebar ></Sidebar>
-            </div>
-            <div className="addServiceRight">
-                <h2 className="text-center p-3">Add your service information</h2>
-                <form onSubmit={handleSubmit(onSubmit)} className="addProductForm">
-                    <div className="addProductItem">
-                        <label>Service Name</label>
-                        <input type="text" {...register("serviceName", { required: true })} placeholder="Car Washing" />
-                    </div>
-                    <div className="addProductItem">
-                        <label htmlFor="file">
-                            <span>Upload Service Image</span>
-                            <FontAwesomeIcon
-                                className={imageUrl ? "serviceUpdateIconGreen" : "serviceUpdateIconRed"}
-                                icon={faUpload} />
-                        </label>
-                        <input style={{ display: 'none' }} type="file" onChange={handleImageUpload} id="file" />
-                    </div>
-                    <div className="addProductItem">
-                        <label>Service Details</label>
-                        <input type="text" {...register("serviceDetails", { required: true })} placeholder="This service is about ..." />
-                    </div>
-                    <div className="addProductItem">
-                        <label>Price</label>
-                        <input type="number" {...register("price", { required: true })} placeholder="$ 23" />
-                    </div>
-                    <div className="addProductItem">
+        <>
+            <TopBarDash />
+            <section className="addService">
+                <Sidebar />
+                <div className="addServiceRight">
+                    <h3 className="text-center p-3">Add your service</h3>
+                    <form onSubmit={handleSubmit(onSubmit)} className="addProductForm">
+                        <div className="addProductItem">
+                            <label>Service Name</label>
+                            <input type="text" {...register("serviceName", { required: true })} placeholder="Car Washing" />
+                        </div>
+                        <div className="addProductItem">
+                            <label htmlFor="file">
+                                <span>Upload Service Image</span>
+                                <FontAwesomeIcon
+                                    className={imageUrl ? "serviceUpdateIconGreen" : "serviceUpdateIconRed"}
+                                    icon={faUpload} />
+                            </label>
+                            <input style={{ display: 'none' }} type="file" onChange={handleImageUpload} id="file" />
+                        </div>
+                        <div className="addProductItem">
+                            <label>Service Details</label>
+                            <input type="text" {...register("serviceDetails", { required: true })} placeholder="This service is about ..." />
+                        </div>
+                        <div className="addProductItem">
+                            <label>Price</label>
+                            <input type="number" {...register("price", { required: true })} placeholder="$ 23" />
+                        </div>
+                        <div className="addProductItem">
 
-                        <Select label="Age" {...register("isAvaiable", { required: true })} />
+                            <Select label="Age" {...register("isAvaiable", { required: true })} />
 
-                    </div>
-                    <input className="addProductButton" style={{display: imageUrl ? 'block' : 'none'}} type="submit" />
-                </form>
-            </div>
-        </section>
+                        </div>
+                        <input className="addProductButton" style={{ display: imageUrl ? 'block' : 'none' }} type="submit" />
+                    </form>
+                </div>
+            </section>
+        </>
     );
 };
 

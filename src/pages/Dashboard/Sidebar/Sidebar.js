@@ -1,83 +1,114 @@
 import React, { useContext, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCommentAlt, faBriefcase, faPlus, faUserPlus, faTasks, faSignOutAlt, faHome } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
 import './Sidebar.css';
+import {
+    MailOutline,
+    People,
+    PersonAdd,
+    RateReview,
+    AddShoppingCart,
+    Redeem,
+    Home,
+    ExitToApp
+} from "@material-ui/icons";
+import { Link } from 'react-router-dom';
 import { userContext } from '../../../App';
 
 const Sidebar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
 
+    const handleLogOut = () => {
+        sessionStorage.removeItem('user');
+        setLoggedInUser({})
+    }
+
 
     return (
         <div className="sidebar">
-            <div className="userInfo">
-                <img src={loggedInUser.photo} alt="" />
-                <span>{loggedInUser.name}</span>
-            </div>
-            <ul className="list-unstyled">
-                <li>
-                    <Link to="/" className="text-white link">
-                        <FontAwesomeIcon icon={faHome} /> <span>Home</span>
-                    </Link>
-                </li>
-                
-                {/* Consumer */}
-                {loggedInUser.role === 'consumer' && <div>
+            <div className="sidebarWrapper">
+                <div className="sidebarMenu">
 
-                    <li>
-                        <Link to="/review" className="text-white link">
-                            <FontAwesomeIcon icon={faCommentAlt} /> <span>Review</span>
-                        </Link>
-                    </li>
-                </div>}
+                    {loggedInUser.role === 'admin' &&
+                        <>
+                            <h3 className="sidebarTitle">Admin Panel</h3>
+                            <ul className="sidebarList">
+                                <Link to="/serviceList" className="sidebarListItem link ">
+                                    <Redeem className="sidebarIcon" />
+                                    All Services
+                                </Link>
+                                <Link to="/consumersList" className="sidebarListItem link">
+                                    <People className="sidebarIcon" />
+                                    Service Consumers
+                                </Link>
+                                <Link to='/serviceProvidersList' className="sidebarListItem link">
+                                    <People className="sidebarIcon" />
+                                    Service Providers
+                                </Link>
 
-                {/* Admin */}
-                {loggedInUser.role === 'admin' && <div>
-                    <li>
-                        <Link to="/AdminOrderList" className="text-white link">
-                            <FontAwesomeIcon icon={faBriefcase} /> <span>Order List</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/addService" className="text-white link">
-                            <FontAwesomeIcon icon={faPlus} /> <span>Add Service</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/makeAdmin" className="text-white link">
-                            <FontAwesomeIcon icon={faUserPlus} /> <span>Make Admin</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/consumersList" className="text-white link">
-                            <FontAwesomeIcon icon={faTasks} /> <span>Consumers List</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/serviceProvidersList" className="text-white link">
-                            <FontAwesomeIcon icon={faTasks} /> <span>Service Providers List</span>
-                        </Link>
-                    </li>
-                </div>}
+                                <Link to="/orderList" className="sidebarListItem link">
+                                    <MailOutline className="sidebarIcon" />
+                                    Order List
+                                </Link>
+                                <Link to="/makeAdmin" className="sidebarListItem link">
+                                    <PersonAdd className="sidebarIcon" />
+                                    Make Admin
+                                </Link>
+                                <Link to="/addService" className="sidebarListItem link">
+                                    <AddShoppingCart className="sidebarIcon" />
+                                    Add Services
+                                </Link>
+                                <Link to="/reviewList" className="sidebarListItem link">
+                                    <RateReview className="sidebarIcon" />
+                                    All Reviews
+                                </Link>
+                            </ul>
+                        </>
+                    }
 
-                {/* Service Provider */}
-                {loggedInUser.role === 'service-provider' && <div>
-                    <li>
-                        <Link to="/addService" className="text-white link">
-                            <FontAwesomeIcon icon={faPlus} /> <span>Add Service</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/manageServices" className="text-white link">
-                            <FontAwesomeIcon icon={faTasks} /> <span>Manage Services</span>
-                        </Link>
-                    </li>
-                </div>}
+                    {loggedInUser.role === 'service-provider' &&
+                        <>
+                            <h3 className="sidebarTitle">Service Provider Panel</h3>
+                            <ul className="sidebarList">
+                                <Link to="/" className="sidebarListItem link ">
+                                    <Redeem className="sidebarIcon" />
+                                    Services
+                                </Link>
+                                <Link to="/addService" className="sidebarListItem link">
+                                    <AddShoppingCart className="sidebarIcon" />
+                                    Add Services
+                                </Link>
+                            </ul>
+                        </>
+                    }
 
-            </ul>
-            <div>
-                <Link to="/" className="text-white link"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>
+                    {loggedInUser.role === 'consumer' &&
+                        <>
+                            <h3 className="sidebarTitle">Service Taker Panel</h3>
+                            <ul className="sidebarList">
+                                <Link to="/addReview" className="sidebarListItem link">
+                                    <RateReview className="sidebarIcon" />
+                                    Add Review
+                                </Link>
+                                <Link to="/" className="sidebarListItem link">
+                                    <RateReview className="sidebarIcon" />
+                                    Order List
+                                </Link>
+                            </ul>
+                        </>
+                    }
+                </div>
+                <div className="sidebarMenu">
+                    <h3 className="sidebarTitle">Quick Menu</h3>
+                    <ul className="sidebarList">
+                        <Link to="/" className="sidebarListItem link active ">
+                            <Home className="sidebarIcon" />
+                            Home
+                        </Link>
+                        <li className="sidebarListItem link" onClick={handleLogOut}>
+                            <ExitToApp className="sidebarIcon" />
+                            Logout
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     );

@@ -10,7 +10,7 @@ const FAQs = () => {
     return (
         <section className="container">
             <div className="row pt-5">
-                <div data-aos="fade-right" className="col-md-6 col-12 bg-white p-5 rounded">
+                <div data-aos="zoom-in" className="col-md-6 col-12 bg-white p-5 rounded">
                     <h2>Frequently Asked Questions</h2>
                     <details className="mt-5">
                         <summary><strong>What payment methods do you accept?</strong></summary>
@@ -36,7 +36,7 @@ const FAQs = () => {
                         <p>Yes, you can cancel any orders within 12 hours after ordering any service.</p>
                     </details>
                 </div>
-                <div data-aos="fade-left" className="col-md-6 col-12">
+                <div data-aos="zoom-in" className="col-md-6 col-12">
                     <Form />
                 </div>
             </div>

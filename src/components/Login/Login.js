@@ -44,6 +44,9 @@ const Login = () => {
                 }
                 setUser(signedInUser);
 
+                // Add Data to sessionStorage
+                sessionStorage.setItem('user', JSON.stringify(signedInUser))
+
                 if (user.role === 'consumer' || user.role === 'service-provider') {
                     fetch('https://e-sheba.herokuapp.com/addUser', {
                         method: 'POST',
@@ -60,15 +63,15 @@ const Login = () => {
                             }
                         })
                 }
-                else if(user.role === 'admin'){
+                else if (user.role === 'admin') {
                     fetch('https://e-sheba.herokuapp.com/checkAdmin', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({email: signedInUser.email})
+                        body: JSON.stringify({ email: signedInUser.email })
                     })
                         .then(res => res.json())
                         .then(data => {
-                            if(data){
+                            if (data) {
                                 setLoggedInUser(signedInUser);
                                 history.push("/dashboard");
                             } else {
@@ -213,7 +216,12 @@ const Login = () => {
                         }
                         <input type="text" name="" placeholder="Enter Email" onBlur={handleBlur} required disabled />
                         <input type="password" name="" placeholder="Enter Password" onBlur={handleBlur} required disabled />
-                        <input type="submit" name="" value={newUser ? "Sign Up" : "Login"} disabled/>
+                        <input type="submit" name="" value={newUser ? "Sign Up" : "Login"} disabled />
+                        {/* <div className="link-text text-center">
+                        <a href="#">Forget password?</a>
+                        {" "}
+                        <a href="#">Don't have an account?</a>
+                    </div> */}
 
                         <div className="a mt-3 text-center text-logSign">
                             {

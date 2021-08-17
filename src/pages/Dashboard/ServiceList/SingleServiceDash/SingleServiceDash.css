@@ -1,0 +1,136 @@
+.service {
+  display: flex;
+}
+
+.serviceRight {
+  flex: 4;
+  padding: 20px;
+}
+
+.serviceItemContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.serviceAddButton {
+  width: 80px;
+  padding: 5px;
+  border: none;
+  color: white;
+  background-color: teal;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.serviceTopRight {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  margin: 20px;
+  -webkit-box-shadow: 0px 0px 11px -1px #000000;
+  box-shadow: 0px 0px 11px -1px #000000;
+}
+
+.serviceInfoTop {
+  display: flex;
+  align-items: center;
+}
+
+.serviceInfoImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.serviceName {
+  font-weight: 600;
+}
+
+.providerInfoDash {
+  margin-top: 20px;
+}
+
+.serviceInfoItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.serviceInfoValue {
+  font-weight: 300;
+}
+
+.serviceBottom {
+  padding: 20px;
+  margin: 20px;
+  -webkit-box-shadow: 0px 0px 11px -1px #000000;
+  box-shadow: 0px 0px 11px -1px #000000;
+}
+
+.serviceForm {
+  display: flex;
+  justify-content: space-between;
+}
+
+.serviceFormLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.serviceFormLeft > label {
+  margin-bottom: 10px;
+  color: gray;
+}
+
+.serviceFormLeft > input {
+  margin-bottom: 10px;
+  border: none;
+  padding: 5px;
+  border-bottom: 1px solid gray;
+}
+
+.serviceFormLeft > select {
+  margin-bottom: 10px;
+}
+
+.serviceFormRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.serviceUpload {
+  display: flex;
+  align-items: center;
+}
+
+.serviceUploadImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.serviceButton {
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: darkblue;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.serviceUpdateIconRed {
+  cursor: pointer;
+  color: rgb(180, 167, 167);
+  font-size: 24px !important;
+}
+.serviceUpdateIconGreen {
+  color: green;
+  cursor: pointer;
+  font-size: 24px !important;
+}

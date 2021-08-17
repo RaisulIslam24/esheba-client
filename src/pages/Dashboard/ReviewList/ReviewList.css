@@ -1,0 +1,14 @@
+.reviewList {
+  display: flex;
+}
+
+.reviewListRight {
+  flex: 4;
+  /* margin-top: 30px; */
+}
+
+
+.deleteReviewIcon{
+    cursor: pointer;
+    color: red;
+}

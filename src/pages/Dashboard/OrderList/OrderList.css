@@ -1,0 +1,10 @@
+.orderList{
+    display: flex;
+}
+
+.orderListRight{
+    flex: 4;
+}
+.orderListRightBottom{
+    margin-top: 50px;
+}
