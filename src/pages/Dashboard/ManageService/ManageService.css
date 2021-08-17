@@ -1,0 +1,7 @@
+.manageService{
+    display: flex;
+}
+
+.manageServiceRight{
+    flex: 4;
+}

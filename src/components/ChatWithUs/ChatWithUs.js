@@ -15,7 +15,7 @@ const ChatWithUs = () => {
                     <h5>Let us know if you need any help.</h5>
                     <h6 style={{ color: 'cyan' }}><FontAwesomeIcon icon={faPhone} /> 01234-56789</h6>
                     <span><FontAwesomeIcon icon={faClock} /> Available: 09:00am to 7:00pm</span><br />
-                    <a className="text-decoration-none" href="http://www.facebook.com" target="_blank">
+                    <a className="text-decoration-none" href="http://www.facebook.com" target="_blank" rel="noreferrer">
                         <div className="mt-3 d-flex align-items-center" style={{color: 'cyan'}}>
                             <FontAwesomeIcon icon={faFacebook} size="3x" />
                             <h5 className="ms-2">Join with us</h5>

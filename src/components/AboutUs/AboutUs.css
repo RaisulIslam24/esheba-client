@@ -1,9 +1,66 @@
-.aboutContainer{
-    text-align: justify;
+.aboutContainer {
+  text-align: justify;
+  font-family: "Roboto", sans-serif;
 }
-.aboutContainer img{
-    width: 150px;
-    margin: 10px;
-    background-color: white;
-    border-radius: 15px;
+.welcome-heading h1 {
+  font-size: 50px;
+}
+.tech {
+  width: 120px;
+  margin: 10px;
+  background-color: white;
+  border-radius: 15px;
+}
+.figItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: blanchedalmond;
+  width: 180px;
+  height: 180px;
+  margin: 10px;
+}
+.header-container {
+  height: 600px;
+  text-align: center;
+  position: relative;
+  background-image: url("../../images/service.jpeg");
+  background-position: 100%;
+  background-size: cover;
+  z-index: 1;
+}
+.header-container::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgb(244, 247, 244),
+    rgba(180, 196, 187, 0.69) 57.98%,
+    hsl(180, 4%, 5%) 73.26%
+  );
+  opacity: 0.9;
+  z-index: -1;
+}
+.awards {
+  border: none;
+}
+@media only screen and (max-width: 600px) {
+  .welcome-heading h1 {
+    font-size: 30px;
+  }
+  .figItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10%;
+    background-color: blanchedalmond;
+    width: 100%;
+    height: 100%;
+  }
 }

@@ -1,0 +1,10 @@
+.competenciesAnimation{
+    text-align: center;
+    border-radius: 50%;
+    background-color: aliceblue;
+    width: 105px;
+    height: 105px;
+}
+.competenciesAnimation:hover{
+    background-color: rgba(120, 207, 131, 0.856);
+}

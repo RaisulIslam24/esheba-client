@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { userContext } from '../../App';
+import React from 'react';
 import FAQs from '../FAQs/FAQs';
 import TopServices from '../TopServices/TopServices';
 import Footer from '../Footer/Footer';

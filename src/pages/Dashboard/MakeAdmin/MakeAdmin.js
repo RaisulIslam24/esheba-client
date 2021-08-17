@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import Sidebar from '../Sidebar/Sidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2';
+import TopBarDash from '../TopBarDash/TopBarDash';
 
 const MakeAdmin = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -25,6 +27,8 @@ const MakeAdmin = () => {
             });
     }
 
+    console.log(imageUrl)
+
     const onSubmit = data => {
         if (imageUrl) {
             let newObject = { ...data }
@@ -39,7 +43,15 @@ const MakeAdmin = () => {
                     response.json()
                         .then((res) => {
                             if (response.status === 200) {
-                                alert('Admin of the website is created!')
+                                Swal.fire({
+                                    title: 'Good job!',
+                                    text: 'Admin added!',
+                                    icon: 'success'
+                                }).then((result) => {
+                                    if (result) {
+                                        reset();
+                                    }
+                                })
                             }
                             if (response.status === 401) {
                                 alert('something went wrong.Please, try again later!')
@@ -49,44 +61,45 @@ const MakeAdmin = () => {
                 .catch(error => {
                     console.error(error)
                 })
-            reset()
         } else {
             alert('please upload  your service photo')
         }
     };
 
     return (
-        <section className="makeAdmin">
-            <div className="makeAdminLeft">
-                <Sidebar></Sidebar>
+        <>
+            <TopBarDash />
+            <div className="makeAdmin">
+                <Sidebar />
+                <div className="makeAdminRight">
+                    <h4 className="text-center">Make Admin</h4>
+                    <form onSubmit={handleSubmit(onSubmit)} className="makeAdminForm">
+                        <div className="makeAdminItem">
+                            <label>Admin Name</label>
+                            <input type="text" {...register("adminName", { required: true })} placeholder="Shahinur Alam Bhuiyan" />
+                        </div>
+                        <div className="makeAdminItem">
+                            <label htmlFor="file">
+                                <span>Upload Admin Image</span>
+                                <FontAwesomeIcon
+                                    className={imageUrl ? "makeAdminIconGreen" : "makeAdminIconRed"}
+                                    icon={faUpload} />
+                            </label>
+                            <input style={{ display: 'none' }} type="file" onChange={handleImageUpload} id="file" />
+                        </div>
+                        <div className="makeAdminItem">
+                            <label>Admin Email</label>
+                            <input type="email" {...register("adminEmail", { required: true })} placeholder="shahinur@gmail.com" />
+                        </div>
+                        <div className="makeAdminItem">
+                            <label>Phone Number</label>
+                            <input type="number" {...register("phoneNo", { required: true })} placeholder="+880 1839-78735" />
+                        </div>
+                        <input className="makeAdminButton" style={{ display: imageUrl ? 'block' : 'none' }} type="submit" />
+                    </form>
+                </div>
             </div>
-            <div className="makeAdminRight">
-                <form onSubmit={handleSubmit(onSubmit)} className="makeAdminForm">
-                    <div className="makeAdminItem">
-                        <label>Admin Name</label>
-                        <input type="text" {...register("adminName", { required: true })} placeholder="Shahinur Alam Bhuiyan" />
-                    </div>
-                    <div className="makeAdminItem">
-                        <label htmlFor="file">
-                            <span>Upload Admin Image</span>
-                            <FontAwesomeIcon
-                                className={imageUrl ? "makeAdminIconGreen" : "makeAdminIconRed"}
-                                icon={faUpload} />
-                        </label>
-                        <input style={{ display: 'none' }} type="file" onChange={handleImageUpload} id="file" />
-                    </div>
-                    <div className="makeAdminItem">
-                        <label>Admin Email</label>
-                        <input type="email" {...register("adminEmail", { required: true })} placeholder="shahinur@gmail.com" />
-                    </div>
-                    <div className="makeAdminItem">
-                        <label>Phone Number</label>
-                        <input type="number" {...register("phoneNo", { required: true })} placeholder="+880 1839-78735" />
-                    </div>
-                    <input className="makeAdminButton" style={{ display: imageUrl ? 'block' : 'none' }} type="submit" />
-                </form>
-            </div>
-        </section>
+        </>
     );
 };
 
