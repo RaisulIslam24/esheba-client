@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { createContext } from 'react';
 import gif from './images/uu.gif';
 // Routers
-import Brands from "./components/Brands/Brands";
+
 import ChatWithUs from "./components/ChatWithUs/ChatWithUs";
 import AddReview from "./pages/Dashboard/AddReview/AddReview";
 import AddService from "./pages/Dashboard/AddService/AddService";
@@ -26,6 +26,7 @@ import ServiceList from './pages/Dashboard/ServiceList/ServiceList';
 import SingleServiceDash from './pages/Dashboard/ServiceList/SingleServiceDash/SingleServiceDash';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ReviewList from './pages/Dashboard/ReviewList/ReviewList';
+import Community from './components/Community/Community';
 
 export const userContext = createContext();
 
@@ -86,8 +87,8 @@ function App() {
               <Route path="/subscribe">
                 <Subscribe />
               </Route>
-              <Route path="/brands">
-                <Brands />
+              <Route path="/community">
+                <Community />
               </Route>
 
               {/* Dashboard Item */}
