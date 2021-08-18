@@ -9,6 +9,8 @@ import NavBar from './NavBar/NavBar';
 import PopularBlogs from './PopularBlogs/PopularBlogs';
 import Reviews from './Reviews/Reviews';
 import SpecialOffer from './SpecialOffer/SpecialOffer';
+// import TopProvider from '../TopProvider/TopProvider';
+import TopServicePro from '../TopServicePro/TopServicePro';
 
 const Home = () => {
     return (
@@ -16,6 +18,7 @@ const Home = () => {
             <NavBar />
             <Header />
             <TopServices />
+            <TopServicePro/>
             <PopularBlogs />
             <SpecialOffer />
             <Reviews />

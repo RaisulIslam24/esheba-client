@@ -30,7 +30,7 @@ const PopularBlogs = () => {
         </div>
         :
         <div className="popular-blog">
-            <h2 data-aos="fade-right">Popular Blogs</h2>
+              <h5 data-aos="fade-up" class="title">Popular<span className=""> Blogs</span></h5>
             <div className="blog-container">
                 {blogs?.slice(0, 3).map((blog) =>
                     <Blog key={blog.id} blog={blog} />
