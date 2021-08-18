@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import avatar from '../../img/avatar.png';
 import './Login.css';
+import avatar from '../../img/avatar.png';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
@@ -11,6 +11,7 @@ import Footer from '../Footer/Footer';
 import { useHistory } from 'react-router-dom';
 import { useContext } from 'react';
 import { userContext } from '../../App';
+import Swal from 'sweetalert2';
 
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
@@ -18,12 +19,11 @@ if (!firebase.apps.length) {
     firebase.app();
 }
 const Login = () => {
-    const [ setLoggedInUser] = useContext(userContext);
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
     const [newUser, setNewUser] = useState(false);
     const history = useHistory();
     const [user, setUser] = useState({
         isSignedIn: false,
-        // newUser: false,
         name: '',
         email: '',
         password: '',
@@ -44,8 +44,6 @@ const Login = () => {
                 }
                 setUser(signedInUser);
 
-                // Add Data to sessionStorage
-                sessionStorage.setItem('user', JSON.stringify(signedInUser))
 
                 if (user.role === 'consumer' || user.role === 'service-provider') {
                     fetch('https://e-sheba.herokuapp.com/addUser', {
@@ -57,9 +55,15 @@ const Login = () => {
                         .then(data => {
                             if (data) {
                                 setLoggedInUser(signedInUser);
+                                // Add Data to sessionStorage
+                                sessionStorage.setItem('user', JSON.stringify(signedInUser))
                                 history.push('/dashboard');
                             } else {
-                                alert('Please give correct value');
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Check your role!...',
+                                    text: 'Your account is not in this role! please check your role.',
+                                })
                             }
                         })
                 }
@@ -72,15 +76,21 @@ const Login = () => {
                         .then(res => res.json())
                         .then(data => {
                             if (data) {
+                                console.log(signedInUser)
                                 setLoggedInUser(signedInUser);
+                                // Add Data to sessionStorage
+                                sessionStorage.setItem('user', JSON.stringify(signedInUser))
                                 history.push("/dashboard");
                             } else {
-                                alert("This person is not admin");
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Check your role!...',
+                                    text: 'Your account is not as an admin role!',
+                                })
                             }
                         })
                 }
                 else {
-                    setLoggedInUser(signedInUser);
                     alert('Please select what you want to log in as?');
                 }
                 // setLoggedInUser(signedInUser)
@@ -183,6 +193,7 @@ const Login = () => {
 
     const handleRadioBtn = (e) => {
         const userData = { ...user, role: e.target.value };
+        console.log(userData)
         setUser(userData);
     }
 
@@ -191,7 +202,7 @@ const Login = () => {
             <NavBar />
             <section className="section-header">
                 <div className="loginbox ">
-                    <img src={avatar} className="avatar" alt=""/>
+                    <img src={avatar} className="avatar" alt="" />
 
                     <form className="mb-3 text-center login-as">
                         <p className="pb-2">What do you want to {newUser ? "sign up" : "log in"} as?</p>

@@ -1,12 +1,17 @@
 import React, { useContext } from 'react';
-import { Image, Nav, Navbar } from 'react-bootstrap';
+import { Image, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
 import logo from '../../../images/default-monochrome.svg'
 import { userContext } from '../../../App';
 
 const NavBar = () => {
-    const [loggedInUser] = useContext(userContext);
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
+
+    const handleLogOut = () => {
+        sessionStorage.removeItem('user');
+        setLoggedInUser({})
+    }
 
     return (
         <Navbar collapseOnSelect bg="light" expand="lg">
@@ -14,7 +19,7 @@ const NavBar = () => {
                 <img
                     src={logo}
                     className="d-inline-block align-top w-50 ms-4"
-                    alt=""
+                    alt="logo"
                 />
             </Navbar.Brand>
             <Navbar.Toggle variant="dark" aria-controls="responsive-navbar-nav" />
@@ -28,10 +33,24 @@ const NavBar = () => {
                     <Link className="navLink link" to="/dashboard">Dashboard</Link>
                     {
                         loggedInUser.email ?
-                            <Image className="userImage navLink" src={loggedInUser.photo} alt={loggedInUser.name} style={{ width: '40px', height: '40px' }} roundedCircle />
+                            <>
+                                <OverlayTrigger
+                                    key="bottom"
+                                    placement="bottom"
+                                    trigger="click"
+                                    overlay={
+                                        <Tooltip className="logout-tooltip" onClick={handleLogOut}>
+                                            &nbsp;&nbsp;Log out&nbsp;&nbsp;
+                                        </Tooltip>
+                                    }
+                                >
+                                    <Image className="userImage navLink" src={loggedInUser.photo} alt={loggedInUser.name} style={{ width: '40px', height: '40px' }} roundedCircle />
+                                </OverlayTrigger>
+                            </>
                             :
                             <Link className="navLink link" to="/login">Login</Link>
                     }
+
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

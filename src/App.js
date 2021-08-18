@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { createContext } from 'react';
 import gif from './images/uu.gif';
 // Routers
@@ -34,6 +34,8 @@ export const userContext = createContext();
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+
+
   useEffect(() => {
     const USER = JSON.parse(sessionStorage.getItem('user'));
     if (USER) {
@@ -52,6 +54,8 @@ function App() {
     width: "100vw",
     height: "100vh"
   }
+  const user = JSON.parse(sessionStorage.getItem("user"));
+
   return (
     <userContext.Provider value={[loggedInUser, setLoggedInUser]}>
       {
@@ -62,12 +66,13 @@ function App() {
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route path="/home">
+              <Route exact path="/home">
                 <Home />
               </Route>
-              <Route path="/login">
+              {/* <Route path="/login">
                 <Login />
-              </Route>
+              </Route> */}
+              <Route path="/login" exact component={() => (!user ? <Login /> : <Redirect to="/home" />)} />
               <Route path="/blogs">
                 <AllBlogs />
               </Route>

@@ -51,7 +51,7 @@ const Consumer = () => {
                                     <TableRow key={consumer._id}>
                                         <TableCell align="left">
                                             <img className="consumerImage" src={consumer.photo} alt="" />
-                                            &nbsp;{consumer.name}
+                                            &nbsp;  &nbsp;{consumer.name}
                                         </TableCell>
                                         <TableCell align="left">{consumer.email}</TableCell>
                                         <TableCell align="left">{consumer.role}</TableCell>

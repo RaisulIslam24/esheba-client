@@ -16,4 +16,9 @@
     height: 40px;
     padding: 0;
     margin: 12px 25px;
+    cursor: pointer;
+}
+
+.logout-tooltip{
+    cursor: pointer;
 }
