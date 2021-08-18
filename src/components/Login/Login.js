@@ -191,8 +191,7 @@ const Login = () => {
             <NavBar />
             <section className="section-header">
                 <div className="loginbox ">
-                    <img src={avatar} className="avatar" />
-                    {/* <h1 className="login-title">Login Here</h1> */}
+                    <img src={avatar} className="avatar" alt=""/>
 
                     <form className="mb-3 text-center login-as">
                         <p className="pb-2">What do you want to {newUser ? "sign up" : "log in"} as?</p>

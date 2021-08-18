@@ -73,7 +73,6 @@ const AddReview = () => {
                             </form>
                         </div>
                     </div>
-
                 </div>
             </div>
         </>
