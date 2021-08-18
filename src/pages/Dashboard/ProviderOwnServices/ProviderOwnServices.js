@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import './Consumers.css';
+import React, { useState, useEffect, useContext } from 'react';
+import './ProviderOwnServices.css';
 import Sidebar from '../Sidebar/Sidebar';
 import TopBarDash from '../TopBarDash/TopBarDash';
 import Swal from 'sweetalert2';
@@ -13,6 +13,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import { userContext } from '../../../App';
 
 const useStyles = makeStyles({
     table: {
@@ -20,27 +21,25 @@ const useStyles = makeStyles({
     },
 });
 
-
-const Consumer = () => {
+const ProviderOwnServices = () => {
     const classes = useStyles();
-    const [consumers, setConsumers] = useState([]);
+    const [loggedInUser] = useContext(userContext)
+    const [providerOwnServices, setProviderOwnServices] = useState([]);
     const [ids, setIds] = useState(null);
 
-
     useEffect(() => {
-        fetch('https://e-sheba.herokuapp.com/loadAll/consumer')
+        fetch(`http://localhost:5000/provider-own-service/${loggedInUser.email}`)
             .then(res => res.json())
-            .then(data => setConsumers(data))
+            .then(data => setProviderOwnServices(data))
     }, [])
-
 
     // Immediately delete form frontEnd
     useEffect(() => {
-        setConsumers(consumers.filter((item) => item._id !== ids))
+        setProviderOwnServices(providerOwnServices.filter((item) => item._id !== ids))
     }, [ids])
 
     // Delete service onClick
-    const deleteProvider = (id) => {
+    const deleteService = (id) => {
         // Fancy pop up
         Swal.fire({
             title: 'Are you sure?',
@@ -60,7 +59,7 @@ const Consumer = () => {
 
                 setIds(id)
                 console.log(id, 'clicked')
-                fetch(`http://localhost:5000/deleteConsumer/${id}`, {
+                fetch(`http://localhost:5000/delete-provider-own-service/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
@@ -68,38 +67,39 @@ const Consumer = () => {
             }
         })
     }
-    
-    return (
 
+
+    return (
         <>
             <TopBarDash />
-            <section className="consumers">
+            <section className="providerOwnServices">
                 <Sidebar />
-                <div className="consumersRight">
+                <div className="providerOwnServicesRight">
                     <TableContainer component={Paper}>
                         <Table className={classes.table} aria-label="simple table">
                             <TableHead>
                                 <TableRow>
-                                    <TableCell className="tableHeadBold" align="left">Consumers Name</TableCell>
-                                    <TableCell className="tableHeadBold" align="left">Consumers Email</TableCell>
-                                    <TableCell className="tableHeadBold" align="left">Role</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Sl.</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Service Name</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Price</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Is Available</TableCell>
                                     <TableCell className="tableHeadBold" align="left">Action</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {consumers.map((consumer) => (
-                                    <TableRow key={consumer._id}>
+                                {providerOwnServices.map((providerOwnService, index) => (
+                                    <TableRow key={providerOwnService._id}>
+                                        <TableCell align="left">{index + 1}</TableCell>
                                         <TableCell align="left">
-                                            <img className="consumerImage" src={consumer.photo} alt="" />
-                                            &nbsp;  &nbsp;{consumer.name}
+                                            <img className="providerOwnServiceImage" src={providerOwnService.image} alt="" />
+                                            &nbsp;  &nbsp;{providerOwnService.serviceName}
                                         </TableCell>
-                                        <TableCell align="left">{consumer.email}</TableCell>
-                                        <TableCell align="left">{consumer.role}</TableCell>
+                                        <TableCell align="left">$ {providerOwnService.price}</TableCell>
+                                        <TableCell align="left">{providerOwnService.isAvaiable}</TableCell>
                                         <TableCell align="left">
                                             <DeleteOutlineIcon
-                                                className="deleteConsumerIcon"
-                                                onClick={() => deleteProvider(consumer._id)}
-                                            />
+                                                className="deleteProviderOwnServiceIcon"
+                                                onClick={() => deleteService(providerOwnService._id)} />
                                         </TableCell>
                                     </TableRow>
                                 ))}
@@ -112,4 +112,4 @@ const Consumer = () => {
     );
 };
 
-export default Consumer;
+export default ProviderOwnServices;

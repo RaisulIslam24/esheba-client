@@ -26,6 +26,7 @@ import ServiceList from './pages/Dashboard/ServiceList/ServiceList';
 import SingleServiceDash from './pages/Dashboard/ServiceList/SingleServiceDash/SingleServiceDash';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ReviewList from './pages/Dashboard/ReviewList/ReviewList';
+import ProviderOwnServices from './pages/Dashboard/ProviderOwnServices/ProviderOwnServices';
 
 export const userContext = createContext();
 
@@ -95,18 +96,68 @@ function App() {
               {/* Dashboard Item */}
 
               <PrivateRoute path="/dashboard"><Dashboard /></PrivateRoute>
-              <PrivateRoute path="/addReview"><AddReview /> </PrivateRoute>
-              <PrivateRoute path="/reviewList"><ReviewList /> </PrivateRoute>
+              <PrivateRoute
+                path="/addReview"
+                exact component={() => ((user?.role === "consumer")
+                  ? <AddReview />
+                  : <Redirect to="/dashboard" />)}
+              />
+
+              <PrivateRoute
+                path="/providerOwnServices"
+                exact component={() => ((user?.role === "service-provider")
+                  ? <ProviderOwnServices />
+                  : <Redirect to="/dashboard" />)}
+              />
+
+              <PrivateRoute
+                path="/reviewList"
+                exact component={() => ((user?.role === "admin")
+                  ? <ReviewList />
+                  : <Redirect to="/dashboard" />)}
+              />
+              <PrivateRoute
+                path="/makeAdmin"
+                exact component={() => ((user?.role === "admin")
+                  ? <MakeAdmin />
+                  : <Redirect to="/dashboard" />)}
+              />
+
+              <PrivateRoute
+                path="/addService"
+                exact component={() => ((user?.role === "service-provider" || user?.role === "admin")
+                  ? <AddService />
+                  : <Redirect to="/dashboard" />)}
+              />
+
+              <PrivateRoute
+                path="/consumersList"
+                exact component={() => ((user?.role === "admin")
+                  ? <Consumers />
+                  : <Redirect to="/dashboard" />)}
+              />
+              <PrivateRoute
+                path="/serviceProvidersList"
+                exact component={() => ((user?.role === "admin")
+                  ? <ServiceProvider />
+                  : <Redirect to="/dashboard" />)}
+              />
+
+              <PrivateRoute
+                path="/serviceList"
+                exact component={() => ((user?.role === "admin")
+                  ? <ServiceList />
+                  : <Redirect to="/dashboard" />)}
+              />
+              <PrivateRoute
+                path="/singleService/:id"
+                exact component={() => ((user?.role === "admin" || user?.role === "service-provider")
+                  ? <SingleServiceDash />
+                  : <Redirect to="/dashboard" />)}
+              />
               <PrivateRoute path="/AdminOrderList"><AdminOrderList /></PrivateRoute>
               <PrivateRoute path="/orderList"> <OrderList /> </PrivateRoute>
-              <PrivateRoute path="/makeAdmin"> <MakeAdmin /> </PrivateRoute>
-              <PrivateRoute path="/addService"> <AddService /></PrivateRoute>
               <PrivateRoute path="/manageServices"> <ManageServices /> </PrivateRoute>
-              <PrivateRoute path="/consumersList"> <Consumers /> </PrivateRoute>
-              <PrivateRoute path="/serviceProvidersList"> <ServiceProvider /> </PrivateRoute>
-              <PrivateRoute path="/serviceList"> <ServiceList /> </PrivateRoute>
-              <PrivateRoute path="/singleService/:id"> <SingleServiceDash /> </PrivateRoute>
-
               {/* Dashboard end */}
             </Switch>
             <ChatWithUs />

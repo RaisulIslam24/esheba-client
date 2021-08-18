@@ -59,7 +59,7 @@ const ServiceProvider = () => {
 
                 setIds(id)
                 console.log(id, 'clicked')
-                fetch(`url`, {
+                fetch(`http://localhost:5000/deleteProvider/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())

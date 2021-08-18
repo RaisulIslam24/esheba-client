@@ -68,9 +68,9 @@ const Sidebar = () => {
                         <>
                             <h3 className="sidebarTitle">Service Provider Panel</h3>
                             <ul className="sidebarList">
-                                <Link to="/" className="sidebarListItem link ">
+                                <Link to="/providerOwnServices" className="sidebarListItem link ">
                                     <Redeem className="sidebarIcon" />
-                                    Services
+                                    My Services
                                 </Link>
                                 <Link to="/addService" className="sidebarListItem link">
                                     <AddShoppingCart className="sidebarIcon" />
