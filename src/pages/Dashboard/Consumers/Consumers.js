@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './ServiceProvider.css';
+import './Consumers.css';
+import SingleConsumer from './SingleConsumer/SingleConsumer';
 import Sidebar from '../Sidebar/Sidebar';
 import TopBarDash from '../TopBarDash/TopBarDash';
 
@@ -20,40 +21,43 @@ const useStyles = makeStyles({
     },
 });
 
-const ServiceProvider = () => {
+
+const Consumer = () => {
     const classes = useStyles();
-    const [serviceProviders, setServiceProviders] = useState([]);
+    const [consumers, setConsumers] = useState([]);
     useEffect(() => {
-        fetch('https://e-sheba.herokuapp.com/loadAll/service-provider')
+        fetch('https://e-sheba.herokuapp.com/loadAll/consumer')
             .then(res => res.json())
-            .then(data => setServiceProviders(data))
+            .then(data => setConsumers(data))
     }, [])
+    console.log(consumers)
     return (
+
         <>
             <TopBarDash />
-            <section className="serviceProviders">
+            <section className="consumers">
                 <Sidebar />
-                <div className="serviceProvidersRight">
+                <div className="consumersRight">
                     <TableContainer component={Paper}>
                         <Table className={classes.table} aria-label="simple table">
                             <TableHead>
                                 <TableRow>
-                                    <TableCell className="tableHeadBold" align="left">Service Provider Name</TableCell>
-                                    <TableCell className="tableHeadBold" align="left">Service Provider Email</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Consumers Name</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Consumers Email</TableCell>
                                     <TableCell className="tableHeadBold" align="left">Role</TableCell>
                                     <TableCell className="tableHeadBold" align="left">Action</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {serviceProviders.map((serviceProvider) => (
-                                    <TableRow key={serviceProvider._id}>
+                                {consumers.map((consumer) => (
+                                    <TableRow key={consumer._id}>
                                         <TableCell align="left">
-                                            <img className="serviceProvidersImage" src={serviceProvider.photo} alt="" />
-                                            &nbsp;{serviceProvider.name}
+                                            <img className="consumerImage" src={consumer.photo} alt="" />
+                                            &nbsp;{consumer.name}
                                         </TableCell>
-                                        <TableCell align="left">{serviceProvider.email}</TableCell>
-                                        <TableCell align="left">{serviceProvider.role}</TableCell>
-                                        <TableCell align="left"><DeleteOutlineIcon className="deleteServiceProviderIcon" /></TableCell>
+                                        <TableCell align="left">{consumer.email}</TableCell>
+                                        <TableCell align="left">{consumer.role}</TableCell>
+                                        <TableCell align="left"><DeleteOutlineIcon className="deleteConsumerIcon" /></TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>
@@ -65,4 +69,4 @@ const ServiceProvider = () => {
     );
 };
 
-export default ServiceProvider;
+export default Consumer;

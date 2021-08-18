@@ -12,3 +12,10 @@
     cursor: pointer;
     color: red;
 }
+
+@media only screen and (max-width: 600px) {
+  .reviewList{
+      display: flex;
+      flex-direction: column-reverse;
+  }
+}

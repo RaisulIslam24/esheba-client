@@ -20,7 +20,7 @@ import AboutUs from './components/AboutUs/AboutUs';
 import Dashboard from './pages/Dashboard/Dashboard';
 import AllServices from './pages/AllServices/AllServices';
 import Services from './pages/ServiceDetails/ServiceDetails';
-import Consumer from './pages/Dashboard/Consumer/Consumer';
+import Consumers from './pages/Dashboard/Consumers/Consumers';
 import ServiceProvider from './pages/Dashboard/ServiceProvider/ServiceProvider';
 import ServiceList from './pages/Dashboard/ServiceList/ServiceList';
 import SingleServiceDash from './pages/Dashboard/ServiceList/SingleServiceDash/SingleServiceDash';
@@ -45,7 +45,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 2200);
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -101,7 +101,7 @@ function App() {
               <PrivateRoute path="/makeAdmin"> <MakeAdmin /> </PrivateRoute>
               <PrivateRoute path="/addService"> <AddService /></PrivateRoute>
               <PrivateRoute path="/manageServices"> <ManageServices /> </PrivateRoute>
-              <PrivateRoute path="/consumersList"> <Consumer /> </PrivateRoute>
+              <PrivateRoute path="/consumersList"> <Consumers /> </PrivateRoute>
               <PrivateRoute path="/serviceProvidersList"> <ServiceProvider /> </PrivateRoute>
               <PrivateRoute path="/serviceList"> <ServiceList /> </PrivateRoute>
               <PrivateRoute path="/singleService/:id"> <SingleServiceDash /> </PrivateRoute>

@@ -13,7 +13,7 @@ const PopularBlogs = () => {
     useEffect(() => {
         setTimeout(() => {
             setSkeletonTimer(false);
-        }, 8000);
+        }, 3000);
     }, []);
 
     useEffect(() => {

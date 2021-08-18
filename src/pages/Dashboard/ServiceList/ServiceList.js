@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './ServiceList.css';
+import { Link } from "react-router-dom";
+import Swal from 'sweetalert2';
+
 import { DataGrid } from "@material-ui/data-grid";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import EditIcon from '@material-ui/icons/Edit';
-import { Link } from "react-router-dom";
-import Swal from 'sweetalert2';
+
 import Sidebar from '../Sidebar/Sidebar';
 import TopBarDash from '../TopBarDash/TopBarDash';
+
 
 const ServiceList = () => {
     const [services, setServices] = useState([]);
@@ -65,6 +68,7 @@ const ServiceList = () => {
         {
             field: "service",
             headerName: "Service",
+            editable: true,
             width: 200,
             renderCell: (params) => {
                 return (
@@ -79,16 +83,19 @@ const ServiceList = () => {
             field: "price",
             headerName: "Price",
             width: 120,
+            editable: true,
         },
         {
             field: "isAvaiable",
             headerName: "Availability",
             width: 160,
+            editable: true,
         },
         {
             field: "serviceProviderName",
             headerName: "Provider name",
             width: 260,
+            editable: true,
         },
         {
             field: "action",

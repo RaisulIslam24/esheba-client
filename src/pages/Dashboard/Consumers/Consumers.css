@@ -1,21 +1,24 @@
-.serviceProviders {
+.consumers {
   display: flex;
 }
-.serviceProvidersRight {
+
+.consumersRight {
   flex: 4;
 }
 
-.serviceProvidersImage {
+.consumerImage {
   width: 40px;
   border-radius: 50%;
 }
-.deleteServiceProviderIcon {
+
+
+.deleteConsumerIcon{
   cursor: pointer;
   color: red;
 }
 
 @media only screen and (max-width: 600px) {
-  .serviceProviders{
+  .consumers{
       display: flex;
       flex-direction: column-reverse;
   }
