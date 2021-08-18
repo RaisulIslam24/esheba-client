@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './Consumers.css';
-import SingleConsumer from './SingleConsumer/SingleConsumer';
 import Sidebar from '../Sidebar/Sidebar';
 import TopBarDash from '../TopBarDash/TopBarDash';
 

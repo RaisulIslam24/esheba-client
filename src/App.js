@@ -26,13 +26,7 @@ import ServiceList from './pages/Dashboard/ServiceList/ServiceList';
 import SingleServiceDash from './pages/Dashboard/ServiceList/SingleServiceDash/SingleServiceDash';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ReviewList from './pages/Dashboard/ReviewList/ReviewList';
-<<<<<<< HEAD
-import Community from './components/Community/Community';
 
-=======
-import TestLogin from './components/TestLogin/TestLogin';
-import TopServicePro from './components/TopServicePro/TopServicePro';
->>>>>>> rahat-login
 export const userContext = createContext();
 
 
@@ -74,9 +68,6 @@ function App() {
               <Route path="/login">
                 <Login />
               </Route>
-              <Route path="/test">
-                <TestLogin />
-              </Route>
               <Route path="/blogs">
                 <AllBlogs />
               </Route>
@@ -94,9 +85,6 @@ function App() {
               </Route>
               <Route path="/subscribe">
                 <Subscribe />
-              </Route>
-              <Route path="/community">
-                <Community />
               </Route>
 
               {/* Dashboard Item */}
