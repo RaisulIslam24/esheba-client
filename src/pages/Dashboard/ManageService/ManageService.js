@@ -3,7 +3,7 @@ import './ManageService.css';
 import Sidebar from '../Sidebar/Sidebar';
 
 const ManageServices = () => {
-    const [orders, setOrders] = useState([]);
+    const [orders] = useState([]);
 
     return (
         <section className="manageService">
