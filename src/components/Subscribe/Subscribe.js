@@ -10,7 +10,7 @@ const Subscribe = () => {
     }, []);
     return (
         <div className="container mt-5">
-            <div className="d-flex justify-content-center align-items-center flex-wrap">
+            <div className="d-flex justify-content-center align-items-center subscribe-container">
                 <div data-aos="fade-down" className="signUp border rounded p-5 bg-light shadow">
                     <h3 className="fw-bold mb-4">Sign Up here for more information</h3>
                     <form>
