@@ -3,7 +3,7 @@ import './ServiceProviderDetails.css';
 
 const ServiceProviderDetails = (props) => {
 
-  const { _id, photo, role, email, name, isSignedIn } = props.serviceProviders;
+  const { photo, role, email, name } = props.serviceProviders;
   console.log()
   return (
     <div>

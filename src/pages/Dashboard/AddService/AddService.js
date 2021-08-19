@@ -12,8 +12,8 @@ import TopBarDash from '../TopBarDash/TopBarDash';
 
 const AddService = () => {
     const [serviceInfo, setServiceInfo] = useState([])
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const [loggedInUser, setLoggedInUser] = useContext(userContext);
+    const { register, handleSubmit, reset } = useForm();
+    const [loggedInUser] = useContext(userContext);
 
 
     const [imageUrl, setImageUrl] = useState()

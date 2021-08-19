@@ -139,19 +139,19 @@ const AboutUs = () => {
                     <p>We’re honored to be recognized for quality of service, safety and security. Some of the awards we’ve received include:</p>
                     <div className="row row-cols-1 row-cols-md-4 text-center pt-4">
                         <div class="card awards">
-                            <img src={Award1} class="card-img-top" />
+                            <img src={Award1} class="card-img-top" alt="image8" />
                             <p class="card-body">Excellence In Customer Service</p>
                         </div>
                         <div class="card awards">
-                            <img src={Award2} class="card-img-top" />
+                            <img src={Award2} class="card-img-top" alt="image9" />
                             <p class="card-body">Best Use Of Technology In Services</p>
                         </div>
                         <div class="card awards">
-                            <img src={Award3} class="card-img-top" />
+                            <img src={Award3} class="card-img-top" alt="image99" />
                             <p class="card-body">International Organization Of The Year</p>
                         </div>
                         <div class="card awards">
-                            <img src={Award4} class="card-img-top" />
+                            <img src={Award4} class="card-img-top" alt="image88" />
                             <p class="card-body">Service And Security: Cluster Of The Year</p>
                         </div>
                     </div>
@@ -161,22 +161,22 @@ const AboutUs = () => {
                     <p>These companies are our lifelong partners whose efforts support our goals.</p>
                     <div className="row pt-4">
                         <div className="col-md-2 col-6 effect">
-                            <img src="https://i.ibb.co/v4nkQtv/logo-coca-cola.png" alt="" />
+                            <img src="https://i.ibb.co/v4nkQtv/logo-coca-cola.png" alt="image1" />
                         </div>
                         <div className="col-md-2 col-6 effect">
-                            <img src="https://i.ibb.co/VwN2FK3/logo-godrej.png" alt="" />
+                            <img src="https://i.ibb.co/VwN2FK3/logo-godrej.png" alt="image2" />
                         </div>
                         <div className="col-md-2 col-6 effect">
-                            <img src="https://i.ibb.co/12JXnD2/logo-oppo.png" alt="" />
+                            <img src="https://i.ibb.co/12JXnD2/logo-oppo.png" alt="image3" />
                         </div>
                         <div className="col-md-2 col-6 effect">
-                            <img src="https://i.ibb.co/ZhktLXH/logo-paypal.png" alt="" />
+                            <img src="https://i.ibb.co/ZhktLXH/logo-paypal.png" alt="image4" />
                         </div>
                         <div className="col-md-2 col-6 effect">
-                            <img src="https://i.ibb.co/g9DjCfQ/logo-philips.png" alt="" />
+                            <img src="https://i.ibb.co/g9DjCfQ/logo-philips.png" alt="image5" />
                         </div>
                         <div className="col-md-2 col-6 effect">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu-N58w5sQQ1-L2DFCk6b6aGStckDOhEaiaUlLFs4GzPQTI_XFROUNolwUi55wHwrZjXk&usqp=CAU" alt="" />
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu-N58w5sQQ1-L2DFCk6b6aGStckDOhEaiaUlLFs4GzPQTI_XFROUNolwUi55wHwrZjXk&usqp=CAU" alt="image6" />
                         </div>
                     </div>
                 </div>

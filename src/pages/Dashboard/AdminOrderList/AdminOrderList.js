@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 
 const AdminOrderList = () => {
-    const [orders, setOrders] = useState([]);
-
+    const [orders] = useState([])
     return (
         <section className="row">
             <div className="col-md-3">

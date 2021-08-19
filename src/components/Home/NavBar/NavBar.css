@@ -1,6 +1,6 @@
 .navLink{
     text-decoration: none;
-    color: white;
+    color: black;
     padding: 12px 25px;
     font-weight: 600;
     font-size: 14pt;
@@ -10,9 +10,15 @@
     color: lightgray;
     background-color: rgb(99, 99, 99);
 }
-#login-btn{
-    background-color: white;
-    border: 2px solid white;
-    padding: 0px 15px;
-    border-radius: 5px;
+
+.userImage{
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 12px 25px;
+    cursor: pointer;
+}
+
+.logout-tooltip{
+    cursor: pointer;
 }

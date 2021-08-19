@@ -4,7 +4,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import TopBarDash from '../TopBarDash/TopBarDash';
 
 const OrderList = () => {
-    const [orders, setOrders] = useState([]);
+    const [orders] = useState([]);
 
     return (
         <>

@@ -30,8 +30,8 @@ const TopServices = () => {
   }, [])
   return (
     ((features.length) ?
-      <div className="row mx-3 mt-5">
-        <h1 style={{ textAlign: 'center' }}>Our Top Services</h1>
+      <div className="row mx-3 mt-5 pt-5">
+        <h5 data-aos="fade-up" class="title">Our Top <span className="">Services</span></h5>
 
         {
           features?.slice(0, 3).map(feature => <SingleService feature={feature}></SingleService>)

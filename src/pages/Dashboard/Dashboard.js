@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
-import { userContext } from '../../App';
+import React from 'react';
 import './Dashboard.css';
 import Sidebar from './Sidebar/Sidebar';
 import TopBarDash from './TopBarDash/TopBarDash';
 
 const Dashboard = () => {
-    const [loggedInUser] = useContext(userContext);
     return (
         <>
             <TopBarDash />

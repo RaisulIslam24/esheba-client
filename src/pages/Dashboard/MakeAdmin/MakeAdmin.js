@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 import TopBarDash from '../TopBarDash/TopBarDash';
 
 const MakeAdmin = () => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const [imageUrl, setImageUrl] = useState();
 
     const handleImageUpload = event => {
