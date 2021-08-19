@@ -30,7 +30,7 @@ const ProviderOwnServices = () => {
     const [ids, setIds] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/provider-own-service/${loggedInUser.email}`)
+        fetch(`https://e-sheba.herokuapp.com/provider-own-service/${loggedInUser.email}`)
             .then(res => res.json())
             .then(data => setProviderOwnServices(data))
     }, [])
@@ -61,7 +61,7 @@ const ProviderOwnServices = () => {
 
                 setIds(id)
                 console.log(id, 'clicked')
-                fetch(`http://localhost:5000/delete-provider-own-service/${id}`, {
+                fetch(`https://e-sheba.herokuapp.com/delete-provider-own-service/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())

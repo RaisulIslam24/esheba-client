@@ -60,7 +60,7 @@ const Consumer = () => {
 
                 setIds(id)
                 console.log(id, 'clicked')
-                fetch(`http://localhost:5000/deleteConsumer/${id}`, {
+                fetch(`https://e-sheba.herokuapp.com/deleteConsumer/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
@@ -68,7 +68,7 @@ const Consumer = () => {
             }
         })
     }
-    
+
     return (
 
         <>

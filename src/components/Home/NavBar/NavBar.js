@@ -14,7 +14,7 @@ const NavBar = () => {
     }
 
     return (
-        <Navbar collapseOnSelect bg="light" expand="lg">
+        <Navbar collapseOnSelect bg="dark" expand="lg">
             <Navbar.Brand href="#">
                 <img
                     src={logo}
@@ -22,7 +22,7 @@ const NavBar = () => {
                     alt="logo"
                 />
             </Navbar.Brand>
-            <Navbar.Toggle variant="dark" aria-controls="responsive-navbar-nav" />
+            <Navbar.Toggle variant="lg" aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="ms-auto me-5">
 
