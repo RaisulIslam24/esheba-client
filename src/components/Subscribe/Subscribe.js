@@ -21,7 +21,7 @@ const Subscribe = () => {
                             <input type="text" name="email" placeholder="Email" className="form-control mb-3" required />
                         </div>
                         <div className="form-group">
-                            <input type="password" name="password" placeholder="Password" className="form-control mb-3" required />
+                            <input type="text" name="password" placeholder="Password" className="form-control mb-3" required />
                         </div>
                         <div className="row form-group">
                             <div className="col-md-6 p-2">

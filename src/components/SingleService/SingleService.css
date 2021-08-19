@@ -9,3 +9,7 @@
 .card:hover:before {
   opacity: 1;
 }
+.courtesy{
+  color: gray;
+  font-size: 13px;
+}

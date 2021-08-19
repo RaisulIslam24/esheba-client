@@ -1,8 +1,8 @@
 .signUp {
   margin: auto;
 }
-.subscribe-img img {
-  max-width: 650px;
+.subscribe-img img{   
+    max-width: 500px;
 }
 
 @media only screen and (max-width: 600px) {
