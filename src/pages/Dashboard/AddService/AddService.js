@@ -60,7 +60,7 @@ const AddService = () => {
                                     icon: 'success'
                                 }).then((result) => {
                                     if (result) {
-                                        history.push('/serviceList')
+                                        history.push('/dashboard')
                                     }
                                 })
                             }

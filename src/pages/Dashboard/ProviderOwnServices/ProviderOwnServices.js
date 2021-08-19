@@ -13,7 +13,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import EditIcon from '@material-ui/icons/Edit';
 import { userContext } from '../../../App';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     table: {
@@ -97,6 +99,9 @@ const ProviderOwnServices = () => {
                                         <TableCell align="left">$ {providerOwnService.price}</TableCell>
                                         <TableCell align="left">{providerOwnService.isAvaiable}</TableCell>
                                         <TableCell align="left">
+                                            <Link to={"/singleService/" + providerOwnService._id}>
+                                                <EditIcon className="serviceListEdit" />
+                                            </Link>
                                             <DeleteOutlineIcon
                                                 className="deleteProviderOwnServiceIcon"
                                                 onClick={() => deleteService(providerOwnService._id)} />
