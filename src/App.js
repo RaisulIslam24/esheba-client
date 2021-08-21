@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { createContext } from 'react';
 import gif from './images/uu.gif';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 // Routers
 
-import ChatWithUs from "./components/ChatWithUs/ChatWithUs";
+// import ChatWithUs from "./components/ChatWithUs/ChatWithUs";
 import AddReview from "./pages/Dashboard/AddReview/AddReview";
 import AddService from "./pages/Dashboard/AddService/AddService";
 import AdminOrderList from "./pages/Dashboard/AdminOrderList/AdminOrderList";
@@ -56,13 +57,16 @@ function App() {
     height: "100vh"
   }
   const user = JSON.parse(sessionStorage.getItem("user"));
-
   return (
     <userContext.Provider value={[loggedInUser, setLoggedInUser]}>
       {
         isLoading ? <img style={gifStyle} src={gif} alt="" /> :
 
           <Router>
+            <MessengerCustomerChat
+              pageId="104057955200408"
+              appId="421325092900297"
+            />
             <Switch>
               <Route exact path="/">
                 <Home />
@@ -70,9 +74,6 @@ function App() {
               <Route exact path="/home">
                 <Home />
               </Route>
-              {/* <Route path="/login">
-                <Login />
-              </Route> */}
               <Route path="/login" exact component={() => (!user ? <Login /> : <Redirect to="/home" />)} />
               <Route path="/blogs">
                 <AllBlogs />
@@ -160,7 +161,7 @@ function App() {
               <PrivateRoute path="/manageServices"> <ManageServices /> </PrivateRoute>
               {/* Dashboard end */}
             </Switch>
-            <ChatWithUs />
+            {/* <ChatWithUs /> */}
           </Router>
       }
     </userContext.Provider>
