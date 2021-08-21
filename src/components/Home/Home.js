@@ -10,6 +10,7 @@ import Reviews from './Reviews/Reviews';
 import SpecialOffer from './SpecialOffer/SpecialOffer';
 // import TopProvider from '../TopProvider/TopProvider';
 import TopServicePro from '../TopServicePro/TopServicePro';
+import TechnicalSupport from '../TechnicalSupport/TechnicalSupport';
 
 const Home = () => {
     return (
@@ -21,6 +22,7 @@ const Home = () => {
             <SpecialOffer />
             <Reviews />
             <FAQs />
+            <TechnicalSupport/>
             <Subscribe />
             <GoogleMap />
             <Footer />
