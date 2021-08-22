@@ -43,7 +43,8 @@ function App() {
     if (USER) {
       setLoggedInUser(USER)
     }
-  }, [])
+    console.log(USER)
+  }, [loggedInUser.role])
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -99,62 +100,62 @@ function App() {
               <PrivateRoute path="/dashboard"><Dashboard /></PrivateRoute>
               <PrivateRoute
                 path="/addReview"
-                exact component={() => ((user?.role === "consumer")
+                exact component={() => ((loggedInUser?.role === "consumer")
                   ? <AddReview />
                   : <Redirect to="/dashboard" />)}
               />
 
               <PrivateRoute
                 path="/providerOwnServices"
-                exact component={() => ((user?.role === "service-provider")
+                exact component={() => ((loggedInUser?.role === "service-provider")
                   ? <ProviderOwnServices />
                   : <Redirect to="/dashboard" />)}
               />
 
               <PrivateRoute
                 path="/reviewList"
-                exact component={() => ((user?.role === "admin")
+                exact component={() => ((loggedInUser?.role === "admin")
                   ? <ReviewList />
                   : <Redirect to="/dashboard" />)}
               />
 
               <PrivateRoute
                 path="/makeAdmin"
-                exact component={() => ((user?.role === "admin")
+                exact component={() => ((loggedInUser?.role === "admin")
                   ? <MakeAdmin />
                   : <Redirect to="/dashboard" />)}
               />
 
               <PrivateRoute
                 path="/addService"
-                exact component={() => ((user?.role === "service-provider" || user?.role === "admin")
+                exact component={() => ((loggedInUser?.role === "service-provider" || loggedInUser?.role === "admin")
                   ? <AddService />
                   : <Redirect to="/dashboard" />)}
               />
 
               <PrivateRoute
                 path="/consumersList"
-                exact component={() => ((user?.role === "admin")
+                exact component={() => ((loggedInUser?.role === "admin")
                   ? <Consumers />
                   : <Redirect to="/dashboard" />)}
               />
 
               <PrivateRoute
                 path="/serviceProvidersList"
-                exact component={() => ((user?.role === "admin")
+                exact component={() => ((loggedInUser?.role === "admin")
                   ? <ServiceProvider />
                   : <Redirect to="/dashboard" />)}
               />
 
               <PrivateRoute
                 path="/serviceList"
-                exact component={() => ((user?.role === "admin")
+                exact component={() => ((loggedInUser?.role === "admin")
                   ? <ServiceList />
                   : <Redirect to="/dashboard" />)}
               />
               <PrivateRoute
                 path="/singleService/:id"
-                exact component={() => ((user?.role === "admin" || user?.role === "service-provider")
+                exact component={() => ((loggedInUser?.role === "admin" || loggedInUser?.role === "service-provider")
                   ? <SingleServiceDash />
                   : <Redirect to="/dashboard" />)}
               />
