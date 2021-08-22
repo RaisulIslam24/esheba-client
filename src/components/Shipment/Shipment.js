@@ -1,100 +1,101 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router';
-
-
-
-
+import { userContext } from '../../App';
+import Footer from '../Footer/Footer';
+import NavBar from '../Home/NavBar/NavBar';
 import ProcessPayment from '../Payment/ProcessPayment';
-
-
-
+import './Shipment.css';
 
 const Shipment = () => {
-  const { register, handleSubmit, errors } = useForm();
-
-  const { _id } = useParams();
-  const [book, setBook] = useState({});
-  const { name, price, description, imageURL } = book;
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const [loggedInUser, setLoggedInUser] = useContext(userContext);
+  const { id } = useParams();
+  const [service, setService] = useState({});
+  const { serviceName, price, serviceDetails, image, serviceProviderEmail } = service;
   const [shippingData, setShippingData] = useState(null);
+  const [status, setStaus] = useState('pending');
+
   const onSubmit = data => {
     setShippingData(data);
   }
 
-
-
   const handlePaymentSuccess = paymentId => {
-    const newOrder = {
-      ...name,
-
+    const orderDetails = {
+      ...loggedInUser,
+      serviceName,
       price,
-      description
-      , imageURL,
-      paymentId, shipment: shippingData
-    }
+      serviceDetails,
+      image,
+      serviceProviderEmail,
+      paymentId,
+      shipment: shippingData,
+      status,
+      orderTime: new Date()
+    };
 
-
+    fetch('http://localhost:5000/addOrder', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(orderDetails)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data) {
+          alert('Your order placed successfully')
+        }
+      })
   }
 
+  useEffect(() => {
+    fetch('http://localhost:5000/serviceDetails/' + id)
+      .then(res => res.json())
+      .then(data => setService(data));
+  }, [id])
+
   return (
+    <>
+      <NavBar />
+      <div className="container py-5">
+        <div className="row">
+          <div className="col-md-6">
+            < form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
+              < input name="name" defaultValue={loggedInUser.name} {...register('name', { required: true })} placeholder="Your Name" />
+              {errors.name && <span className="error">Name is required</span>}
 
+              < input name="email" defaultValue={loggedInUser.email} {...register('email', { required: true })} placeholder="Your Email" />
+              {errors.email && <span className="error">Email is required</span>}
 
+              < input name="address" {...register('address', { required: true })} placeholder="Your Address" />
+              {errors.address && <span className="error">Address is required</span>}
 
-    <section class=" d-flex" style={{ padding: "30px 0 30px 50px" }}>
-      <div class="col-md-2">
-        <img
-          style={{ height: "40px", marginBottom: "40px" }}
+              < input name="phone" type="tel" pattern="[0-9]{11}" {...register('phone', { required: true })} placeholder="Your Phone" />
+              {errors.phone && <span className="error">Phone is required</span>}
 
-          alt=""
-        />
-
-      </div>
-      <div class="col-md-10">
-        <div class="d-flex" style={{ backgroundImage: 'linear-gradient(to right, #4776E6, #8E54E9)' }}>
-          <div class="col-md-11">
-
+              <input className="btn btn-success" type="submit" />
+            </form >
           </div>
-          <div class="col-md-1">
-            <h5 style={{ marginBottom: "20px", textTransform: "uppercase" }}>
-              {name}
-            </h5>
+          <div className="col-md-6 mt-3">
+            <h2>Payment Method</h2>
+            <br />
+            <input type="radio" id="stripe" name="payment" value="stripe" checked />
+            <label for="stripe">Stripe</label>
+            <br />
+            <input type="radio" id="bkash" name="payment" value="bkash" />
+            <label for="bkash">bKash</label>
+            <br />
+            <input type="radio" id="creditCard" name="payment" value="creditCard" />
+            <label for="creditCard">Credit Card</label>
+            <br />
+            <br />
+            <ProcessPayment shippingData={shippingData} handlePayment={handlePaymentSuccess}></ProcessPayment>
           </div>
         </div>
-        <div
-          style={{
-            backgroundColor: '#FFFFF',
-            height: "500px",
-            padding: " 45px 0px 20px 30px",
-          }}
-          class="d-flex"
-        >
-          <form style={{
-            padding: "30px",
-            width: "909px",
-            height: "300px",
-            background: "#FFFFFF",
-            borderRadius: " 20px", display: shippingData ? 'none' : 'block'
-          }} onSubmit={handleSubmit(onSubmit)} >
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" className="form-control" />
-            {<span className="text-danger"><small>Email cannot be empty</small></span>}
-            <label htmlFor="name">Name</label>
-            <input type="name" id="email" name="name" className="form-control" />
-            {<span className="text-danger"><small>Email cannot be empty</small></span>}
-            <br />
-            Service Name: {name}
-            <br />
-            Price: {price}
-            <br></br>
-            <input type="submit" className="btn btn-primary" value="Checkout" />
-          </form>
-          <h1 style={{ width: "250px", display: shippingData ? 'block' : 'none' }}><ProcessPayment handlePayment={handlePaymentSuccess}></ProcessPayment> </h1>
-
-        </div>
       </div>
-    </section>
-
-
+      <Footer />
+    </>
   );
 };
 
