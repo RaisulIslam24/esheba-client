@@ -28,6 +28,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ReviewList from './pages/Dashboard/ReviewList/ReviewList';
 import ProviderOwnServices from './pages/Dashboard/ProviderOwnServices/ProviderOwnServices';
 import Shipment from './components/Shipment/Shipment';
+import Contact from './components/Contact/Contact';
 
 export const userContext = createContext();
 
@@ -81,6 +82,9 @@ function App() {
               </Route>
               <Route path="/about">
                 <AboutUs />
+              </Route>
+              <Route path="/contact">
+                <Contact />
               </Route>
               <Route path="/blogDetails/:blogId">
                 <BlogDetails />
