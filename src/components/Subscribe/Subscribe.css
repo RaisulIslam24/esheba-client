@@ -28,7 +28,7 @@ form{
     margin: 15px 0;
 }
 
-form input {
+form .subsInput{
     width: 100%;
     padding: 12px 10px;
     margin-bottom: 20px;

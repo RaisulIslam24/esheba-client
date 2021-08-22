@@ -16,7 +16,7 @@ const TechnicalSupport = () => {
                     <div className="support-text">
                         <h5 data-aos="fade-up" class="support-title">Technical<span className="">Support</span></h5>
                         <h3 data-aos="fade-up" className="support-contact">Contact us now</h3>
-                        <div className=" support-content">
+                        <div data-aos="fade-up" className=" support-content">
                             <p><span className="support-time">Email:</span>  EShebaSupport@gmail.com</p>
                             <p><span className="support-time">Support time:</span> Monday - Friday</p>
                             <p> <span className="support-time"> Response time:</span> 24 hours - 48 hours</p>

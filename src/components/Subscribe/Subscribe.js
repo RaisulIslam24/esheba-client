@@ -17,10 +17,10 @@ const Subscribe = () => {
                         <img className="rocket" src={subsRocket} alt="" />
                     </div>
 
-                    <form data-aos="fade-up">
-                        <input type="text" name="text" placeholder="enter your name" id="" />
-                        <input type="email" name="email" placeholder="enter your email" id="" />
-                        <input type="email" name="password" placeholder="enter your password" id="" />
+                    <form data-aos="fade-up subs-form">
+                        <input className="subsInput" type="text" name="text" placeholder="enter your name" id="" />
+                        <input className="subsInput" type="email" name="email" placeholder="enter your email" id="" />
+                        <input className="subsInput" type="email" name="password" placeholder="enter your password" id="" />
                         <div class="btn-box">
                             <button class="common-btn">Sign up</button>
                             <button class="common-btn">Start free trial</button>
