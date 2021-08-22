@@ -57,7 +57,7 @@ const Login = () => {
                                 setLoggedInUser(signedInUser);
                                 // Add Data to sessionStorage
                                 sessionStorage.setItem('user', JSON.stringify(signedInUser))
-                                history.push('/dashboard');
+                                // history.push('/dashboard');
                             } else {
                                 Swal.fire({
                                     icon: 'error',
@@ -80,7 +80,7 @@ const Login = () => {
                                 setLoggedInUser(signedInUser);
                                 // Add Data to sessionStorage
                                 sessionStorage.setItem('user', JSON.stringify(signedInUser))
-                                history.push("/dashboard");
+                                // history.push("/dashboard");
                             } else {
                                 Swal.fire({
                                     icon: 'error',

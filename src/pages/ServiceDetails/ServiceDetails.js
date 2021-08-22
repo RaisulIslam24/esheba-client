@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import './ServiceDetails.css';
 import DetailsSkeleton from '../../Skeleton/DetailsSkeleton/DetailsSkeleton';
 import NavBar from '../../components/Home/NavBar/NavBar';
@@ -11,6 +11,7 @@ import axios from 'axios';
 const Services = () => {
     const [serviceInfo, setServiceInfo] = useState({});
     const { id } = useParams();
+    const history = useHistory()
 
     const getService = () => {
         axios.get('https://e-sheba.herokuapp.com/serviceDetails/' + id)
@@ -25,6 +26,10 @@ const Services = () => {
     useEffect(() => {
         getService();
     }, [id])
+
+    const handleService = (id) => {
+        history.push(`/shipment/${id}`)
+    }
 
     return (
         <>
@@ -58,7 +63,7 @@ const Services = () => {
                                     Price: ${serviceInfo?.price}
                                 </h2>
                             </div>
-                            <button className="btn btn-success">Buy now</button>
+                            <button onClick={() => handleService(id)} className="btn btn-success">Buy now</button>
                         </div>
                     </div>
                 </div>

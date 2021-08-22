@@ -27,6 +27,7 @@ import SingleServiceDash from './pages/Dashboard/ServiceList/SingleServiceDash/S
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ReviewList from './pages/Dashboard/ReviewList/ReviewList';
 import ProviderOwnServices from './pages/Dashboard/ProviderOwnServices/ProviderOwnServices';
+import Shipment from './components/Shipment/Shipment';
 
 export const userContext = createContext();
 
@@ -155,6 +156,9 @@ function App() {
                   ? <SingleServiceDash />
                   : <Redirect to="/dashboard" />)}
               />
+              <PrivateRoute path="/shipment/:id">
+                <Shipment />
+              </PrivateRoute>
               <PrivateRoute path="/AdminOrderList"><AdminOrderList /></PrivateRoute>
               <PrivateRoute path="/orderList"> <OrderList /> </PrivateRoute>
               <PrivateRoute path="/manageServices"> <ManageServices /> </PrivateRoute>
