@@ -8,7 +8,6 @@ import MessengerCustomerChat from 'react-messenger-customer-chat';
 // import ChatWithUs from "./components/ChatWithUs/ChatWithUs";
 import AddReview from "./pages/Dashboard/AddReview/AddReview";
 import AddService from "./pages/Dashboard/AddService/AddService";
-import AdminOrderList from "./pages/Dashboard/AdminOrderList/AdminOrderList";
 import MakeAdmin from "./pages/Dashboard/MakeAdmin/MakeAdmin";
 import ManageServices from "./pages/Dashboard/ManageService/ManageService";
 import OrderList from "./pages/Dashboard/OrderList/OrderList";
@@ -118,6 +117,7 @@ function App() {
                   ? <ReviewList />
                   : <Redirect to="/dashboard" />)}
               />
+
               <PrivateRoute
                 path="/makeAdmin"
                 exact component={() => ((user?.role === "admin")
@@ -138,6 +138,7 @@ function App() {
                   ? <Consumers />
                   : <Redirect to="/dashboard" />)}
               />
+
               <PrivateRoute
                 path="/serviceProvidersList"
                 exact component={() => ((user?.role === "admin")
@@ -160,7 +161,6 @@ function App() {
               <PrivateRoute path="/shipment/:id">
                 <Shipment />
               </PrivateRoute>
-              <PrivateRoute path="/AdminOrderList"><AdminOrderList /></PrivateRoute>
               <PrivateRoute path="/orderList"> <OrderList /> </PrivateRoute>
               <PrivateRoute path="/manageServices"> <ManageServices /> </PrivateRoute>
               {/* Dashboard end */}
