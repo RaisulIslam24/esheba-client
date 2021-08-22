@@ -32,7 +32,6 @@ const SingleOrderCard = ({ order, deleteOrder }) => {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
 
-
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -53,7 +52,7 @@ const SingleOrderCard = ({ order, deleteOrder }) => {
             />
             <CardMedia
                 className={classes.media}
-                image={order.image}
+                image={order.serviceImage}
                 title={order.serviceName}
             />
             <CardContent className="d-flex justify-content-between align-items-center">
