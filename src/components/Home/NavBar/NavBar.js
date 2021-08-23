@@ -30,6 +30,7 @@ const NavBar = () => {
                     <Link className="navLink link" to="/services">Services </Link>
                     <Link className="navLink link" to="/blogs">Blogs </Link>
                     <Link className="navLink link" to="/about">About </Link>
+                    <Link className="navLink link" to="/contact">Contact</Link>
                     <Link className="navLink link" to="/dashboard">Dashboard</Link>
                     {
                         loggedInUser.email ?

@@ -36,9 +36,9 @@ const TopServices = () => {
         {
           features?.slice(0, 3).map(feature => <SingleService feature={feature}></SingleService>)
         }
-        <Link to="/services" >
+        <Link to="/services" className="text-decoration-none">
           <div class="d-grid gap-2 col-4 my-5 mx-auto">
-            <button class="btn btn-primary " type="button">Explore Services</button>
+            <button class="btn-explore " type="button">Explore Services</button>
 
           </div>
         </Link>

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Form from './Form/Form';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-
+import './FAQ.css';
 const FAQs = () => {
     useEffect(() => {
         Aos.init({ duration: 1500 });
@@ -10,7 +10,7 @@ const FAQs = () => {
     return (
         <section className="container">
             <div className="row pt-5">
-                <div data-aos="zoom-in" className="col-md-6 col-12 bg-white p-5 rounded">
+                <div data-aos="zoom-in" className="col-md-6 col-12 bg-white p-5 rounded faq-que">
                     <h2>Frequently Asked Questions</h2>
                     <details className="mt-5">
                         <summary><strong>What payment methods do you accept?</strong></summary>

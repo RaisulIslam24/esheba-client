@@ -1,0 +1,24 @@
+.blog-container{
+    background: #beb5b517;
+}
+.blog-title{
+    color: #000000c7;
+    font-size: 17px;
+}
+
+.blog-icon{
+    margin-right: 5px;
+    color: gray;
+}
+.blogger,.blog-date{
+    color: rgb(99, 95, 95);
+}
+
+.blogger{
+    margin-left: 20px;
+}
+.blogs{
+    font-family: serif;
+    letter-spacing: 3px;
+    font-size: 14px;
+}

@@ -1,1 +1,13 @@
- 
+.btn-explore{
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(to right, #03293ac7, #00b8c69e);
+    font-weight: 600;
+    color: #fff;
+    font-size: 1.3rem;
+    padding: 9px 8px 8px 9px;
+    transition: background .5s;
+} 
+.btn-explore:hover{
+    background: linear-gradient(to right, #03293a, #00b9c6);
+}

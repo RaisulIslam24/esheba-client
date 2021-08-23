@@ -6,7 +6,10 @@
     border: 1px solid #ECECEC;
     box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
   }
-
+.review-description{
+  color: #000000c7;
+  font-weight: 500;
+}
   .shadow-effect p {
     font-family: inherit;
     font-size: 17px;

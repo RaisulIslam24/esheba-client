@@ -36,10 +36,6 @@ const TopProvider = (props) => {
                     <small className="location">{location}</small>
                 </div>
             </div>
-            {/* <div className="top-name">
-                <h5>{service}</h5>
-                <small>from {name}</small>
-            </div> */}
         </div>
     );
 };
