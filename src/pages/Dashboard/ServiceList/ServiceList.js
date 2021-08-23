@@ -73,7 +73,7 @@ const ServiceList = () => {
             renderCell: (params) => {
                 return (
                     <div className="serviceListItem">
-                        <img className="serviceListImg" src={params?.row?.image} alt="" />
+                        <img className="serviceListImg" src={params?.row?.serviceImage} alt="" />
                         {params?.row?.serviceName}
                     </div>
                 );

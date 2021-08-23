@@ -34,20 +34,3 @@ const TopService =
     },
 ]
 export default TopService;
-
-// cover picture
-// https://i.ibb.co/7YnVS58/imgThree.jpg
-// https://i.ibb.co/Q83WRqD/imgTwo.jpg
-
-// service providers pictures 
-// https://i.ibb.co/MM3zQ5P/spTwo.jpg
-
-// card content
-// 1) cover
-// 2) picture
-// 3) featured and verified
-// 4) service location
-// 5) qoutation
-// 6) ratings ( feedback )
-// 7) service providers location
-// 8) social icon

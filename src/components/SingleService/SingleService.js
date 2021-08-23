@@ -5,16 +5,17 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import './SingleService.css';
 import spFive from '../../img/spFive.png';
 const SingleService = (props) => {
-  const { _id, serviceName, image, price } = props.feature;
+  const { _id, serviceName, serviceImage, price, serviceProviderImage, serviceProviderName } = props.feature;
+  console.log(props.feature)
 
   return (
     <div className="col-md-4 mt-3 container">
       <Link to={`/services/${_id}`} style={{ textDecoration: 'none' }}>
         <div className="card img-card">
-          <img src={image} className="card-img-top" alt="..." style={{ height: '14rem', width: '100%' }} />
+          <img src={serviceImage} className="card-img-top" alt="..." style={{ height: '14rem', width: '100%' }} />
           <div className="card-header d-flex rounded">
-            <img src={spFive} className="header-image" alt="providers" />
-            <h5 className="header-title"> Kazi Rahat </h5>
+            <img src={serviceProviderImage} className="header-image" alt="providers" />
+            <h5 className="header-title">{serviceProviderName}</h5>
           </div>
           <div className="card-body text-center text-dark">
             <h3 className="service-title" style={{ fontWeight: '600' }}>{serviceName}</h3>

@@ -59,7 +59,7 @@ const SingleServiceDash = () => {
         }
 
         if (imageUrl) {
-            newServiceInfo.image = imageUrl;
+            newServiceInfo.serviceImage = imageUrl;
         }
 
         Swal.fire({
@@ -71,7 +71,7 @@ const SingleServiceDash = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://e-sheba.herokuapp.com/updateService/${id}`, {
+                fetch(`http://localhost:5000/updateService/${id}`, {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'
@@ -124,7 +124,7 @@ const SingleServiceDash = () => {
                         <div className="serviceTopRight">
                             <div>
                                 <div className="serviceInfoTop">
-                                    <img src={serviceInfo?.image} alt={serviceInfo?.serviceName} className="serviceInfoImg" />
+                                    <img src={serviceInfo?.serviceImage} alt={serviceInfo?.serviceName} className="serviceInfoImg" />
                                     <span className="serviceName">{serviceInfo?.serviceName}</span>
                                 </div>
                                 <div className="serviceInfoBottom">
@@ -171,7 +171,7 @@ const SingleServiceDash = () => {
                             </div>
                             <div className="serviceFormRight">
                                 <div className="serviceUpload">
-                                    <img src={serviceInfo?.image} alt="" className="serviceUploadImg" />
+                                    <img src={serviceInfo?.serviceImage} alt="" className="serviceUploadImg" />
                                     <label for="file">
                                         <Publish className={imageUrl ? "serviceUpdateIconGreen" : "serviceUpdateIconRed"} />
                                     </label>
