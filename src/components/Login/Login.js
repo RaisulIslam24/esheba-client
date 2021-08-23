@@ -51,8 +51,6 @@ const Login = () => {
                 }
                 setUser(signedInUser);
                 checkRole(signedInUser);
-                // setLoggedInUser(signedInUser)
-                // history.replace(from);
             })
             .catch(error => {
                 console.log(error);
@@ -73,7 +71,7 @@ const Login = () => {
                         setLoggedInUser(signedInUser);
                         // Add Data to sessionStorage
                         sessionStorage.setItem('user', JSON.stringify(signedInUser))
-                        // history.push('/dashboard');
+                        history.replace(from);
                     } else {
                         Swal.fire({
                             icon: 'error',
@@ -110,25 +108,6 @@ const Login = () => {
             alert('Please select what you want to log in as?');
         }
     }
-
-    // const handleGoogleSignOut = () => {
-    //     firebase.auth().signOut()
-    //         .then(() => {
-    //             const signOutUser = {
-    //                 isSignedIn: false,
-    //                 name: '',
-    //                 photo: '',
-    //                 email: '',
-    //                 error: '',
-    //                 success: false
-    //             }
-    //             setUser(signOutUser)
-    //         })
-    //         .catch(err => {
-    //             console.log(err);
-    //             console.log(err.message);
-    //         })
-    // }
 
     const handleBlur = (e) => {
         let isFormedValid = true;
@@ -171,6 +150,8 @@ const Login = () => {
                         const userDetail = { ...user };
                         userDetail.error = "";
                         setUser(userDetail);
+                        
+
                     }
 
                 })
@@ -189,6 +170,7 @@ const Login = () => {
         }
         setSpinner(false);
         isReplace && checkRole(signedInUser);
+
     }
 
     const handleRadioBtn = (e) => {
