@@ -38,7 +38,7 @@ const Services = () => {
                 <div className="service-details-container">
                     <div className="service-content-div">
                         <img
-                            src={serviceInfo?.image} alt=""
+                            src={serviceInfo?.serviceImage} alt=""
                             data-aos="fade-left"
                             data-aos-duration="1000"
                         />

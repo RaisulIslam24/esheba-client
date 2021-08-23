@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Carousel, Col, Image, Row } from 'react-bootstrap';
-import headerImage1 from '../../../images/chat.png';
-import headerImage2 from '../../../images/servicing.jpg';
-import headerImage3 from '../../../images/stripe.jpg';
+import image from '../../../images/image.png';
+import headerTWo from '../../../images/headerTWo.svg';
 import NavBar from '../NavBar/NavBar';
+import slideOne from '../../../images/slideOne.jpg';
+import slideTwo from '../../../images/slideTwo.jpg';
 import './Header.css';
 
 const Header = () => {
@@ -26,7 +27,7 @@ const Header = () => {
                             </Col>
 
                             <Col md={6}>
-                                <Image src={headerImage1} alt="" className="w-75" />
+                                <Image src={image} alt="" className="w-75 img-fluid" />
                             </Col>
                         </Row>
                     </div>
@@ -43,7 +44,7 @@ const Header = () => {
                             </Col>
 
                             <Col md={6}>
-                                <Image src={headerImage1} alt="" className="w-75" />
+                                <Image src={headerTWo} alt="" className="w-75" />
                             </Col>
                         </Row>
                     </div>

@@ -11,7 +11,7 @@ const Shipment = () => {
   const [loggedInUser] = useContext(userContext);
   const { id } = useParams();
   const [service, setService] = useState({});
-  const { serviceName, price, serviceDetails, image, serviceProviderEmail } = service;
+  const { serviceName, price, serviceDetails, serviceImage, serviceProviderEmail } = service;
   const [shippingData, setShippingData] = useState(null);
   const [status] = useState('pending');
 
@@ -25,7 +25,7 @@ const Shipment = () => {
       serviceName,
       price,
       serviceDetails,
-      serviceImage: image,
+      serviceImage,
       serviceProviderEmail,
       paymentId,
       shipment: shippingData,
@@ -66,7 +66,7 @@ const Shipment = () => {
               <div class="row g-3">
                 <div class="col-12">
                   <label for="Name" class="form-label">Name</label>
-                  < input name="name" defaultValue={loggedInUser.name} {...register('name', { required: true })} class="form-control" />
+                  < input name="consumerName" defaultValue={loggedInUser.name} {...register('consumerName', { required: true })} class="form-control" />
                   {errors.name && <span className="error">Name is required</span>}
 
                   <div class="col-12 pt-2">
@@ -82,7 +82,7 @@ const Shipment = () => {
 
                   <div class="col-12 pt-2">
                     <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" name="email" defaultValue={loggedInUser.email} {...register('email', { required: true })} class="form-control" id="email" />
+                    <input type="email" name="consumerEmail" defaultValue={loggedInUser.email} {...register('consumerEmail', { required: true })} class="form-control" id="consumerEmail"/>
                     <div class="invalid-feedback">
                       Please enter a valid email address for shipping updates.
                     </div>
