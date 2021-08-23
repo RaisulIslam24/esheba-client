@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './SpecialOffer.css';
 const SpecialOffer = () => {
     return (
-        <div className="mt-5 pt-5 container">
+        <div className="mt-5 pt-5 ">
             <section class="jumbotron-up">
                 <div class="jumbotron jumbotron-fluid">
                     <div class="container">
@@ -30,7 +30,6 @@ const SpecialOffer = () => {
                                 <div class="center-block img-responsive">
                                     <div class="image-zone" >
                                         <img class="img-fluid w-100" src="https://i.ibb.co/vzRN098/gold.png" alt="Jumbotron Offer Deal Example" />
-
                                     </div>
                                 </div>
                             </div>

@@ -13,11 +13,11 @@ const Subscribe = () => {
             <div class="container contact-row">
                 <div class="contact-left-col">
                     <div data-aos="fade-down" className="d-flex">
-                        <h1  className="subscribe-title">Don't miss our<br /> Daily Newsletters</h1>
+                        <h1 className="subscribe-title">Don't miss our<br /> Daily Newsletters</h1>
                         <img className="rocket" src={subsRocket} alt="" />
                     </div>
 
-                    <form data-aos="fade-up subs-form">
+                    <div className="subs-form 1w-100">
                         <input className="subsInput" type="text" name="text" placeholder="enter your name" id="" />
                         <input className="subsInput" type="email" name="email" placeholder="enter your email" id="" />
                         <input className="subsInput" type="email" name="password" placeholder="enter your password" id="" />
@@ -25,7 +25,9 @@ const Subscribe = () => {
                             <button class="common-btn">Sign up</button>
                             <button class="common-btn">Start free trial</button>
                         </div>
-                    </form>
+                    </div>
+
+
                     <div data-aos="fade-up" class="line">
                         <span class="line-1"></span> <br />
                         <span class="line-2"></span> <br />
@@ -33,7 +35,7 @@ const Subscribe = () => {
                     </div>
                 </div>
                 <div class="contact-right-col">
-                    <img data-aos="fade-down" src={subscribe} alt="Subscribe" className="img-fluid" />
+                    <img data-aos="fade-down" src={subscribe} alt="Subscribe" className="img-fluid contact-right-img" />
                 </div>
             </div>
         </section>

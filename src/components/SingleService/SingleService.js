@@ -1,29 +1,38 @@
-// import axios from 'axios';
 import React from 'react';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import './SingleService.css';
-
+import spFive from '../../img/spFive.png';
 const SingleService = (props) => {
-
   const { _id, serviceName, image, price } = props.feature;
 
   return (
-    <div className="row">
-      <div className="col-md-4">
-        <div class="card">
-          <img class="card-img-top service-img" src={image} alt="" />
-          <div className="card-header d-flex justify-content-around">
-            <img src=" " alt="" />
-            <h6> Provider Name</h6>
+    <div className="col-md-4 mt-3 container">
+      <Link to={`/services/${_id}`} style={{ textDecoration: 'none' }}>
+        <div className="card img-card">
+          <img src={image} className="card-img-top" alt="..." style={{ height: '14rem', width: '100%' }} />
+          <div className="card-header d-flex rounded">
+            <img src={spFive} className="header-image" alt="providers" />
+            <h5 className="header-title"> Kazi Rahat </h5>
           </div>
-          <div class="card-body">
-            <h5 class="card-title">{price}</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <Link href="#" class="btn btn-primary">Book Now</Link>
+          <div className="card-body text-center text-dark">
+            <h3 className="service-title" style={{ fontWeight: '600' }}>{serviceName}</h3>
+            <h4 className="service-price" style={{ fontWeight: '600' }}>Price: ${price}</h4>
+            <div className="fa-icon d-flex justify-content-center">
+              <FontAwesomeIcon className="fas" icon={faStar} /> <br />
+              <FontAwesomeIcon className="fas" icon={faStar} /> <br />
+              <FontAwesomeIcon className="fas" icon={faStar} /> <br />
+              <FontAwesomeIcon className="fas" icon={faStar} /> <br />
+              <FontAwesomeIcon className="fas Fa" icon={faStar} /> <br />
+              <span className="text-center feedback">(1242 Feedback)</span>
+            </div>
+            <small className="mb-3 courtesy">Courtesy - <span className="sheba">E-Sheba</span></small>
           </div>
         </div>
-      </div>
+      </Link>
     </div>
+
 
   );
 };

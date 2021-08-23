@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import './ServiceProvider.css';
+import React, { useState, useEffect, useContext } from 'react';
+import './ProviderOwnServices.css';
 import Sidebar from '../Sidebar/Sidebar';
 import TopBarDash from '../TopBarDash/TopBarDash';
 import Swal from 'sweetalert2';
@@ -13,6 +13,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import EditIcon from '@material-ui/icons/Edit';
+import { userContext } from '../../../App';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     table: {
@@ -20,26 +23,25 @@ const useStyles = makeStyles({
     },
 });
 
-const ServiceProvider = () => {
+const ProviderOwnServices = () => {
     const classes = useStyles();
-    const [serviceProviders, setServiceProviders] = useState([]);
+    const [loggedInUser] = useContext(userContext)
+    const [providerOwnServices, setProviderOwnServices] = useState([]);
     const [ids, setIds] = useState(null);
 
     useEffect(() => {
-        fetch('https://e-sheba.herokuapp.com/loadAll/service-provider')
+        fetch(`https://e-sheba.herokuapp.com/provider-own-service/${loggedInUser.email}`)
             .then(res => res.json())
-            .then(data => setServiceProviders(data))
+            .then(data => setProviderOwnServices(data))
     }, [])
-
 
     // Immediately delete form frontEnd
     useEffect(() => {
-        setServiceProviders(serviceProviders.filter((item) => item._id !== ids))
+        setProviderOwnServices(providerOwnServices.filter((item) => item._id !== ids))
     }, [ids])
 
     // Delete service onClick
     const deleteService = (id) => {
-
         // Fancy pop up
         Swal.fire({
             title: 'Are you sure?',
@@ -59,42 +61,51 @@ const ServiceProvider = () => {
 
                 setIds(id)
                 console.log(id, 'clicked')
-                fetch(`https://e-sheba.herokuapp.com/deleteProvider/${id}`, {
+                fetch(`https://e-sheba.herokuapp.com/delete-provider-own-service/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
                     .then(result => { console.log(result) })
             }
         })
-
     }
+
 
     return (
         <>
             <TopBarDash />
-            <section className="serviceProviders">
+            <section className="providerOwnServices">
                 <Sidebar />
-                <div className="serviceProvidersRight">
+                <div className="providerOwnServicesRight">
                     <TableContainer component={Paper}>
                         <Table className={classes.table} aria-label="simple table">
                             <TableHead>
                                 <TableRow>
-                                    <TableCell className="tableHeadBold" align="left">Service Provider Name</TableCell>
-                                    <TableCell className="tableHeadBold" align="left">Service Provider Email</TableCell>
-                                    <TableCell className="tableHeadBold" align="left">Role</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Sl.</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Service Name</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Price</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Is Available</TableCell>
                                     <TableCell className="tableHeadBold" align="left">Action</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {serviceProviders.map((serviceProvider) => (
-                                    <TableRow key={serviceProvider._id}>
+                                {providerOwnServices.map((providerOwnService, index) => (
+                                    <TableRow key={providerOwnService._id}>
+                                        <TableCell align="left">{index + 1}</TableCell>
                                         <TableCell align="left">
-                                            <img className="serviceProvidersImage" src={serviceProvider.photo} alt="" />
-                                            &nbsp;  &nbsp;{serviceProvider.name}
+                                            <img className="providerOwnServiceImage" src={providerOwnService.image} alt="" />
+                                            &nbsp;  &nbsp;{providerOwnService.serviceName}
                                         </TableCell>
-                                        <TableCell align="left">{serviceProvider.email}</TableCell>
-                                        <TableCell align="left">{serviceProvider.role}</TableCell>
-                                        <TableCell align="left"><DeleteOutlineIcon onClick={() => deleteService(serviceProvider._id)} className="deleteServiceProviderIcon" /></TableCell>
+                                        <TableCell align="left">$ {providerOwnService.price}</TableCell>
+                                        <TableCell align="left">{providerOwnService.isAvaiable}</TableCell>
+                                        <TableCell align="left">
+                                            <Link to={"/singleService/" + providerOwnService._id}>
+                                                <EditIcon className="serviceListEdit" />
+                                            </Link>
+                                            <DeleteOutlineIcon
+                                                className="deleteProviderOwnServiceIcon"
+                                                onClick={() => deleteService(providerOwnService._id)} />
+                                        </TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>
@@ -106,4 +117,4 @@ const ServiceProvider = () => {
     );
 };
 
-export default ServiceProvider;
+export default ProviderOwnServices;

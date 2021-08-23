@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import avatar from '../../img/avatar.png';
 import './Login.css';
+import avatar from '../../img/avatar.png';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
@@ -8,22 +8,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
 import NavBar from '../Home/NavBar/NavBar';
 import Footer from '../Footer/Footer';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useContext } from 'react';
 import { userContext } from '../../App';
+import Swal from 'sweetalert2';
 
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 } else {
     firebase.app();
 }
+
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
     const [newUser, setNewUser] = useState(false);
     const history = useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/" } };
     const [user, setUser] = useState({
         isSignedIn: false,
-        // newUser: false,
         name: '',
         email: '',
         password: '',
@@ -44,8 +47,6 @@ const Login = () => {
                 }
                 setUser(signedInUser);
 
-                // Add Data to sessionStorage
-                sessionStorage.setItem('user', JSON.stringify(signedInUser))
 
                 if (user.role === 'consumer' || user.role === 'service-provider') {
                     fetch('https://e-sheba.herokuapp.com/addUser', {
@@ -57,9 +58,15 @@ const Login = () => {
                         .then(data => {
                             if (data) {
                                 setLoggedInUser(signedInUser);
-                                history.push('/dashboard');
+                                // Add Data to sessionStorage
+                                sessionStorage.setItem('user', JSON.stringify(signedInUser))
+                                history.replace(from);
                             } else {
-                                alert('Please give correct value');
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Check your role!...',
+                                    text: 'Your account is not in this role! please check your role.',
+                                })
                             }
                         })
                 }
@@ -72,46 +79,30 @@ const Login = () => {
                         .then(res => res.json())
                         .then(data => {
                             if (data) {
+                                console.log(signedInUser)
                                 setLoggedInUser(signedInUser);
-                                history.push("/dashboard");
+                                // Add Data to sessionStorage
+                                sessionStorage.setItem('user', JSON.stringify(signedInUser))
+                                history.replace(from);
                             } else {
-                                alert("This person is not admin");
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Check your role!...',
+                                    text: 'Your account is not as an admin role!',
+                                })
                             }
                         })
                 }
                 else {
-                    setLoggedInUser(signedInUser);
                     alert('Please select what you want to log in as?');
                 }
-                // setLoggedInUser(signedInUser)
-                // history.replace(from);
             })
-            // console.log('sign in clicked');
             .catch(error => {
                 console.log(error);
                 console.log(error.message);
-
             })
     }
 
-    // const handleGoogleSignOut = () => {
-    //     firebase.auth().signOut()
-    //         .then(() => {
-    //             const signOutUser = {
-    //                 isSignedIn: false,
-    //                 name: '',
-    //                 photo: '',
-    //                 email: '',
-    //                 error: '',
-    //                 success: false
-    //             }
-    //             setUser(signOutUser)
-    //         })
-    //         .catch(err => {
-    //             console.log(err);
-    //             console.log(err.message);
-    //         })
-    // }
 
     const handleBlur = (e) => {
         console.log(e.target.name, e.target.value);
@@ -183,6 +174,7 @@ const Login = () => {
 
     const handleRadioBtn = (e) => {
         const userData = { ...user, role: e.target.value };
+        console.log(userData)
         setUser(userData);
     }
 
@@ -191,7 +183,7 @@ const Login = () => {
             <NavBar />
             <section className="section-header">
                 <div className="loginbox ">
-                    <img src={avatar} className="avatar" alt=""/>
+                    <img src={avatar} className="avatar" alt="" />
 
                     <form className="mb-3 text-center login-as">
                         <p className="pb-2">What do you want to {newUser ? "sign up" : "log in"} as?</p>

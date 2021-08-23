@@ -6,3 +6,7 @@
   flex: 4;
   margin-top: 50px;
 }
+
+.tableHeadBold{
+  font-weight: bold !important;
+}

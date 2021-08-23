@@ -88,13 +88,13 @@ const ReviewList = () => {
                         <Table className={classes.table} aria-label="simple table">
                             <TableHead>
                                 <TableRow>
-                                    <TableCell>Sl.</TableCell>
-                                    <TableCell align="left">Name</TableCell>
-                                    <TableCell align="left">Email</TableCell>
-                                    <TableCell align="left">Address</TableCell>
-                                    <TableCell align="left">Description</TableCell>
-                                    <TableCell align="left">Date</TableCell>
-                                    <TableCell align="left">Action</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Sl.</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Name</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Email</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Address</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Description</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Date</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Action</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>

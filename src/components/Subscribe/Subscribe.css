@@ -20,15 +20,21 @@
     flex-wrap: wrap;
 }
 .contact-right-col img{
-    width: 100%;
+    width: 100%; transition: transform 0.5s;
 }
 
-form{
+.contact-right-col:hover{
+    transform: translateY(10px)
+
+}
+
+
+.subs-form{
     max-width: 350px;
-    margin: 15px 0;
+    margin-right: 15px 0;
 }
 
-form .subsInput{
+.subs-form .subsInput{
     width: 100%;
     padding: 12px 10px;
     margin-bottom: 20px;
@@ -45,7 +51,7 @@ form .subsInput{
 }
 .btn-box button{
     flex-basis: 50%;
-    padding: 15px 0;
+    padding: 5px 0;
     border: none;
     background: #ff002dba;
     border: 2px solid #f14360e0; 

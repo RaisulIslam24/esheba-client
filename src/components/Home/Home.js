@@ -8,21 +8,24 @@ import Header from './Header/Header';
 import PopularBlogs from './PopularBlogs/PopularBlogs';
 import Reviews from './Reviews/Reviews';
 import SpecialOffer from './SpecialOffer/SpecialOffer';
-// import TopProvider from '../TopProvider/TopProvider';
 import TopServicePro from '../TopServicePro/TopServicePro';
 import TechnicalSupport from '../TechnicalSupport/TechnicalSupport';
+import Community from '../Community/Community';
+import NavBar from './NavBar/NavBar';
 
 const Home = () => {
     return (
         <>
+            <NavBar />
             <Header />
             <TopServices />
-            <TopServicePro/>
+            <TopServicePro />
             <PopularBlogs />
             <SpecialOffer />
             <Reviews />
+            <Community />
             <FAQs />
-            <TechnicalSupport/>
+            <TechnicalSupport />
             <Subscribe />
             <GoogleMap />
             <Footer />

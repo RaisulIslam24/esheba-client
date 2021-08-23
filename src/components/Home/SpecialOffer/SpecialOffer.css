@@ -3,7 +3,7 @@
 }
 
 .jumbotron {
-    background-color: #cdcdcd;
+    background: #beb5b517;
 }
 
 .jumbotron .container:before {
@@ -51,6 +51,7 @@
 .money-back {
     letter-spacing: inherit;
     line-height: 20px;
+    color: #000000c7;
     font-weight: 500;
     margin: 0;
 

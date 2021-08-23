@@ -13,7 +13,7 @@ const PopularBlogs = () => {
     useEffect(() => {
         setTimeout(() => {
             setSkeletonTimer(false);
-        }, 8000);
+        }, 3000);
     }, []);
 
     useEffect(() => {
@@ -37,7 +37,7 @@ const PopularBlogs = () => {
                 )}
             </div>
             <div className="blogs-button">
-                <button data-aos="fade-right" onClick={() => history.push('/blogs')} className="btn btn-danger">All Blogs</button>
+                <button data-aos="fade-right" onClick={() => history.push('/blogs')} className="btn-explore">All Blogs</button>
             </div>
         </div>
     ));

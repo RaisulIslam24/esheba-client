@@ -1,7 +1,3 @@
-.aboutContainer {
-  text-align: justify;
-  font-family: "Roboto", sans-serif;
-}
 .welcome-heading h1 {
   font-size: 50px;
 }
@@ -12,16 +8,11 @@
   border-radius: 15px;
 }
 .figItem {
+  color: white;
+  font-weight: bold;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   padding: 20px;
-  text-align: center;
-  border-radius: 50%;
-  background-color: blanchedalmond;
-  width: 180px;
-  height: 180px;
-  margin: 10px;
 }
 .header-container {
   height: 600px;
@@ -39,28 +30,41 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    rgb(244, 247, 244),
-    rgba(180, 196, 187, 0.69) 57.98%,
-    hsl(180, 4%, 5%) 73.26%
-  );
-  opacity: 0.9;
+      rgb(246, 247, 244),
+      rgb(235, 235, 235) 45.98%,
+      hsl(180, 4%, 5%) 73.26%
+    );
   z-index: -1;
+  opacity: 0.9;
 }
+
 .awards {
   border: none;
 }
+
+.effect img {
+  max-width: 200px;
+}
+.effect img:hover {
+  background-color: aliceblue;
+  border-radius: 15px;
+}
+.clients {
+  margin-top: 40px;
+  padding: 40px;
+  background-image: url(../../images/background.jpg);
+  background-position: 100%;
+  background-size: cover;
+}
 @media only screen and (max-width: 600px) {
-  .welcome-heading h1 {
+  .aboutContainer h1 {
     font-size: 30px;
   }
-  .figItem {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    border-radius: 10%;
-    background-color: blanchedalmond;
-    width: 100%;
-    height: 100%;
+  .header-container::before {
+    background: linear-gradient(
+      rgb(246, 247, 244),
+      rgb(252, 243, 243) 20.98%,
+      hsl(180, 4%, 5%) 73.26%
+    );
   }
 }

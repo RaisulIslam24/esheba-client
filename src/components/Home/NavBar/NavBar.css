@@ -1,13 +1,24 @@
-.logo-title{
-    color: tomato;
+.navLink{
+    text-decoration: none;
+    color: #fff;
+    padding: 12px 25px;
+    font-weight: 600;
+    font-size: 14pt;
 }
-.nav-style{
-    color: rgba(255, 99, 71, 0.774);
+.link:hover{
+    text-decoration: none;
+    color: lightgray;
+    background-color: rgb(99, 99, 99);
 }
-.login{
-    background: white;
-    border-radius: 5px;
+
+.userImage{
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 12px 25px;
+    cursor: pointer;
 }
-.nav-item{
-    font-weight: bold;
+
+.logout-tooltip{
+    cursor: pointer;
 }

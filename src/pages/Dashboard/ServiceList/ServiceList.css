@@ -2,18 +2,15 @@
   display: flex;
 }
 
-/* .serviceListLeft {
-  flex: 1;
-} */
 
 .serviceListRight {
   flex: 4;
 }
 
-.serviceListItem {
+/* .serviceListItem {
   display: flex;
   align-items: center;
-}
+} */
 
 .serviceListImg {
   width: 32px;
@@ -34,9 +31,10 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .serviceList {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
-}
+} */
+
