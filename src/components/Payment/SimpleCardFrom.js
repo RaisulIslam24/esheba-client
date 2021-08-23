@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
-const SimpleCardForm = ({ handlePayment, shippingData }) => {
+const SimpleCardForm = ({ handlePayment }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [paymentError, setPaymentError] = useState(null);
@@ -35,9 +35,13 @@ const SimpleCardForm = ({ handlePayment, shippingData }) => {
   return (
     <div >
       <form onSubmit={handleSubmit}>
-        <CardElement />
-        <br />
-        {shippingData ? <button type="submit" class="btn btn-primary" onClick={handleSubmit}> Payment </button> : <button type="button" class="btn btn-primary" disabled>Payment</button>}
+        <div className="col-md-6">
+          <CardElement id="card-element" />
+        </div>
+
+        <hr class="my-4" />
+
+        <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
       </form >
       {
         paymentError && <p style={{ fontSize: '20px', fontWeight: 'bold', color: 'red' }}>{paymentError}</p>
