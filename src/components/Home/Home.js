@@ -15,7 +15,6 @@ import Community from '../Community/Community';
 const Home = () => {
     return (
         <>
-            <NavBar />
             <Header />
             <TopServices />
             <TopServicePro />

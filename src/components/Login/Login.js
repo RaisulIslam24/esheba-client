@@ -173,7 +173,7 @@ const Login = () => {
                         userDetail.error = "";
                         setUser(userDetail);
                     }
-                    
+
                 })
         }
         e.preventDefault();
@@ -199,8 +199,8 @@ const Login = () => {
 
     return (
         <>
-            <NavBar />
             <section className="section-header">
+                <NavBar />
                 <div className="loginbox ">
                     <img src={avatar} className="avatar" alt="" />
 
@@ -219,7 +219,7 @@ const Login = () => {
                     </form>
 
                     <div className="text-center social-btn">
-                        <button onClick={handleGoogleSignIn} disabled={!user.role && "disabled"}> <FontAwesomeIcon className="google-icon" icon={faGoogle} size="lg" /> Continue With Google</button><br />
+                        <button onClick={handleGoogleSignIn} disabled={!user.role && "disabled"} style={!user.role ? { cursor: 'context-menu', backgroundColor: 'gray' } : {}} > <FontAwesomeIcon className="google-icon" icon={faGoogle} size="lg" /> Continue With Google</button><br />
                     </div>
                     {/* <hr /> */}
                     <h5 className="text-center mt-3 text-or">Or</h5>
@@ -229,7 +229,7 @@ const Login = () => {
                         }
                         <input type="text" name="email" placeholder="Enter Email" onBlur={handleBlur} required />
                         <input type="password" name="password" placeholder="Enter Password" onBlur={handleBlur} required />
-                        <input type="submit" value={newUser ? "Sign Up" : "Login"} disabled={!user.role && "disabled"} style={!user.role ? {cursor:'context-menu', backgroundColor:'gray'} : {}} />
+                        <input type="submit" value={newUser ? "Sign Up" : "Login"} disabled={!user.role && "disabled"} style={!user.role ? { cursor: 'context-menu', backgroundColor: 'gray' } : {}} />
                         {/* <div className="link-text text-center">
                         <a href="#">Forget password?</a>
                         {" "}
