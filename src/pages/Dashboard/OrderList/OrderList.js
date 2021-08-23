@@ -61,6 +61,26 @@ const OrderList = () => {
         })
     }
 
+    
+    // update order status
+    const handleUpdateStatus = (id, updatedStatus) => {
+        const finalStatus = { status: updatedStatus }
+        console.log(finalStatus)
+        fetch(`http://localhost:5000/updateOrder/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(finalStatus)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('update done', data)
+                Swal.fire('Saved!', '', 'success');
+            }).catch((err) => console.log(err))
+    }
+
+
     return (
         <>
             <TopBarDash />
@@ -69,7 +89,7 @@ const OrderList = () => {
                 <div className="orderListRight">
                     <div className="d-flex justify-content-around align-items-center flex-wrap">
                         {
-                            orders.map((order) => <SingleOrderCard key={order._id} order={order} deleteOrder={deleteOrder} />)
+                            orders.map((order) => <SingleOrderCard key={order._id} order={order} handleUpdateStatus={handleUpdateStatus} deleteOrder={deleteOrder} />)
                         }
                     </div>
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SingleOrderCard.css';
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -14,6 +14,7 @@ import {
 } from '@material-ui/core';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import OrderDetails from './OrderDetails';
+import StatusButton from '../StatusButton/StatusButton';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -28,8 +29,10 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const SingleOrderCard = ({ order, deleteOrder }) => {
+const SingleOrderCard = ({ order, deleteOrder, handleUpdateStatus }) => {
     const classes = useStyles();
+
+    const [updatedStatus, setUpdatedStatus] = useState(order.status);
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
@@ -66,7 +69,8 @@ const SingleOrderCard = ({ order, deleteOrder }) => {
                     <Button variant="contained" onClick={handleClickOpen}>Details</Button>
                     <OrderDetails order={order} open={open} setOpen={setOpen} />
                 </>
-                <Button variant="contained" color="secondary">{order.status}</Button>
+                {/* <Button variant="contained" color="secondary">{order.status}</Button> */}
+                <StatusButton id={order._id} handleUpdateStatus={handleUpdateStatus} updatedStatus={updatedStatus} setUpdatedStatus={setUpdatedStatus} />
             </CardActions>
         </Card>
     );
