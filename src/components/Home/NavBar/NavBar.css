@@ -7,8 +7,9 @@
 }
 .link:hover{
     text-decoration: none;
-    color: lightgray;
-    background-color: rgb(99, 99, 99);
+    color: rgb(248, 95, 95);
+    background-color: rgb(255, 220, 220);
+    border-radius: 8px;
 }
 
 .userImage{
