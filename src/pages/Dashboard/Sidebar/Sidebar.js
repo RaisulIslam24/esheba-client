@@ -60,10 +60,6 @@ const Sidebar = () => {
                                     <RateReview className="sidebarIcon" />
                                     All Reviews
                                 </Link>
-                                <Link to="/ownOrderedList" className="sidebarListItem link">
-                                    <MailOutline className="sidebarIcon" />
-                                    Own Order List
-                                </Link>
                             </ul>
                         </>
                     }
@@ -80,9 +76,9 @@ const Sidebar = () => {
                                     <AddShoppingCart className="sidebarIcon" />
                                     Add Services
                                 </Link>
-                                <Link to="/ownOrderedList" className="sidebarListItem link">
+                                <Link to="/receivedOrder" className="sidebarListItem link">
                                     <MailOutline className="sidebarIcon" />
-                                    Own Order List
+                                    Received Orders
                                 </Link>
                             </ul>
                         </>
@@ -98,7 +94,7 @@ const Sidebar = () => {
                                 </Link>
                                 <Link to="/ownOrderedList" className="sidebarListItem link">
                                     <MailOutline className="sidebarIcon" />
-                                    Own Order List
+                                    Order List
                                 </Link>
                             </ul>
                         </>

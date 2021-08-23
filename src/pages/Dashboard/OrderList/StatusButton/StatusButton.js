@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import Swal from 'sweetalert2';
+import { userContext } from '../../../../App';
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
 const StatusButton = ({ updatedStatus, setUpdatedStatus, handleUpdateStatus, id }) => {
     const classes = useStyles();
+    const [loggedInUser] = useContext(userContext)
 
     const [open, setOpen] = React.useState(false);
     const handleChange = (event) => {
@@ -49,7 +50,8 @@ const StatusButton = ({ updatedStatus, setUpdatedStatus, handleUpdateStatus, id 
                     value={updatedStatus}
                     onChange={handleChange}
                 >
-                    <MenuItem value="pending">Pending</MenuItem>
+                    {loggedInUser.role === "admin" && <MenuItem value="pending">Pending</MenuItem>}
+                    
                     <MenuItem value="ongoing">Ongoing</MenuItem>
                     <MenuItem value="done">Done</MenuItem>
                 </Select>

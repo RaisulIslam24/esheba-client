@@ -30,6 +30,7 @@ import ProviderOwnServices from './pages/Dashboard/ProviderOwnServices/ProviderO
 import Shipment from './components/Shipment/Shipment';
 import Contact from './components/Contact/Contact';
 import OwnOrderList from './pages/Dashboard/OwnOrderList/OwnOrderList';
+import ReceivedOrder from './pages/Dashboard/ReceivedOrder/ReceivedOrder';
 
 export const userContext = createContext();
 
@@ -178,6 +179,13 @@ function App() {
                 path="/ownOrderedList"
                 exact component={() => ((loggedInUser?.role === "admin" || loggedInUser?.role === "service-provider" || loggedInUser?.role === "consumer")
                   ? <OwnOrderList />
+                  : <Redirect to="/dashboard" />)}
+              />
+
+              <PrivateRoute
+                path="/receivedOrder"
+                exact component={() => ((loggedInUser?.role === "service-provider")
+                  ? <ReceivedOrder />
                   : <Redirect to="/dashboard" />)}
               />
 
