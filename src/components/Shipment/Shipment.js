@@ -8,12 +8,11 @@ import ProcessPayment from '../Payment/ProcessPayment';
 import './Shipment.css';
 
 const Shipment = () => {
-  const { register, handleSubmit,  formState: { errors } } = useForm();
-  const [loggedInUser ] = useContext(userContext);
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const [loggedInUser] = useContext(userContext);
   const { id } = useParams();
   const [service, setService] = useState({});
   const { serviceName, price, serviceDetails, image, serviceProviderEmail } = service;
-  console.log(service)
   const [shippingData, setShippingData] = useState(null);
   const [status] = useState('pending');
 
@@ -42,10 +41,11 @@ const Shipment = () => {
       },
       body: JSON.stringify(orderDetails)
     })
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(data => {
         if (data) {
           alert('Your order placed successfully')
+          console.log(data, 'order')
         }
       })
   }

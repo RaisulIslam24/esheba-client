@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const SimpleCardForm = ({ handlePayment, shippingData }) => {
   const stripe = useStripe();
   const elements = useElements();
+  const history = useHistory();
   const [paymentError, setPaymentError] = useState(null);
   const [paymentSuccess, setPaymentSuccess] = useState(null);
   const [processing, setProcessing] = useState("");
@@ -34,6 +37,14 @@ const SimpleCardForm = ({ handlePayment, shippingData }) => {
       console.log('[PaymentMethod]', paymentMethod);
     }
   };
+  if (paymentSuccess) {
+    Swal.fire(
+      'Great!',
+      'Your order has been saved!',
+      'success'
+    )
+    history.push('/ownOrderedList')
+  }
 
   return (
     <div >

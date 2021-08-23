@@ -55,7 +55,7 @@ const SingleOrderCard = ({ order, deleteOrder, handleUpdateStatus }) => {
             />
             <CardMedia
                 className={classes.media}
-                image={order.serviceImage}
+                image={order.image || order.serviceImage}
                 title={order.serviceName}
             />
             <CardContent className="d-flex justify-content-between align-items-center">

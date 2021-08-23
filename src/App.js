@@ -29,6 +29,8 @@ import ReviewList from './pages/Dashboard/ReviewList/ReviewList';
 import ProviderOwnServices from './pages/Dashboard/ProviderOwnServices/ProviderOwnServices';
 import Shipment from './components/Shipment/Shipment';
 import Contact from './components/Contact/Contact';
+import OwnOrderList from './pages/Dashboard/OwnOrderList/OwnOrderList';
+import ReceivedOrder from './pages/Dashboard/ReceivedOrder/ReceivedOrder';
 
 export const userContext = createContext();
 
@@ -98,7 +100,9 @@ function App() {
               <Route path="/subscribe">
                 <Subscribe />
               </Route>
-
+              <PrivateRoute path="/shipment/:id">
+                <Shipment />
+              </PrivateRoute>
               {/* Dashboard Item */}
 
               <PrivateRoute path="/dashboard"><Dashboard /></PrivateRoute>
@@ -163,12 +167,32 @@ function App() {
                   ? <SingleServiceDash />
                   : <Redirect to="/dashboard" />)}
               />
-              <PrivateRoute path="/shipment/:id">
-                <Shipment />
-              </PrivateRoute>
-              <PrivateRoute path="/orderList"> <OrderList /> </PrivateRoute>
+
+              <PrivateRoute
+                path="/orderList"
+                exact component={() => ((loggedInUser?.role === "admin")
+                  ? <OrderList />
+                  : <Redirect to="/dashboard" />)}
+              />
+
+              <PrivateRoute
+                path="/ownOrderedList"
+                exact component={() => ((loggedInUser?.role === "admin" || loggedInUser?.role === "service-provider" || loggedInUser?.role === "consumer")
+                  ? <OwnOrderList />
+                  : <Redirect to="/dashboard" />)}
+              />
+
+              <PrivateRoute
+                path="/receivedOrder"
+                exact component={() => ((loggedInUser?.role === "service-provider")
+                  ? <ReceivedOrder />
+                  : <Redirect to="/dashboard" />)}
+              />
+
               <PrivateRoute path="/manageServices"> <ManageServices /> </PrivateRoute>
               {/* Dashboard end */}
+
+
             </Switch>
             {/* <ChatWithUs /> */}
           </Router>
