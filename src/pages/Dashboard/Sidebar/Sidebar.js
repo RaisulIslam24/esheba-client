@@ -46,7 +46,7 @@ const Sidebar = () => {
 
                                 <Link to="/orderList" className="sidebarListItem link">
                                     <MailOutline className="sidebarIcon" />
-                                    Order List
+                                   All Orders
                                 </Link>
                                 <Link to="/makeAdmin" className="sidebarListItem link">
                                     <PersonAdd className="sidebarIcon" />
@@ -59,6 +59,10 @@ const Sidebar = () => {
                                 <Link to="/reviewList" className="sidebarListItem link">
                                     <RateReview className="sidebarIcon" />
                                     All Reviews
+                                </Link>
+                                <Link to="/ownOrderedList" className="sidebarListItem link">
+                                    <MailOutline className="sidebarIcon" />
+                                    Own Order List
                                 </Link>
                             </ul>
                         </>
@@ -76,6 +80,10 @@ const Sidebar = () => {
                                     <AddShoppingCart className="sidebarIcon" />
                                     Add Services
                                 </Link>
+                                <Link to="/ownOrderedList" className="sidebarListItem link">
+                                    <MailOutline className="sidebarIcon" />
+                                    Own Order List
+                                </Link>
                             </ul>
                         </>
                     }
@@ -88,9 +96,9 @@ const Sidebar = () => {
                                     <RateReview className="sidebarIcon" />
                                     Add Review
                                 </Link>
-                                <Link to="/" className="sidebarListItem link">
-                                    <RateReview className="sidebarIcon" />
-                                    Order List
+                                <Link to="/ownOrderedList" className="sidebarListItem link">
+                                    <MailOutline className="sidebarIcon" />
+                                    Own Order List
                                 </Link>
                             </ul>
                         </>
