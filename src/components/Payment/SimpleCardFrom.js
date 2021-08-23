@@ -6,9 +6,11 @@ const SimpleCardForm = ({ handlePayment, shippingData }) => {
   const elements = useElements();
   const [paymentError, setPaymentError] = useState(null);
   const [paymentSuccess, setPaymentSuccess] = useState(null);
+  const [processing, setProcessing] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setProcessing(true);
     if (!stripe || !elements) {
       return;
     }
@@ -28,6 +30,7 @@ const SimpleCardForm = ({ handlePayment, shippingData }) => {
       setPaymentSuccess(paymentMethod.id)
       setPaymentError(null);
       handlePayment(paymentMethod.id)
+      setProcessing(false);
       console.log('[PaymentMethod]', paymentMethod);
     }
   };
@@ -37,7 +40,12 @@ const SimpleCardForm = ({ handlePayment, shippingData }) => {
       <form onSubmit={handleSubmit}>
         <CardElement />
         <br />
-        {shippingData ? <button type="submit" class="btn btn-primary" onClick={handleSubmit}> Payment </button> : <button type="button" class="btn btn-primary" disabled>Payment</button>}
+        {shippingData ?
+          <button type="submit" class="btn btn-primary" onClick={handleSubmit}>
+            <span>{processing ? <p>Processing...</p> : "Pay"}</span>
+          </button>
+          :
+          <button type="button" class="btn btn-primary" disabled>Pay</button>}
       </form >
       {
         paymentError && <p style={{ fontSize: '20px', fontWeight: 'bold', color: 'red' }}>{paymentError}</p>

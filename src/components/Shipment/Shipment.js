@@ -8,13 +8,14 @@ import ProcessPayment from '../Payment/ProcessPayment';
 import './Shipment.css';
 
 const Shipment = () => {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const [loggedInUser, setLoggedInUser] = useContext(userContext);
+  const { register, handleSubmit,  formState: { errors } } = useForm();
+  const [loggedInUser ] = useContext(userContext);
   const { id } = useParams();
   const [service, setService] = useState({});
   const { serviceName, price, serviceDetails, image, serviceProviderEmail } = service;
+  console.log(service)
   const [shippingData, setShippingData] = useState(null);
-  const [status, setStaus] = useState('pending');
+  const [status] = useState('pending');
 
   const onSubmit = data => {
     setShippingData(data);
@@ -26,7 +27,7 @@ const Shipment = () => {
       serviceName,
       price,
       serviceDetails,
-      image,
+      serviceImage: image,
       serviceProviderEmail,
       paymentId,
       shipment: shippingData,
@@ -62,10 +63,10 @@ const Shipment = () => {
         <div className="row">
           <div className="col-md-6">
             < form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
-              < input name="name" defaultValue={loggedInUser.name} {...register('name', { required: true })} placeholder="Your Name" />
+              < input name="consumerName" defaultValue={loggedInUser.name} {...register('consumerName', { required: true })} placeholder="Your Name" />
               {errors.name && <span className="error">Name is required</span>}
 
-              < input name="email" defaultValue={loggedInUser.email} {...register('email', { required: true })} placeholder="Your Email" />
+              < input name="consumerEmail" defaultValue={loggedInUser.email} {...register('consumerEmail', { required: true })} placeholder="Your Email" />
               {errors.email && <span className="error">Email is required</span>}
 
               < input name="address" {...register('address', { required: true })} placeholder="Your Address" />

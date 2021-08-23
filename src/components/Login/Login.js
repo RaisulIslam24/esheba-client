@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
 import NavBar from '../Home/NavBar/NavBar';
 import Footer from '../Footer/Footer';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useContext } from 'react';
 import { userContext } from '../../App';
 import Swal from 'sweetalert2';
@@ -18,10 +18,13 @@ if (!firebase.apps.length) {
 } else {
     firebase.app();
 }
+
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
     const [newUser, setNewUser] = useState(false);
     const history = useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/" } };
     const [user, setUser] = useState({
         isSignedIn: false,
         name: '',
@@ -57,7 +60,7 @@ const Login = () => {
                                 setLoggedInUser(signedInUser);
                                 // Add Data to sessionStorage
                                 sessionStorage.setItem('user', JSON.stringify(signedInUser))
-                                // history.push('/dashboard');
+                                history.replace(from);
                             } else {
                                 Swal.fire({
                                     icon: 'error',
@@ -80,7 +83,7 @@ const Login = () => {
                                 setLoggedInUser(signedInUser);
                                 // Add Data to sessionStorage
                                 sessionStorage.setItem('user', JSON.stringify(signedInUser))
-                                // history.push("/dashboard");
+                                history.replace(from);
                             } else {
                                 Swal.fire({
                                     icon: 'error',
@@ -93,35 +96,13 @@ const Login = () => {
                 else {
                     alert('Please select what you want to log in as?');
                 }
-                // setLoggedInUser(signedInUser)
-                // history.replace(from);
             })
-            // console.log('sign in clicked');
             .catch(error => {
                 console.log(error);
                 console.log(error.message);
-
             })
     }
 
-    // const handleGoogleSignOut = () => {
-    //     firebase.auth().signOut()
-    //         .then(() => {
-    //             const signOutUser = {
-    //                 isSignedIn: false,
-    //                 name: '',
-    //                 photo: '',
-    //                 email: '',
-    //                 error: '',
-    //                 success: false
-    //             }
-    //             setUser(signOutUser)
-    //         })
-    //         .catch(err => {
-    //             console.log(err);
-    //             console.log(err.message);
-    //         })
-    // }
 
     const handleBlur = (e) => {
         console.log(e.target.name, e.target.value);
