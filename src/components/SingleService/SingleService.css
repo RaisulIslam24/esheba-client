@@ -9,3 +9,7 @@
 .card:hover:before {
   opacity: 1;
 }
+.service-img{
+  width:100%;
+  height: 80px;
+}
