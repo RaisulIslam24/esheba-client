@@ -3,7 +3,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const SimpleCardForm = ({ handlePayment, shippingData }) => {
+const SimpleCardForm = ({ handlePayment }) => {
   const stripe = useStripe();
   const elements = useElements();
   const history = useHistory();
@@ -49,14 +49,13 @@ const SimpleCardForm = ({ handlePayment, shippingData }) => {
   return (
     <div >
       <form onSubmit={handleSubmit}>
-        <CardElement />
-        <br />
-        {shippingData ?
-          <button type="submit" class="btn btn-primary" onClick={handleSubmit}>
-            <span>{processing ? <p>Processing...</p> : "Pay"}</span>
-          </button>
-          :
-          <button type="button" class="btn btn-primary" disabled>Pay</button>}
+        <div className="col-md-6">
+          <CardElement id="card-element" />
+        </div>
+
+        <hr class="my-4" />
+
+        <button class="w-100 btn btn-primary btn-lg" type="submit"><span>{processing ? "Processing..." : "Continue to Checkout"}</span></button>
       </form >
       {
         paymentError && <p style={{ fontSize: '20px', fontWeight: 'bold', color: 'red' }}>{paymentError}</p>
