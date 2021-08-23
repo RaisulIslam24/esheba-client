@@ -46,7 +46,7 @@ const AddService = () => {
             newObject.serviceProviderImage = loggedInUser.photo;
             setServiceInfo(newObject)
 
-            fetch('http://localhost:5000/addService', {
+            fetch('https://e-sheba.herokuapp.com/addService', {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newObject)

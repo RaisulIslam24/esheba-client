@@ -33,7 +33,7 @@ const Shipment = () => {
       orderTime: new Date()
     };
 
-    fetch('http://localhost:5000/addOrder', {
+    fetch('https://e-sheba.herokuapp.com/addOrder', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ const Shipment = () => {
   }
 
   useEffect(() => {
-    fetch('http://localhost:5000/serviceDetails/' + id)
+    fetch('https://e-sheba.herokuapp.com/serviceDetails/' + id)
       .then(res => res.json())
       .then(data => setService(data));
   }, [id])

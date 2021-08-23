@@ -27,7 +27,7 @@ const OwnOrderList = () => {
     const [ids, setIds] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/own-order/${loggedInUser.email}`)
+        fetch(`https://e-sheba.herokuapp.com/own-order/${loggedInUser.email}`)
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [orders.length])
@@ -58,7 +58,7 @@ const OwnOrderList = () => {
 
                 setIds(id)
                 console.log(id, 'clicked')
-                fetch(`http://localhost:5000/deleteOrder/${id}`, {
+                fetch(`https://e-sheba.herokuapp.com/deleteOrder/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())

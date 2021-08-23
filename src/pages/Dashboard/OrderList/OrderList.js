@@ -12,7 +12,7 @@ const OrderList = () => {
 
 
     const getAllOrders = () => {
-        axios.get('http://localhost:5000/orders')
+        axios.get('https://e-sheba.herokuapp.com/orders')
             .then((response) => {
                 if (response.status === 200) {
                     setOrders(response.data)
@@ -52,7 +52,7 @@ const OrderList = () => {
 
                 setIds(id)
                 console.log(id, 'clicked')
-                fetch(`http://localhost:5000/deleteOrder/${id}`, {
+                fetch(`https://e-sheba.herokuapp.com/deleteOrder/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
@@ -61,12 +61,12 @@ const OrderList = () => {
         })
     }
 
-    
+
     // update order status
     const handleUpdateStatus = (id, updatedStatus) => {
         const finalStatus = { status: updatedStatus }
         console.log(finalStatus)
-        fetch(`http://localhost:5000/updateOrder/${id}`, {
+        fetch(`https://e-sheba.herokuapp.com/updateOrder/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
