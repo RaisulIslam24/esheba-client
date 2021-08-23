@@ -33,7 +33,7 @@ const NavBar = () => {
                     <Link className="navLink link" to="/dashboard">Dashboard</Link>
                     {
                         loggedInUser.email ?
-                            <>
+                            <div>
                                 <OverlayTrigger
                                     key="bottom"
                                     placement="bottom"
@@ -46,7 +46,7 @@ const NavBar = () => {
                                 >
                                     <Image className="userImage navLink" src={loggedInUser.photo} alt={loggedInUser.name} style={{ width: '40px', height: '40px' }} roundedCircle />
                                 </OverlayTrigger>
-                            </>
+                            </div>
                             :
                             <Link className="navLink link" to="/login">Login</Link>
                     }
