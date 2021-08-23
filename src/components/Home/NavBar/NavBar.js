@@ -14,7 +14,7 @@ const NavBar = () => {
     }
 
     return (
-        <Navbar collapseOnSelect bg="dark" expand="lg">
+        <Navbar collapseOnSelect expand="lg">
             <Navbar.Brand href="#">
                 <img
                     src={logo}
