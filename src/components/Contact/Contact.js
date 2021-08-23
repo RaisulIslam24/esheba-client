@@ -10,7 +10,7 @@ import { faFacebookSquare, faTwitterSquare, faYoutubeSquare, faInstagramSquare }
 const Contact = () => {
     return (
         <section className="contact-container">
-            <nav class="navbar navbar-expand-lg navbar-light">
+            <nav class="nav navbar-expand-lg navbar-light">
                 <div class="container-fluid">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
