@@ -1,7 +1,7 @@
 import React from 'react';
+import './TopProvider.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import './TopProvider.css';
 import { Link } from 'react-router-dom';
 const TopProvider = (props) => {
     const { image, location, providers, profile, service } = props.provider;

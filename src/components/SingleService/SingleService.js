@@ -1,18 +1,18 @@
 import React from 'react';
+import './SingleService.css';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import './SingleService.css';
-import spFive from '../../img/spFive.png';
+
+
 const SingleService = (props) => {
   const { _id, serviceName, serviceImage, price, serviceProviderImage, serviceProviderName } = props.feature;
-  console.log(props.feature)
 
   return (
-    <div className="col-md-4 mt-3 container">
+    <div className="col-md-4 mt-3 container" style={{maxWidth: '400px'}}>
       <Link to={`/services/${_id}`} style={{ textDecoration: 'none' }}>
         <div className="card img-card">
-          <img src={serviceImage} className="card-img-top" alt="..." style={{ height: '14rem', width: '100%' }} />
+          <img src={serviceImage} className="card-img-top singleServiceImage" alt="..."/>
           <div className="card-header d-flex rounded">
             <img src={serviceProviderImage} className="header-image" alt="providers" />
             <h5 className="header-title">{serviceProviderName}</h5>

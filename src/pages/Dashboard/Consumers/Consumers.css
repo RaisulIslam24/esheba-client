@@ -20,6 +20,6 @@
 @media only screen and (max-width: 600px) {
   .consumers{
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
   }
 }

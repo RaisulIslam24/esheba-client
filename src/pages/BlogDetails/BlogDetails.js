@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import './BlogDetails.css';
 import { useParams } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import NavBar from '../../components/Home/NavBar/NavBar';
 import fakeBlogData from '../../data/fakeBlogData.json';
 import DetailsSkeleton from '../../Skeleton/DetailsSkeleton/DetailsSkeleton';
-import './BlogDetails.css';
 
 
 const BlogDetails = () => {
@@ -15,7 +15,7 @@ const BlogDetails = () => {
     useEffect(() => {
         setTimeout(() => {
             setSkeletonTimer(false);
-        }, 4000);
+        }, 3000);
     }, []);
 
     useEffect(() => {

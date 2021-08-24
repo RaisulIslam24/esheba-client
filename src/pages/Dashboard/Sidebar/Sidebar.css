@@ -40,6 +40,9 @@ background: linear-gradient(6deg, rgba(98,162,189,1) 1%, rgba(98,162,189,1) 5%, 
 /* .sidebarListItem.active, .sidebarListItem:hover{
     background-color: rgb(240, 240, 250);
 } */
+.sidebarListItem:hover{
+    background-color: rgb(240, 240, 250);
+}
 
 .sidebarIcon {
   margin-right: 5px;

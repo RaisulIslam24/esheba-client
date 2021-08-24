@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
 import './ServiceDetails.css';
+import { useHistory, useParams } from 'react-router-dom';
+import axios from 'axios';
 import DetailsSkeleton from '../../Skeleton/DetailsSkeleton/DetailsSkeleton';
 import NavBar from '../../components/Home/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
-import axios from 'axios';
 
 
 
