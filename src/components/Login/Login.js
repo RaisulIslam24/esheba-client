@@ -95,7 +95,7 @@ const Login = () => {
                         setLoggedInUser(signedInUser);
                         // Add Data to sessionStorage
                         sessionStorage.setItem('user', JSON.stringify(signedInUser))
-                        // history.push("/dashboard");
+                        history.replace(from);
                     } else {
                         Swal.fire({
                             icon: 'error',

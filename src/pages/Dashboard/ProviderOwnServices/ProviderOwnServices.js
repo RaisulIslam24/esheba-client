@@ -93,7 +93,7 @@ const ProviderOwnServices = () => {
                                     <TableRow key={providerOwnService._id}>
                                         <TableCell align="left">{index + 1}</TableCell>
                                         <TableCell align="left">
-                                            <img className="providerOwnServiceImage" src={providerOwnService.image} alt="" />
+                                            <img className="providerOwnServiceImage" src={providerOwnService.serviceImage} alt="" />
                                             &nbsp;  &nbsp;{providerOwnService.serviceName}
                                         </TableCell>
                                         <TableCell align="left">$ {providerOwnService.price}</TableCell>
