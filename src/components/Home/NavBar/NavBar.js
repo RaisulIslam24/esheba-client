@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import './NavBar.css';
 import logo from '../../../images/default-monochrome.svg'
 import { userContext } from '../../../App';
-import cover from '../../../img/E-Sheba-logo/cover.png';
 const NavBar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
 
