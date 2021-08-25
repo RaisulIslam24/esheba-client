@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import './SingleService.css';
-import spFive from '../../img/spFive.png';
+// import spFive from '../../img/spFive.png';
 const SingleService = (props) => {
   const { _id, serviceName, serviceImage, price, serviceProviderImage, serviceProviderName } = props.feature;
   console.log(props.feature)

@@ -26,7 +26,7 @@ const Services = () => {
     useEffect(() => {
         getService();
     }, [id])
-
+    console.log(serviceInfo)
     const handleService = (id) => {
         history.push(`/shipment/${id}`)
     }
