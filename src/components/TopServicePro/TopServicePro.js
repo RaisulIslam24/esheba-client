@@ -4,14 +4,14 @@ import './TopServicePro.css';
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import TopService from '../../data/TopService';
+import TopProviderFakeData from '../../data/TopProviderFakeData';
 import TopProvider from '../TopProvider/TopProvider';
 
 const TopServicePro = () => {
     const [data, setData] = useState([])
     console.log(data)
     useEffect(() => {
-        setData(TopService)
+        setData(TopProviderFakeData)
     }, [data.length])
 
     // Owl Carousel Settings

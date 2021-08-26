@@ -15,8 +15,8 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .serviceProviders{
-      display: flex;
-      flex-direction: column-reverse;
+  .serviceProviders {
+    display: flex;
+    flex-direction: column;
   }
 }

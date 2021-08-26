@@ -1,50 +1,55 @@
-.sidebar{
-    flex: 1;
-    /* height: calc(100vh - 50px); */
-    height: 100vh;
-    background-color: rgb(251, 251, 255);
-    position: sticky;
-    top: 50px;
+.sidebar {
+  flex: 1;
+  /* height: calc(100vh - 50px); */
+  height: 100vh;
+  /* background-color: rgb(251, 251, 255); */
+  background: rgb(98,162,189);
+background: linear-gradient(6deg, rgba(98,162,189,1) 1%, rgba(98,162,189,1) 5%, rgba(84,188,169,1) 24%, rgba(45,253,184,0) 88%);
+  position: sticky;
+  top: 50px;
 }
 
-.sidebarWrapper{
-    padding: 20px;
-    color: #555;
+.sidebarWrapper {
+  padding: 20px;
+  color: rgb(105, 102, 102);
 }
 
-.sidebarMenu{
-    margin-bottom: 10px;
+.sidebarMenu {
+  margin-bottom: 10px;
 }
 
-.sidebarTitle{
-    font-size: 13px !important;
-    color: rgb(187, 186, 186);
-    text-align: start;
+.sidebarTitle {
+  font-size: 13px !important;
+  color: rgb(66, 56, 56);
+  text-align: start;
 }
 
-.sidebarList{
-    list-style: none;
-    padding: 5px;
+.sidebarList {
+  list-style: none;
+  padding: 5px;
 }
 
-.sidebarListItem{
-    padding: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
+.sidebarListItem {
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
 }
 
 /* .sidebarListItem.active, .sidebarListItem:hover{
     background-color: rgb(240, 240, 250);
 } */
-
-.sidebarIcon{
-    margin-right: 5px;
-    font-style: 20px !important;
+.sidebarListItem:hover{
+    background-color: rgb(240, 240, 250);
 }
 
-.link{
-    text-decoration: none;
-    color: inherit;
+.sidebarIcon {
+  margin-right: 5px;
+  font-style: 20px !important;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
 }

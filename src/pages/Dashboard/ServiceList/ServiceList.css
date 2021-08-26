@@ -2,15 +2,9 @@
   display: flex;
 }
 
-
 .serviceListRight {
   flex: 4;
 }
-
-/* .serviceListItem {
-  display: flex;
-  align-items: center;
-} */
 
 .serviceListImg {
   width: 32px;
@@ -31,10 +25,6 @@
   cursor: pointer;
 }
 
-/* @media only screen and (max-width: 600px) {
-  .serviceList {
-    display: flex;
-    flex-direction: column;
-  }
-} */
+
+
 

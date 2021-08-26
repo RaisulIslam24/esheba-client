@@ -11,7 +11,6 @@ import SpecialOffer from './SpecialOffer/SpecialOffer';
 import TopServicePro from '../TopServicePro/TopServicePro';
 import TechnicalSupport from '../TechnicalSupport/TechnicalSupport';
 import Community from '../Community/Community';
-import NavBar from './NavBar/NavBar';
 
 const Home = () => {
     return (

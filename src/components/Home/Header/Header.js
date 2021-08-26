@@ -3,8 +3,6 @@ import { Carousel, Col, Image, Row } from 'react-bootstrap';
 import image from '../../../images/image.png';
 import headerTWo from '../../../images/headerTWo.svg';
 import NavBar from '../NavBar/NavBar';
-import slideOne from '../../../images/slideOne.jpg';
-import slideTwo from '../../../images/slideTwo.jpg';
 import './Header.css';
 
 const Header = () => {
@@ -17,7 +15,6 @@ const Header = () => {
     return (
         <div className="header">
             <NavBar />
-
             <Carousel activeIndex={index} onSelect={handleSelect} prevLabel="" nextLabel="">
                 <Carousel.Item>
                     <div className="w-100 text-white text-center" style={{ height: 600 }}>

@@ -27,6 +27,15 @@
     max-width: 800px;
 }
 
+
+@media only screen and (max-width: 600px) {
+    .blog-details-container img{
+        border-radius: 10px;
+        max-width: 300px;
+        min-width: 200px;
+    }
+}
+
 @media only screen and (max-width: 1024px) {
     .blog-content-div{
         flex-wrap: wrap;

@@ -2,10 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Contact.css';
 import cream from '../../img/cream.png';
-import cover from '../../img/E-Sheba-logo/cover.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane, faMapMarkedAlt, faPhone, faEnvelope, } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faFacebook, faLinkedin, faTwitter, } from '@fortawesome/free-brands-svg-icons';
 import { faFacebookSquare, faTwitterSquare, faYoutubeSquare, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
 const Contact = () => {
     return (

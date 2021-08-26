@@ -8,13 +8,6 @@ import axios from 'axios';
 
 const TopServices = () => {
   const [features, setFeatures] = useState([]);
-  // const [skeletonTimer, setSkeletonTimer] = useState(true);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setSkeletonTimer(false);
-  //   }, 5000);
-  // }, []);
 
   const getAllServices = () => {
     axios.get('https://e-sheba.herokuapp.com/services')
@@ -31,7 +24,7 @@ const TopServices = () => {
   return (
     ((features.length) ?
       <div className="row mx-3 mt-5 pt-5">
-        <h5 data-aos="fade-up" class="title">Our Top <span className="">Services</span></h5>
+        <h5 data-aos="fade-up" class="title">Our Top<span>Services</span></h5>
 
         {
           features?.slice(0, 3).map(feature => <SingleService feature={feature}></SingleService>)
@@ -39,7 +32,6 @@ const TopServices = () => {
         <Link to="/services" className="text-decoration-none">
           <div class="d-grid gap-2 col-4 my-5 mx-auto">
             <button class="btn-explore " type="button">Explore Services</button>
-
           </div>
         </Link>
       </div>

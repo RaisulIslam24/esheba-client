@@ -1,4 +1,4 @@
-const TopService = 
+const TopProviderFakeData = 
 [
     { 
         location: '1200 - Cantonment, Dhaka',
@@ -33,4 +33,4 @@ const TopService =
 
     },
 ]
-export default TopService;
+export default TopProviderFakeData;
